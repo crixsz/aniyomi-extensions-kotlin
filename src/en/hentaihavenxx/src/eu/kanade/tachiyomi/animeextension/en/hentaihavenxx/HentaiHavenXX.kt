@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.animeextension.en.hentaihavenxx
 
+import androidx.preference.ListPreference
 import androidx.preference.PreferenceScreen
 import eu.kanade.tachiyomi.animesource.ConfigurableAnimeSource
 import eu.kanade.tachiyomi.animesource.model.AnimeFilterList
@@ -10,6 +11,7 @@ import eu.kanade.tachiyomi.animesource.online.ParsedAnimeHttpSource
 import eu.kanade.tachiyomi.network.GET
 import eu.kanade.tachiyomi.network.POST
 import eu.kanade.tachiyomi.util.asJsoup
+import extensions.utils.getPreferencesLazy
 import okhttp3.FormBody
 import okhttp3.Headers
 import okhttp3.Request
@@ -27,20 +29,7 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     override val supportsLatest = true
 
-    // private val preferences by getPreferencesLazy() // Not sure where this comes from, replacing with standard way if needed or commented out for now to be safe, but actually standard way is often just getting it from Injekt or similar, but let's try to mimic or use standard way if we don't know the import.
-    // Actually, looking at HentaiMama, it imported `extensions.utils.getPreferencesLazy`.
-    // I will try to use `SharedPreferences` directly or if I can't resolve the import I'll stick to standard impl.
-    // For now I will assume I can't use that custom extension unless I find it.
-    // I will use a simple implementation for preferences.
-
-    // Actually, the `ConfigurableAnimeSource` usually doesn't expose context directly but `setupPreferenceScreen` does.
-    // Let's safe skip the lazy delegate for a moment and just implement `setupPreferenceScreen` which gives context.
-    // But wait, `HentaiMama` used it.
-    // To be safe, I'll copy the code but if `getPreferencesLazy` is missing I will fix it.
-    // I'll search for `extensions.utils` later. For now, I'll leave the variable but initialization blank or standard.
-
-    // START PLACEHOLDER IMPLEMENTATION
-    // Adapting from HentaiMama but keeping it simple for scaffold.
+    private val preferences by getPreferencesLazy()
 
     override fun headersBuilder(): Headers.Builder {
         return super.headersBuilder()
@@ -197,6 +186,24 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     override fun videoListSelector() = throw UnsupportedOperationException()
 
+    override fun List<Video>.sort(): List<Video> {
+        val quality = preferences.getString(PREF_QUALITY_KEY, null)
+        if (quality != null) {
+            val newList = mutableListOf<Video>()
+            var preferred = 0
+            for (video in this) {
+                if (video.quality.contains(quality)) {
+                    newList.add(preferred, video)
+                    preferred++
+                } else {
+                    newList.add(video)
+                }
+            }
+            return newList
+        }
+        return this
+    }
+
     override fun videoFromElement(element: Element) = throw UnsupportedOperationException()
 
     override fun videoUrlParse(document: Document) = throw UnsupportedOperationException()
@@ -276,6 +283,27 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     // Settings
 
     override fun setupPreferenceScreen(screen: PreferenceScreen) {
-        // Placeholder
+        val videoQualityPref = ListPreference(screen.context).apply {
+            key = PREF_QUALITY_KEY
+            title = PREF_QUALITY_TITLE
+            entries = PREF_QUALITY_ENTRIES
+            entryValues = PREF_QUALITY_ENTRIES
+            setDefaultValue("720p")
+            summary = "%s"
+
+            setOnPreferenceChangeListener { _, newValue ->
+                val selected = newValue as String
+                val index = findIndexOfValue(selected)
+                val entry = entryValues[index] as String
+                preferences.edit().putString(key, entry).commit()
+            }
+        }
+        screen.addPreference(videoQualityPref)
+    }
+
+    companion object {
+        private const val PREF_QUALITY_KEY = "preferred_quality"
+        private const val PREF_QUALITY_TITLE = "Preferred video quality"
+        private val PREF_QUALITY_ENTRIES = arrayOf("1080p", "720p", "480p", "360p")
     }
 }
