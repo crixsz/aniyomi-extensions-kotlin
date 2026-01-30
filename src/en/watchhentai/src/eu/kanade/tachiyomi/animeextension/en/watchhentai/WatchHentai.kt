@@ -87,90 +87,87 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     // Video Extractor
 
     override fun videoListParse(response: Response): List<Video> {
-        val document = response.asJsoup()
         val videoList = mutableListOf<Video>()
 
         try {
-            // Find the iframe with the video player
-            val iframe = document.selectFirst("iframe.metaframe[data-src], iframe#search_iframe")
-            if (iframe == null) {
-                android.util.Log.e("WatchHentai", "No iframe found")
+            // Read the raw HTML first (response body can only be read once)
+            val html = response.body.string()
+
+            // Debug: Log a snippet of HTML around the actual iframe tag
+            val iframeTagIndex = html.indexOf("<iframe")
+            if (iframeTagIndex > 0) {
+                val start = maxOf(0, iframeTagIndex)
+                val end = minOf(html.length, iframeTagIndex + 600)
+                android.util.Log.e("WatchHentai", "HTML snippet of iframe tag: ${html.substring(start, end)}")
+            } else {
+                android.util.Log.e("WatchHentai", "No <iframe tag found in HTML")
+            }
+
+            // Look for the iframe with data-litespeed-src (LiteSpeed lazy loading)
+            // The attribute is data-litespeed-src, not data-src
+            val patterns = listOf(
+                // LiteSpeed lazy loading attribute
+                Regex("""data-litespeed-src=['"](https://watchhentai\.net/(?:jwplayer|plyr)/\?[^'"]+)['"]"""),
+                // Fallback to standard data-src
+                Regex("""data-src=['"](https://watchhentai\.net/(?:jwplayer|plyr)/\?[^'"]+)['"]"""),
+                // Even more flexible
+                Regex("""data-(?:litespeed-)?src=['"](https://watchhentai\.net/(?:jwplayer|plyr)/\?[^'"]+)['"]"""),
+            )
+
+            var iframeSrc: String? = null
+            for (pattern in patterns) {
+                val match = pattern.find(html)
+                if (match != null) {
+                    iframeSrc = match.groupValues[1]
+                    android.util.Log.e("WatchHentai", "Matched with pattern: ${pattern.pattern}")
+                    break
+                }
+            }
+
+            if (iframeSrc == null) {
+                android.util.Log.e("WatchHentai", "Could not find iframe data-litespeed-src in HTML")
                 return emptyList()
             }
 
-            val iframeSrc = iframe.attr("data-src")
             android.util.Log.e("WatchHentai", "Iframe src: $iframeSrc")
 
-            // Load the iframe page to get the actual video URLs
-            val iframeUrl = if (iframeSrc.startsWith("http")) iframeSrc else "https:$iframeSrc"
-            val iframeResponse = client.newCall(GET(iframeUrl, headers)).execute()
-            val iframeDoc = iframeResponse.asJsoup()
+            // Parse the iframe URL to extract video source and quality
+            // Example: https://watchhentai.net/jwplayer/?source=https%3A%2F%2Fhstorage.xyz%2Ffiles%2FM%2Fmy-mother%2Fmy-mother-1.mp4&id=9084&type=mp4&quality=480p,720p
+            val sourcePattern = Regex("""[?&]source=([^&]+)""")
+            val qualityPattern = Regex("""[?&]quality=([^&]+)""")
 
-            android.util.Log.e("WatchHentai", "Loaded iframe page")
+            val sourceMatch = sourcePattern.find(iframeSrc)
+            val qualityMatch = qualityPattern.find(iframeSrc)
 
-            // Look for video sources in the iframe page
-            // Check for video tags or script tags containing video URLs
-            val videoTags = iframeDoc.select("video source")
-            if (videoTags.isNotEmpty()) {
-                android.util.Log.e("WatchHentai", "Found ${videoTags.size} video source tags")
-                for (source in videoTags) {
-                    val videoUrl = source.attr("src")
-                    val quality = source.attr("label").ifEmpty { source.attr("data-quality").ifEmpty { "Video" } }
-                    if (videoUrl.isNotEmpty()) {
-                        videoList.add(Video(videoUrl, quality, videoUrl))
-                        android.util.Log.e("WatchHentai", "Added video from source tag: $quality - $videoUrl")
+            if (sourceMatch != null) {
+                val baseVideoUrl = java.net.URLDecoder.decode(sourceMatch.groupValues[1], "UTF-8")
+                android.util.Log.e("WatchHentai", "Base video URL: $baseVideoUrl")
+
+                val qualities = qualityMatch?.groupValues?.get(1)?.split(",") ?: listOf("default")
+                android.util.Log.e("WatchHentai", "Qualities: $qualities")
+
+                // Add headers with Referer
+                val videoHeaders = Headers.Builder()
+                    .add("Referer", "https://watchhentai.net/")
+                    .build()
+
+                // Generate video URLs for each quality
+                for (quality in qualities) {
+                    val qualityTrimmed = quality.trim()
+
+                    // Generate quality-specific URL by replacing the base URL pattern
+                    // Example: my-mother-1.mp4 -> my-mother-1_480p.mp4
+                    val videoUrl = if (qualityTrimmed != "default" && baseVideoUrl.endsWith(".mp4")) {
+                        baseVideoUrl.replace(".mp4", "_$qualityTrimmed.mp4")
+                    } else {
+                        baseVideoUrl
                     }
+
+                    videoList.add(Video(videoUrl, qualityTrimmed, videoUrl, headers = videoHeaders))
+                    android.util.Log.e("WatchHentai", "Added video: $qualityTrimmed - $videoUrl")
                 }
             } else {
-                // Try to find video URLs in script tags
-                android.util.Log.e("WatchHentai", "No video tags found, checking scripts")
-                val scripts = iframeDoc.select("script")
-                val foundUrls = mutableSetOf<String>() // Track URLs to avoid duplicates
-
-                for (script in scripts) {
-                    val scriptContent = script.html()
-                    if (scriptContent.contains("sources") || scriptContent.contains(".mp4") || scriptContent.contains(".m3u8")) {
-                        android.util.Log.e("WatchHentai", "Found potential video script: ${scriptContent.take(200)}")
-
-                        // Try to extract video URLs from the script
-                        val urlPattern = Regex("""(https?://[^\s"']+\.(?:mp4|m3u8)[^\s"']*)""")
-                        val matches = urlPattern.findAll(scriptContent)
-
-                        for (match in matches) {
-                            val videoUrl = match.value
-
-                            // Only add URLs with quality suffixes (_480p, _720p, etc.) or m3u8
-                            val qualityPattern = Regex("""_(\d+p)\.mp4$""")
-                            val qualityMatch = qualityPattern.find(videoUrl)
-
-                            if (qualityMatch != null) {
-                                // Extract quality from URL (e.g., "480p" from "my-mother-1_480p.mp4")
-                                val quality = qualityMatch.groupValues[1]
-                                if (!foundUrls.contains(videoUrl)) {
-                                    foundUrls.add(videoUrl)
-
-                                    // Add headers with Referer
-                                    val videoHeaders = Headers.Builder()
-                                        .add("Referer", "https://watchhentai.net/")
-                                        .build()
-
-                                    videoList.add(Video(videoUrl, quality, videoUrl, headers = videoHeaders))
-                                    android.util.Log.e("WatchHentai", "Added video from script: $quality - $videoUrl")
-                                }
-                            } else if (videoUrl.contains(".m3u8") && !foundUrls.contains(videoUrl)) {
-                                // Add m3u8 URLs without quality check
-                                foundUrls.add(videoUrl)
-
-                                val videoHeaders = Headers.Builder()
-                                    .add("Referer", "https://watchhentai.net/")
-                                    .build()
-
-                                videoList.add(Video(videoUrl, "HLS", videoUrl, headers = videoHeaders))
-                                android.util.Log.e("WatchHentai", "Added HLS video from script: $videoUrl")
-                            }
-                        }
-                    }
-                }
+                android.util.Log.e("WatchHentai", "Could not extract source from iframe URL")
             }
         } catch (e: Exception) {
             android.util.Log.e("WatchHentai", "Error extracting video: ${e.message}")
