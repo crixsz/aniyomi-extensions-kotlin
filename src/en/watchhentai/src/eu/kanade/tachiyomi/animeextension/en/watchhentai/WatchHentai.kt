@@ -13,6 +13,7 @@ import eu.kanade.tachiyomi.network.GET
 import eu.kanade.tachiyomi.util.asJsoup
 import extensions.utils.getPreferencesLazy
 import okhttp3.Headers
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.Request
 import okhttp3.Response
 import org.jsoup.nodes.Document
@@ -266,7 +267,19 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     // episodes
 
     override fun episodeListParse(response: Response): List<SEpisode> {
-        return super.episodeListParse(response)
+        val document = response.asJsoup()
+        android.util.Log.e("WatchHentai", "Episode list parse URL: ${response.request.url}")
+        val episodes = parseEpisodeList(document)
+        android.util.Log.e("WatchHentai", "Episode list size from page: ${episodes.size}")
+        if (episodes.isEmpty()) return episodes
+
+        val path = response.request.url.encodedPath
+        android.util.Log.e("WatchHentai", "Episode list path: $path")
+        if (!path.startsWith("/series/")) return episodes
+
+        val refreshed = fetchEpisodeListFromSeriesPage(response.request.url.toString(), episodes.size)
+        android.util.Log.e("WatchHentai", "Fallback from refreshed series page: ${refreshed?.size ?: 0}")
+        return refreshed ?: episodes
     }
 
     override fun episodeListSelector() = "ul.episodios li"
@@ -289,6 +302,34 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
         android.util.Log.e("WatchHentai", "Parsed episode: ${episode.name} - ${episode.url}")
         return episode
+    }
+
+    private fun parseEpisodeList(document: Document): List<SEpisode> {
+        return document.select(episodeListSelector()).map { episodeFromElement(it) }
+    }
+
+    private fun fetchEpisodeListFromSeriesPage(seriesUrl: String, currentSize: Int): List<SEpisode>? {
+        val absoluteUrl = if (seriesUrl.startsWith("http")) seriesUrl else baseUrl + seriesUrl
+        val refreshedUrl = try {
+            val httpUrl = absoluteUrl.toHttpUrl()
+            httpUrl.newBuilder()
+                .setQueryParameter("_ts", System.currentTimeMillis().toString())
+                .build()
+                .toString()
+        } catch (_: Exception) {
+            absoluteUrl
+        }
+        return try {
+            client.newCall(GET(refreshedUrl, headers)).execute().use { response ->
+                if (!response.isSuccessful) return null
+                val document = response.asJsoup()
+                val episodes = parseEpisodeList(document)
+                android.util.Log.e("WatchHentai", "Episode list size from refreshed series page: ${episodes.size} ($refreshedUrl)")
+                if (episodes.size > currentSize) episodes else null
+            }
+        } catch (_: Exception) {
+            null
+        }
     }
 
     private fun parseDate(dateStr: String?): Long {
