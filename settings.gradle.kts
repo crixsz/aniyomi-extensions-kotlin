@@ -3,6 +3,7 @@
  */
 //loadAllIndividualExtensions()
 loadIndividualExtension("en", "watchhentai")
+loadIndividualExtension("en", "hentaihavenxx")
 
 /**
  * ===================================== COMMON CONFIGURATION ======================================
