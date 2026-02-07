@@ -288,8 +288,14 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         val episode = SEpisode.create()
         val link = element.selectFirst("div.episodiotitle a")!!
 
-        episode.setUrlWithoutDomain(link.attr("href"))
+        val href = link.attr("href")
+        episode.setUrlWithoutDomain(href)
         episode.name = link.text()
+
+        val episodeNumber = episodeSlugRegex.find(href)?.groupValues?.get(1)?.toFloatOrNull()
+            ?: trailingNumberRegex.find(episode.name)?.groupValues?.get(1)?.toFloatOrNull()
+            ?: 1F
+        episode.episode_number = episodeNumber
 
         // Extract thumbnail if available
         val thumbnail = element.selectFirst("div.imagen img")?.attr("data-src")
@@ -305,8 +311,13 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     }
 
     private fun parseEpisodeList(document: Document): List<SEpisode> {
-        return document.select(episodeListSelector()).map { episodeFromElement(it) }
+        return document.select(episodeListSelector())
+            .map { episodeFromElement(it) }
+            .reversed()
     }
+
+    private val episodeSlugRegex = Regex("-episode-(\\d+)")
+    private val trailingNumberRegex = Regex("(\\d+)(?!.*\\d)")
 
     private fun fetchEpisodeListFromSeriesPage(seriesUrl: String, currentSize: Int): List<SEpisode>? {
         val absoluteUrl = if (seriesUrl.startsWith("http")) seriesUrl else baseUrl + seriesUrl
