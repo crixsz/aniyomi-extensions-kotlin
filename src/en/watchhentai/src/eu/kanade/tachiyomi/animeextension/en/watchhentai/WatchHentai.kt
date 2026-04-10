@@ -3,6 +3,7 @@ package eu.kanade.tachiyomi.animeextension.en.watchhentai
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceScreen
 import eu.kanade.tachiyomi.animesource.ConfigurableAnimeSource
+import eu.kanade.tachiyomi.animesource.model.AnimeFilter
 import eu.kanade.tachiyomi.animesource.model.AnimeFilterList
 import eu.kanade.tachiyomi.animesource.model.AnimesPage
 import eu.kanade.tachiyomi.animesource.model.SAnime
@@ -220,14 +221,51 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     override fun searchAnimeNextPageSelector(): String = popularAnimeNextPageSelector()
 
-    override fun searchAnimeRequest(page: Int, query: String, filters: AnimeFilterList): Request {
-        val url = if (page == 1) {
-            "$baseUrl/?s=$query"
+    override fun searchAnimeParse(response: Response): AnimesPage {
+        val path = response.request.url.encodedPath
+        return if (path.startsWith("/studio/") || path.startsWith("/trending/")) {
+            popularAnimeParse(response)
         } else {
-            "$baseUrl/page/$page/?s=$query"
+            super.searchAnimeParse(response)
         }
+    }
+
+    override fun searchAnimeRequest(page: Int, query: String, filters: AnimeFilterList): Request {
+        val filterList = if (filters.isEmpty()) getFilterList() else filters
+        val selectedStudioSlug = filterList
+            .filterIsInstance<StudioFilter>()
+            .flatMap { it.state }
+            .firstOrNull { it.state }
+            ?.slug
+            .orEmpty()
+        val cleanQuery = query.trim().replace(" ", "+")
+
+        val url = when {
+            cleanQuery.isNotEmpty() -> {
+                if (page == 1) "$baseUrl/?s=$cleanQuery" else "$baseUrl/page/$page/?s=$cleanQuery"
+            }
+            selectedStudioSlug.isNotEmpty() -> {
+                if (page == 1) "$baseUrl/studio/$selectedStudioSlug/" else "$baseUrl/studio/$selectedStudioSlug/page/$page/"
+            }
+            else -> {
+                if (page == 1) "$baseUrl/trending/" else "$baseUrl/trending/page/$page/"
+            }
+        }
+
         return GET(url, headers)
     }
+
+    override fun getFilterList(): AnimeFilterList = AnimeFilterList(
+        AnimeFilter.Header("Ignored if using Text Search"),
+        StudioFilter(),
+    )
+
+    private class StudioFilter : AnimeFilter.Group<Studio>(
+        "Producer",
+        STUDIO_ENTRIES.map { Studio(it.first, it.second) },
+    )
+
+    private class Studio(name: String, val slug: String) : AnimeFilter.CheckBox(name)
 
     // Details
 
@@ -421,5 +459,191 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         private const val PREF_QUALITY_KEY = "preferred_quality"
         private const val PREF_QUALITY_TITLE = "Preferred video quality"
         private val PREF_QUALITY_ENTRIES = arrayOf("1080p", "720p", "480p", "360p")
+        private val STUDIO_ENTRIES = arrayOf(
+            Pair("<select>", ""),
+            Pair("@ OZ", "oz"),
+            Pair("2011", "2011"),
+            Pair("Actas", "actas"),
+            Pair("Ai Yume Mai", "ai-yume-mai"),
+            Pair("AIC", "aic"),
+            Pair("AIC ASTA", "aic-asta"),
+            Pair("Aiko", "aiko"),
+            Pair("Aiti St.", "aiti-st"),
+            Pair("Alice Production", "alice-production"),
+            Pair("Amarcord", "amarcord"),
+            Pair("Ameliatie", "ameliatie"),
+            Pair("An DerCen", "an-dercen"),
+            Pair("animate Film", "animate-film"),
+            Pair("Anime Antenna Iinkai", "anime-antenna-iinkai"),
+            Pair("Antechinus", "antechinus"),
+            Pair("APPP", "appp"),
+            Pair("Arms", "arms"),
+            Pair("Asahi Production", "asahi-production"),
+            Pair("AT-2", "at-2"),
+            Pair("Atti Production", "atti-production"),
+            Pair("AXsiZ", "axsiz"),
+            Pair("Big Wing", "big-wing"),
+            Pair("Blue bread", "blue-bread"),
+            Pair("Blue Cat", "blue-cat"),
+            Pair("Blue Eyes", "blue-eyes"),
+            Pair("BOMB! CUTE! BOMB!", "bomb-cute-bomb"),
+            Pair("BreakBottle", "breakbottle"),
+            Pair("C and R", "c-and-r"),
+            Pair("C&S Production", "cs-production"),
+            Pair("Cafe de Jeilhouse", "cafe-de-jeilhouse"),
+            Pair("Chaos Project", "chaos-project"),
+            Pair("Chimu Jika Hatsuden", "chimu-jika-hatsuden"),
+            Pair("Circle Tribute", "circle-tribute"),
+            Pair("Collaboration Works", "collaboration-works"),
+            Pair("Concept Films", "concept-films"),
+            Pair("Critical Mass Video", "critical-mass-video"),
+            Pair("Dangun Pictures", "dangun-pictures"),
+            Pair("Datama Film", "datama-film"),
+            Pair("demodemon", "demodemon"),
+            Pair("Dollhouse", "dollhouse"),
+            Pair("Dream Entertainment", "dream-entertainment"),
+            Pair("Echo", "echo"),
+            Pair("Enzo Animation", "enzo-animation"),
+            Pair("Eshoya Honpo", "eshoya-honpo"),
+            Pair("Ether Kitten", "ether-kitten"),
+            Pair("Executive Decision", "executive-decision"),
+            Pair("Ezo Kobo", "ezo-kobo"),
+            Pair("Flavors Soft", "flavors-soft"),
+            Pair("Front Line", "front-line"),
+            Pair("fruit", "fruit"),
+            Pair("G.P Entertainment", "g-p-entertainment"),
+            Pair("GAV Video", "gav-video"),
+            Pair("G-Lam", "g-lam"),
+            Pair("GoHands", "gohands"),
+            Pair("gomasioken", "gomasioken"),
+            Pair("Gunners", "gunners"),
+            Pair("Himajin Planning", "himajin-planning"),
+            Pair("Hoods Entertainment", "hoods-entertainment"),
+            Pair("Horannabi", "horannabi"),
+            Pair("HydraFXX", "hydrafxx"),
+            Pair("IKK Room", "ikk-room"),
+            Pair("Image House", "image-house"),
+            Pair("Imagin", "imagin"),
+            Pair("Inugoya", "inugoya"),
+            Pair("IRONBELL", "ironbell"),
+            Pair("Ishibashi Planning", "ishibashi-planning"),
+            Pair("ITONAMI", "itonami"),
+            Pair("Ivory Tower", "ivory-tower"),
+            Pair("J.C.Staff", "j-c-staff"),
+            Pair("J.T.P.P.", "j-t-p-p"),
+            Pair("Jared999D", "jared999d"),
+            Pair("Jumondo", "jumondo"),
+            Pair("Kami Kukan", "kami-kukan"),
+            Pair("Kantou Douga Kai", "kantou-douga-kai"),
+            Pair("Kazuki Production", "kazuki-production"),
+            Pair("KENZsoft", "kenzsoft"),
+            Pair("KKC Animation Production", "kkc-animation-production"),
+            Pair("Knack Productions", "knack-productions"),
+            Pair("Kuril", "kuril"),
+            Pair("Kyushu Network Animation", "kyushu-network-animation"),
+            Pair("Langmaor", "langmaor"),
+            Pair("Lead", "lead"),
+            Pair("Lilix", "lilix"),
+            Pair("Lune Pictures", "lune-pictures"),
+            Pair("Maboroshi Koubou", "maboroshi-koubou"),
+            Pair("Magic Bus", "magic-bus"),
+            Pair("Majin", "majin"),
+            Pair("Mary Jane", "mary-jane"),
+            Pair("MB planning", "mb-planning"),
+            Pair("Mediabank", "mediabank"),
+            Pair("Melissa", "melissa"),
+            Pair("Meltdown", "meltdown"),
+            Pair("Mikimoto Production", "mikimoto-production"),
+            Pair("MoMo Production", "momo-production"),
+            Pair("Momoi Planning", "momoi-planning"),
+            Pair("Mook Animation", "mook-animation"),
+            Pair("Mouse", "mouse"),
+            Pair("Mousou Senka", "mousou-senka"),
+            Pair("MS Pictures", "ms-pictures"),
+            Pair("New Generation", "new-generation"),
+            Pair("Nihikime no Dozeu", "nihikime-no-dozeu"),
+            Pair("Nur", "nur"),
+            Pair("Office AO", "office-ao"),
+            Pair("Office No. 8", "office-no-8"),
+            Pair("Office Take Off", "office-take-off"),
+            Pair("Office Takeout", "office-takeout"),
+            Pair("Okumaza", "okumaza"),
+            Pair("OLM", "olm"),
+            Pair("OMB! CUTE! BOMB!", "omb-cute-bomb"),
+            Pair("ORADA COMPANY", "orada-company"),
+            Pair("Oz Inc.", "oz-inc"),
+            Pair("P core", "p-core"),
+            Pair("Peak Hunt", "peak-hunt"),
+            Pair("Phoenix Entertainment", "phoenix-entertainment-id-1"),
+            Pair("Piko Studio", "piko-studio"),
+            Pair("Pink Cat", "pink-cat"),
+            Pair("Pink Pineapple", "pink-pineapple"),
+            Pair("Poly Animation", "poly-animation"),
+            Pair("PoRO", "poro"),
+            Pair("Potato House", "potato-house"),
+            Pair("PP Project", "pp-project"),
+            Pair("Production D.M.H", "production-d-m-h"),
+            Pair("Puppetmaster", "puppetmaster"),
+            Pair("Queen Bee", "queen-bee"),
+            Pair("Rabbit Gate", "rabbit-gate"),
+            Pair("Ryuu M's", "ryuu-ms"),
+            Pair("sakamotoJ", "sakamotoj"),
+            Pair("Schoolzone", "schoolzone"),
+            Pair("seismic", "seismic"),
+            Pair("SELFISH", "selfish"),
+            Pair("Seven", "seven"),
+            Pair("Shindeban Film", "shindeban-film"),
+            Pair("Shinjukuza", "shinjukuza"),
+            Pair("Shinkuukan", "shinkuukan"),
+            Pair("Shion", "shion"),
+            Pair("Showten", "showten"),
+            Pair("Shura", "shura"),
+            Pair("Silver", "silver"),
+            Pair("Sonsan Kikaku", "sonsan-kikaku"),
+            Pair("Space-X", "space-x"),
+            Pair("Staple Entertainment", "staple-entertainment"),
+            Pair("STARGATE3D", "stargate3d"),
+            Pair("Studio 1st", "studio-1st"),
+            Pair("Studio 9 Maiami", "studio-9-maiami"),
+            Pair("Studio B&M", "studio-bm"),
+            Pair("Studio Boogie Nights", "studio-boogie-nights"),
+            Pair("Studio CA", "studio-ca"),
+            Pair("Studio Dolphin Night", "studio-dolphin-night"),
+            Pair("Studio Eromatick", "studio-eromatick-id-1"),
+            Pair("Studio Fantasia", "studio-fantasia"),
+            Pair("Studio FOW", "studio-fow"),
+            Pair("Studio G-1Neo", "studio-g-1neo"),
+            Pair("Studio Gadget", "studio-gadget"),
+            Pair("Studio Gokumi", "studio-gokumi"),
+            Pair("Studio Hokiboshi", "studio-hokiboshi"),
+            Pair("Studio Jam", "studio-jam"),
+            Pair("Studio Kikan", "studio-kikan"),
+            Pair("Studio Kyuuma", "studio-kyuuma"),
+            Pair("Studio LEO", "studio-leo"),
+            Pair("Studio March", "studio-march"),
+            Pair("Studio Matrix", "studio-matrix"),
+            Pair("Studio Mausu", "studio-mausu"),
+            Pair("Studio OX", "studio-ox"),
+            Pair("Studio Prokion", "studio-prokion"),
+            Pair("Studio Sign", "studio-sign"),
+            Pair("Studio Soul", "studio-soul"),
+            Pair("Studio Ten", "studio-ten"),
+            Pair("Studio Ten Carat", "studio-ten-carat"),
+            Pair("Studio Zealot", "studio-zealot"),
+            Pair("Sugar Boy", "sugar-boy"),
+            Pair("Suiseisha", "suiseisha"),
+            Pair("Sumomo Film", "sumomo-film"),
+            Pair("Sunny Side Up", "sunny-side-up"),
+            Pair("Suzuki Mirano", "suzuki-mirano"),
+            Pair("T Japan", "t-japan-id-3"),
+            Pair("Teatro Nishi Tokyo Studio", "teatro-nishi-tokyo-studio"),
+            Pair("Torudaya", "torudaya"),
+            Pair("T-Rex", "t-rex"),
+            Pair("Triple X", "triple-x"),
+            Pair("Tryforce", "tryforce"),
+            Pair("Umemaro-3D", "umemaro-3d"),
+            Pair("Y.O.U.C", "y-o-u-c-id-1"),
+            Pair("Zyc", "zyc"),
+        )
     }
 }

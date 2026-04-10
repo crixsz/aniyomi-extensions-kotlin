@@ -1,8 +1,15 @@
 /**
  * Add or remove modules to load as needed for local development here.
  */
+val loadedExtensions = mutableListOf<Pair<String, String>>()
+
+fun loadDevExtension(lang: String, name: String) {
+    loadedExtensions += lang to name
+    loadIndividualExtension(lang, name)
+}
+
 //loadAllIndividualExtensions()
-loadIndividualExtension("en", "watchhentai")
+loadDevExtension("en", "watchhentai")
 //loadIndividualExtension("en", "hentaihavenxx")
 
 /**
@@ -10,11 +17,11 @@ loadIndividualExtension("en", "watchhentai")
  */
 include(":core")
 
-// Load all modules under /lib
-File(rootDir, "lib").eachDir { include("lib:${it.name}") }
-
-// Load all modules under /lib-multisrc
-File(rootDir, "lib-multisrc").eachDir { include("lib-multisrc:${it.name}") }
+// Load only modules needed by currently loaded extensions.
+loadedExtensions
+    .mapNotNull { (lang, name) -> findThemePkg(lang, name) }
+    .distinct()
+    .forEach { include("lib-multisrc:$it") }
 
 /**
  * ======================================== HELPER FUNCTION ========================================
@@ -28,6 +35,14 @@ fun loadAllIndividualExtensions() {
 }
 fun loadIndividualExtension(lang: String, name: String) {
     include("src:$lang:$name")
+}
+
+fun findThemePkg(lang: String, name: String): String? {
+    val buildFile = File(rootDir, "src/$lang/$name/build.gradle")
+    if (!buildFile.exists()) return null
+
+    val match = Regex("""themePkg\s*=\s*['\"]([^'\"]+)['\"]""").find(buildFile.readText())
+    return match?.groupValues?.get(1)
 }
 
 fun File.eachDir(block: (File) -> Unit) {
