@@ -223,7 +223,7 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     override fun searchAnimeParse(response: Response): AnimesPage {
         val path = response.request.url.encodedPath
-        return if (path.startsWith("/studio/") || path.startsWith("/trending/")) {
+        return if (path.startsWith("/genre/") || path.startsWith("/studio/") || path.startsWith("/trending/")) {
             popularAnimeParse(response)
         } else {
             super.searchAnimeParse(response)
@@ -238,11 +238,20 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             .firstOrNull { it.state }
             ?.slug
             .orEmpty()
+        val selectedGenreSlug = filterList
+            .filterIsInstance<GenreFilter>()
+            .flatMap { it.state }
+            .firstOrNull { it.state }
+            ?.slug
+            .orEmpty()
         val cleanQuery = query.trim().replace(" ", "+")
 
         val url = when {
             cleanQuery.isNotEmpty() -> {
                 if (page == 1) "$baseUrl/?s=$cleanQuery" else "$baseUrl/page/$page/?s=$cleanQuery"
+            }
+            selectedGenreSlug.isNotEmpty() -> {
+                if (page == 1) "$baseUrl/genre/$selectedGenreSlug/" else "$baseUrl/genre/$selectedGenreSlug/page/$page/"
             }
             selectedStudioSlug.isNotEmpty() -> {
                 if (page == 1) "$baseUrl/studio/$selectedStudioSlug/" else "$baseUrl/studio/$selectedStudioSlug/page/$page/"
@@ -257,8 +266,16 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     override fun getFilterList(): AnimeFilterList = AnimeFilterList(
         AnimeFilter.Header("Ignored if using Text Search"),
+        GenreFilter(),
         StudioFilter(),
     )
+
+    private class GenreFilter : AnimeFilter.Group<Genre>(
+        "Genre",
+        GENRE_ENTRIES.map { Genre(it.first, it.second) },
+    )
+
+    private class Genre(name: String, val slug: String) : AnimeFilter.CheckBox(name)
 
     private class StudioFilter : AnimeFilter.Group<Studio>(
         "Producer",
@@ -459,6 +476,114 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         private const val PREF_QUALITY_KEY = "preferred_quality"
         private const val PREF_QUALITY_TITLE = "Preferred video quality"
         private val PREF_QUALITY_ENTRIES = arrayOf("1080p", "720p", "480p", "360p")
+        private val GENRE_ENTRIES = arrayOf(
+            Pair("3D", "3d"),
+            Pair("Action", "action"),
+            Pair("Adventure", "adventure"),
+            Pair("Ahegao", "ahegao"),
+            Pair("Anal", "anal"),
+            Pair("Animal Ears", "animal-ears"),
+            Pair("Animation", "animation"),
+            Pair("BDSM", "bdsm"),
+            Pair("Beastiality", "beastiality"),
+            Pair("Big Boobs", "big-boobs"),
+            Pair("Blackmail", "blackmail"),
+            Pair("Blowjob", "blowjob"),
+            Pair("Bondage", "bondage"),
+            Pair("Brainwashed", "brainwashed"),
+            Pair("Bukakke", "bukakke"),
+            Pair("Cat Girl", "cat-girl"),
+            Pair("Censored", "censored"),
+            Pair("Comedy", "comedy"),
+            Pair("Cosplay", "cosplay"),
+            Pair("Creampie", "creampie"),
+            Pair("Dark Skin", "dark-skin"),
+            Pair("DeepThroat", "deepthroat"),
+            Pair("Demons", "demons"),
+            Pair("Doctor", "doctor"),
+            Pair("Double Penatration", "double-penatration"),
+            Pair("Drama", "drama"),
+            Pair("Dubbed Hentai", "dubbed"),
+            Pair("Ecchi", "ecchi"),
+            Pair("Elf", "elf"),
+            Pair("Eroge", "eroge"),
+            Pair("Facesitting", "facesitting"),
+            Pair("Facial", "facial"),
+            Pair("Family", "family"),
+            Pair("Fantasy", "fantasy"),
+            Pair("Female Doctor", "female-doctor"),
+            Pair("Female Teacher", "female-teacher"),
+            Pair("Femdom", "femdom"),
+            Pair("Footjob", "footjob"),
+            Pair("Futanari", "futanari"),
+            Pair("Gangbang", "gangbang"),
+            Pair("Gore", "gore"),
+            Pair("Gyaru", "gyaru"),
+            Pair("Harem", "harem"),
+            Pair("Historical", "historical"),
+            Pair("Horny Slut", "horny-slut"),
+            Pair("Housewife", "housewife"),
+            Pair("Humiliation", "humiliation"),
+            Pair("Incest", "incest"),
+            Pair("Inflation", "inflation"),
+            Pair("Internal Cumshot", "internal-cumshot"),
+            Pair("Lactation", "lactation"),
+            Pair("Large Breasts", "large-breasts"),
+            Pair("Lolicon", "lolicon"),
+            Pair("Magical Girls", "magical-girls"),
+            Pair("Maid", "maid"),
+            Pair("Martial Arts", "martial-arts"),
+            Pair("Megane", "megane"),
+            Pair("MILF", "milf"),
+            Pair("Mind Break", "mind-break"),
+            Pair("Molestation", "molestation"),
+            Pair("NTR", "ntr"),
+            Pair("Nuns", "nuns"),
+            Pair("Nurses", "nurses"),
+            Pair("Office Ladies", "office-ladies"),
+            Pair("Police", "police"),
+            Pair("POV", "pov"),
+            Pair("Pregnant", "pregnant"),
+            Pair("Princess", "princess"),
+            Pair("Public Sex", "public-sex"),
+            Pair("Rape", "rape"),
+            Pair("Reality", "reality"),
+            Pair("Rim job", "rim-job"),
+            Pair("Romance", "romance"),
+            Pair("Scat", "scat"),
+            Pair("School Girls", "school-girls"),
+            Pair("Sci-Fi", "sci-fi"),
+            Pair("Shimapan", "shimapan"),
+            Pair("Short", "short"),
+            Pair("Shoutacon", "shoutacon"),
+            Pair("Slaves", "slaves"),
+            Pair("Soap", "soap"),
+            Pair("Sports", "sports"),
+            Pair("Squirting", "squirting"),
+            Pair("Stocking", "stocking"),
+            Pair("Strap-on", "strap-on"),
+            Pair("Strapped On", "strapped-on"),
+            Pair("Succubus", "succubus"),
+            Pair("Super Power", "super-power"),
+            Pair("Supernatural", "supernatural"),
+            Pair("Swimsuit", "swimsuit"),
+            Pair("Tentacles", "tentacles"),
+            Pair("Three some", "three-some"),
+            Pair("Tits Fuck", "tits-fuck"),
+            Pair("Torture", "torture"),
+            Pair("Toys", "toys"),
+            Pair("Train Molestation", "train-molestation"),
+            Pair("Tsundere", "tsundere"),
+            Pair("Uncensored", "uncensored"),
+            Pair("Urination", "urination"),
+            Pair("Vampire", "vampire"),
+            Pair("Vanilla", "vanilla"),
+            Pair("Virgins", "virgins"),
+            Pair("Widow", "widow"),
+            Pair("X-Ray", "x-ray"),
+            Pair("Yaoi", "yaoi"),
+            Pair("Yuri", "yuri"),
+        )
         private val STUDIO_ENTRIES = arrayOf(
             Pair("<select>", ""),
             Pair("@ OZ", "oz"),
