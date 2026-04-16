@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.animeextension.en.hanime
 
+import android.util.Base64
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceScreen
 import eu.kanade.tachiyomi.animesource.ConfigurableAnimeSource
@@ -35,6 +36,10 @@ class Hanime : ConfigurableAnimeSource, AnimeHttpSource() {
     override val lang = "en"
 
     override val supportsLatest = true
+
+    override fun headersBuilder() = super.headersBuilder()
+        .add("Referer", "$baseUrl/")
+        .add("Origin", baseUrl)
 
     private var authCookie: String? = null
 
@@ -124,13 +129,7 @@ class Hanime : ConfigurableAnimeSource, AnimeHttpSource() {
 
     override fun videoListRequest(episode: SEpisode) = GET(episode.url)
 
-    override suspend fun getVideoList(episode: SEpisode): List<Video> {
-        setAuthCookie()
-        if (authCookie != null) {
-            return fetchVideoListPremium(episode)
-        }
-        return super.getVideoList(episode)
-    }
+    override suspend fun getVideoList(episode: SEpisode): List<Video> = super.getVideoList(episode)
 
     private fun fetchVideoListPremium(episode: SEpisode): List<Video> {
         val id = episode.url.substringAfter("?id=")
@@ -147,9 +146,68 @@ class Hanime : ConfigurableAnimeSource, AnimeHttpSource() {
 
     override fun videoListParse(response: Response): List<Video> {
         val responseString = response.body.string().ifEmpty { return emptyList() }
-        return responseString.parseAs<VideoModel>().videosManifest?.servers?.get(0)?.streams?.filter { it.kind != "premium_alert" }?.map {
-            Video(it.url, "${it.height}p", it.url)
-        } ?: emptyList()
+        val model = responseString.parseAs<VideoModel>()
+        val slug = model.hentaiVideo?.slug ?: return emptyList()
+        val startUrl = "$baseUrl/videos/hentai/$slug"
+
+        val videoHeaders = headersBuilder()
+            .add("Referer", startUrl)
+            .build()
+
+        val apiQualities = model.videosManifest
+            ?.servers
+            ?.flatMap { server -> server.streams }
+            ?.mapNotNull { stream -> stream.height.toIntOrNull()?.let { "${it}p" } }
+            .orEmpty()
+
+        val highestQuality = apiQualities
+            .mapNotNull { it.removeSuffix("p").toIntOrNull() }
+            .maxOrNull()
+
+        val qualities = buildList {
+            if (highestQuality != null) {
+                add("${highestQuality}p")
+                if (highestQuality >= 720) add("720p")
+                if (highestQuality >= 480) add("480p")
+                if (highestQuality >= 360) add("360p")
+            }
+            addAll(apiQualities)
+        }.distinct().sortedByDescending { quality -> quality.removeSuffix("p").toIntOrNull() ?: 0 }
+
+        if (qualities.isEmpty()) {
+            val interceptUrl = buildWebViewInterceptUrl(startUrl, null)
+            return listOf(Video(interceptUrl, "WebView", interceptUrl, videoHeaders))
+        }
+
+        return qualities.map { quality ->
+            val interceptUrl = buildWebViewInterceptUrl(startUrl, quality)
+            Video(interceptUrl, quality, interceptUrl, videoHeaders)
+        }
+    }
+
+    private fun buildWebViewInterceptUrl(startUrl: String, quality: String?): String {
+        val payload = json.encodeToString(
+            WebViewInterceptPayload.serializer(),
+            WebViewInterceptPayload(
+                startUrl = startUrl,
+                targetUrlRegex = "https://cached\\.freeanimehentai\\.net/api/v8/guest/videos/.*/manifest(?:\\?.*)?",
+                desiredQuality = quality,
+                extractQualityFromManifest = quality != null,
+                clickSelectors = listOf(
+                    ".hvp-panel",
+                    ".play-btn",
+                    ".htv-video-player .poster",
+                    ".htv-video-player",
+                ),
+                matchMethod = "GET",
+                clickDelayMs = 1_000,
+                clickIntervalMs = 1_500,
+                clickAttempts = 4,
+                timeoutMs = 30_000,
+            ),
+        )
+        val encodedPayload = Base64.encodeToString(payload.toByteArray(), Base64.URL_SAFE or Base64.NO_WRAP)
+        return "aniyomi-webview-intercept://resolve/$encodedPayload"
     }
 
     override fun List<Video>.sort(): List<Video> {

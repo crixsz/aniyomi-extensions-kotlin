@@ -9,7 +9,7 @@ fun loadDevExtension(lang: String, name: String) {
 }
 
 //loadAllIndividualExtensions()
-loadDevExtension("en", "watchhentai")
+loadDevExtension("en", "hanime")
 //loadIndividualExtension("en", "hentaihavenxx")
 
 /**

@@ -1,35 +1,113 @@
 # Hanime Extension Investigation Report
-**Date:** 2025-12-26
-**Status:** 🛑 DEADLOCK (Requires App-Level Changes or Deep Reverse Engineering)
+**Date:** 2026-04-17
+**Status:** DEADLOCK (Requires App-Level Changes or WASM Reverse Engineering)
 
-## 🎯 Objective
-Fix video playback for Guest and Authenticated users on Hanime.tv service in Aniyomi.
+## Objective
+Fix video playback for Guest and Authenticated users on Hanime.tv in Aniyomi.
 
-## 🔍 Root Cause Analysis
-Hanime.tv has fundamentally changed its video delivery architecture to prevent direct scraping by extensions.
+## Root Cause Analysis
+Hanime.tv has changed its delivery architecture so the extension can no longer obtain a usable stream from static HTML or the old API alone.
 
-1.  **Dynamic Token Generation**: The valid `.m3u8` URL (hosted on `highwinds-cdn.com`) is no longer present in the API response or static HTML. It is constructed at runtime by the video player's JavaScript, likely using a cryptographic token generated via `postMessage` communication with the parent page.
-2.  **Broken Placeholders**: The API and HTML now provide a placeholder URL `https://streamable.cloud/hls/stream.m3u8`. This URL returns network errors/404s even when accessed with valid User-Agent, Referer, and Session Cookies.
-3.  **Obfuscated Data**: For logged-in users, the `__NUXT__` data payload in the HTML has been converted from standard JSON to a self-executing JavaScript function ([(function(){...}())](file:///c:/Users/pikai/Projects/aniyomi-extensions-kotlin/src/en/hanime/src/eu/kanade/tachiyomi/animeextension/en/hanime/Hanime.kt#216-217)), breaking standard JSON parsers.
+1. **Broken Placeholder in Static Data**: The page and old API paths still expose `https://streamable.cloud/hls/stream.m3u8`, but that URL is not playable and returns failures.
+2. **Real Stream Only Appears in Browser Runtime**: The actual playable `.m3u8` is revealed only after the site JS initializes the player flow and requests a signed guest manifest.
+3. **Guest Manifest Is Protected**: The real browser flow calls `https://cached.freeanimehentai.net/api/v8/guest/videos/<hv_id>/manifest`, but direct requests to that endpoint return `401 Unauthorized`.
+4. **Runtime Signer Is Required**: The request needs runtime-generated headers including `x-signature`, `x-time`, and related token/license headers.
+5. **Signer Comes From WASM**: The frontend does not compute the signer in normal JS. It loads an embedded WebAssembly blob that eventually assigns `window.ssignature` and `window.stime`.
+6. **Logged-In HTML Remains Hostile to Parsing**: The `__NUXT__` payload for authenticated pages is still emitted as executable JS rather than clean JSON, so static parsing remains fragile even before the signer problem.
 
-## 🧪 Strategies Attempted & Results
+## New Confirmed Findings (2026-04-17)
+
+1. **The site still has a working guest HLS stream**.
+2. **The real playback flow uses the signed guest manifest endpoint**:
+   `https://cached.freeanimehentai.net/api/v8/guest/videos/3427/manifest`
+3. **That manifest returns real Highwinds `.m3u8` URLs**, for example:
+   `https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/s3snkAsfAspvxmwhzzwzf20gsyZlf62dsr7vx9qnxpwsvwv1f8g41.m3u8`
+4. **That captured `.m3u8` is genuinely playable**:
+   - Valid HLS playlist data is returned
+   - AES key `https://hanime.tv/sign.bin` is reachable
+   - Media segment URLs are reachable
+   - `ffprobe` detects playable `h264` video and `aac` audio
+5. **The static page state is still misleading**: the embedded `videos_manifest` in HTML still points to the dead `streamable.cloud` URL, not the real Highwinds manifest.
+
+## Signed Request Details
+The working browser request to the guest manifest uses these headers:
+
+- `x-signature-version: web2`
+- `x-signature: <runtime-generated>`
+- `x-time: <runtime-generated>`
+- `x-session-token`
+- `x-user-license`
+- `x-license`
+- `x-csrf-token`
+
+Observed runtime globals:
+
+- `window.ssignature`
+- `window.stime`
+
+The frontend waits until `window.stime` becomes non-zero before continuing with signed API requests.
+
+## WASM Signer Discovery
+The signer is produced by embedded WASM, not plain JavaScript.
+
+Relevant frontend behavior recovered from the browser bundles:
+
+```js
+Module["ccall"] = ccall;
+var ASM_CONSTS = {
+  17392: () => parseInt((new Date).getTime() / 1e3),
+  17442: ($0, $1) => {
+    window.ssignature = UTF8ToString($0);
+    window.stime = $1;
+  },
+};
+```
+
+Other observed runtime behavior:
+
+- JS initializes `window.ssignature = ""` and `window.stime = 0`
+- JS polls until `window.stime` is set
+- JS forwards browser/window events into WASM via `Module.ccall("on_window_event", ...)`
+- The WASM blob is embedded in the vendor bundle and decoded at runtime
+
+This means a simple Kotlin patch that swaps endpoints is not enough. The extension would also need to reproduce the signer logic or get the result from an app-level browser flow.
+
+## Strategies Attempted & Results
 
 | Strategy | Description | Result |
 | :--- | :--- | :--- |
-| **1. Guest API** | Standard extraction using `/api/v8/video`. | ❌ **Failed.** Returns broken `streamable.cloud` placeholder. |
-| **2. Auth API** | Calling API with valid Session Cookie. | ❌ **Failed.** Still returns broken `streamable.cloud` placeholder. Confirmed API is deprecated for direct stream access. |
-| **3. Regex HTML** | Scanning Authenticated HTML for `.m3u8` links. | ❌ **Failed.** Logged page content dump confirmed NO valid `highwinds` URL exists in the source code. |
-| **4. Header Spoofing** | Accessing placeholder URL with `Referer: hanime.tv`. | ❌ **Failed.** URL remains inaccessible. |
-| **5. Player URL** | Returning `https://player.hanime.tv/...` as video. | ❌ **Failed.** Aniyomi Player (MPV) cannot parse the generic HTML page as a video file ("Unrecognized file format"). |
+| **1. Guest API** | Standard extraction using `/api/v8/video`. | Failed. Returns broken `streamable.cloud` placeholder. |
+| **2. Auth API** | Calling API with valid session cookie. | Failed. Still returns broken `streamable.cloud` placeholder. |
+| **3. Regex HTML** | Scanning authenticated HTML for `.m3u8` links. | Failed. No valid Highwinds URL in static source. |
+| **4. Header Spoofing** | Accessing placeholder URL with `Referer: hanime.tv`. | Failed. Placeholder remains unusable. |
+| **5. Player URL** | Returning `https://player.hanime.tv/...` as video. | Failed. Aniyomi player cannot play generic HTML player pages. |
+| **6. Browser Playback Probe** | Launch real browser, click poster overlay, capture playback network. | Success. Revealed signed guest manifest request and real Highwinds `.m3u8`. |
+| **7. Direct Guest Manifest Call** | Call `/api/v8/guest/videos/<hv_id>/manifest` without signer. | Failed. Returns `401 Unauthorized`. |
+| **8. Bundle Inspection** | Reverse engineer frontend JS for signer path. | Partial success. Confirmed the signer is produced by embedded WASM. |
 
-## 🛠️ Current Code State (Best Effort)
-The codebase has been left in the **Authenticated Regex** state ([fetchVideoListPremium](file:///c:/Users/pikai/Projects/aniyomi-extensions-kotlin/src/en/hanime/src/eu/kanade/tachiyomi/animeextension/en/hanime/Hanime.kt#135-147)):
-*   **Authentication Required:** Forces user to login via WebView (best chance standard flow).
-*   **Regex Extraction:** Uses Regex instead of JSON parsing to avoid crashing on the JS function data.
-*   **Headers:** Adds `Referer` and `Origin` headers to any found URLs.
-*   *Note:* Currently returns "No Videos Found" because the URLs are hidden, but this is the most robust implementation should the site revert its changes.
+## Current Code State
+The extension code has not been switched to the guest manifest flow yet.
 
-## 🚀 Recommendations for Future Work
-Since the extension cannot execute JavaScript or spawn background WebViews:
-1.  **App-Level WebView Interception:** Aniyomi app needs a feature to allow extensions to request a URL be loaded in a hidden WebView, and then intercept the network traffic to capture the `highwinds` URL (similar to IDM).
-2.  **Reverse Engineering:** Decompiling the `app.js` and `_nuxt` bundles to replicate the token generation algorithm in Kotlin. This is high-effort and high-maintenance (breaks on every site update).
+Reason:
+
+- The endpoint is protected by runtime-generated signer headers.
+- A direct extension patch would still fail with `401 Unauthorized`.
+- The current Kotlin code remains in a best-effort fallback state rather than a working extractor.
+
+Additional local investigation artifacts:
+
+- `hanime-stream-probe.js`: Playwright probe to simulate playback and capture the real stream URL
+- `hanime-stream-probe-output.json`: captured network output showing the signed manifest flow and working Highwinds URL
+
+## Most Plausible Next Steps
+Since the extension cannot execute the site JS/WASM runtime by itself:
+
+1. **App-Level WebView Interception**: Most plausible practical fix. Add support in the Aniyomi app to load the Hanime page in a hidden/offscreen WebView, let JS/WASM run normally, and intercept the signed manifest or final Highwinds request.
+2. **WASM Reverse Engineering**: Most plausible extension-only research path. Reverse engineer the embedded signer and reimplement it in Kotlin.
+3. **External Helper Service**: Technically workable fallback. A helper process could run the browser logic and return signed manifests, but this is less desirable for a normal upstream extension.
+
+## Practical Conclusion
+
+- **Most plausible short-term usable fix:** app-level WebView/network interception in the Aniyomi app repo, not the extension repo.
+- **Most plausible extension-only path:** reverse engineer the WASM signer and port it.
+- **Not plausible as-is:** a simple extension patch that only swaps to the guest manifest endpoint.

@@ -1,0 +1,1581 @@
+{
+  "startedAt": "2026-04-16T16:05:41.214Z",
+  "targetUrl": "https://hanime.tv/videos/hentai/cool-de-m-2",
+  "requests": [
+    {
+      "time": "2026-04-16T16:05:42.681Z",
+      "method": "GET",
+      "resourceType": "fetch",
+      "url": "https://hanime.tv/country_code",
+      "headers": {
+        "x-user-license": "",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "x-csrf-token": "",
+        "referer": "https://hanime.tv/",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "x-time": "0",
+        "sec-ch-ua-mobile": "?0",
+        "x-session-token": "",
+        "x-license": "",
+        "x-signature": "",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "accept": "application/json",
+        "x-signature-version": "web2",
+        "content-type": "application/json"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:42.686Z",
+      "method": "GET",
+      "resourceType": "fetch",
+      "url": "https://hanime-cdn.com/vhtv2/env.json",
+      "headers": {
+        "x-user-license": "",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "x-csrf-token": "",
+        "referer": "https://hanime.tv/",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "x-time": "0",
+        "sec-ch-ua-mobile": "?0",
+        "x-session-token": "",
+        "x-license": "",
+        "x-signature": "",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "accept": "application/json",
+        "x-signature-version": "web2",
+        "content-type": "application/json"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:42.804Z",
+      "method": "GET",
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/api/v10/search_hvs",
+      "headers": {
+        "x-user-license": "",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "x-csrf-token": "",
+        "referer": "https://hanime.tv/",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "x-time": "1776355542",
+        "sec-ch-ua-mobile": "?0",
+        "x-session-token": "",
+        "x-license": "",
+        "x-signature": "9e61adb757aaaf827ac7cfaba081bf154ed5cd8ffc4e31de26cbb0da1d9f8121",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "accept": "application/json",
+        "x-signature-version": "web2",
+        "content-type": "application/json"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:42.812Z",
+      "method": "GET",
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/api/v8/playlists?source=related&hv_id=3427",
+      "headers": {
+        "x-user-license": "",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "x-csrf-token": "",
+        "referer": "https://hanime.tv/",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "x-time": "1776355542",
+        "sec-ch-ua-mobile": "?0",
+        "x-session-token": "",
+        "x-license": "",
+        "x-signature": "9e61adb757aaaf827ac7cfaba081bf154ed5cd8ffc4e31de26cbb0da1d9f8121",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "accept": "application/json",
+        "x-signature-version": "web2",
+        "content-type": "application/json"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:44.153Z",
+      "method": "GET",
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/rapi/v7/users?source=simple&user_ids[]=2105000&user_ids[]=2727458&user_ids[]=6750597&user_ids[]=7004497&user_ids[]=6982517&user_ids[]=5563890&user_ids[]=5545219&user_ids[]=6514517&user_ids[]=6176451&user_ids[]=6802058&user_ids[]=6122128&user_ids[]=4850791",
+      "headers": {
+        "x-user-license": "",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "x-csrf-token": "",
+        "referer": "https://hanime.tv/",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "x-time": "1776355544",
+        "sec-ch-ua-mobile": "?0",
+        "x-session-token": "",
+        "x-license": "",
+        "x-signature": "122701ef186315de71b9d791abc9322eb74eb9ed352450e7540029865a6e9f1a",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "accept": "application/json",
+        "x-signature-version": "web2",
+        "content-type": "application/json"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:44.335Z",
+      "method": "GET",
+      "resourceType": "image",
+      "url": "https://hanime-cdn.com/images/video-player-fail-bg-v3.jpg",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:46.935Z",
+      "method": "GET",
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/api/v8/hthreads?hv_id=3427&order=upvotes,desc&offset=0&count=12",
+      "headers": {
+        "x-user-license": "",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "x-csrf-token": "",
+        "referer": "https://hanime.tv/",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "x-time": "1776355546",
+        "sec-ch-ua-mobile": "?0",
+        "x-session-token": "",
+        "x-license": "",
+        "x-signature": "8448742af25b0747bda3f6ee474ec97bbd018ecbf873c8e441409961c09de0a0",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "accept": "application/json",
+        "x-signature-version": "web2",
+        "content-type": "application/json"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:47.431Z",
+      "method": "GET",
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/rapi/v7/users?source=comments&user_ids[]=6155646&user_ids[]=6827393&user_ids[]=6845740&user_ids[]=5979362&user_ids[]=6398333&user_ids[]=7036003&user_ids[]=6702520&user_ids[]=6396138&user_ids[]=2947090&user_ids[]=1338251&user_ids[]=4731694&user_ids[]=7058999",
+      "headers": {
+        "x-user-license": "",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "x-csrf-token": "",
+        "referer": "https://hanime.tv/",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "x-time": "1776355547",
+        "sec-ch-ua-mobile": "?0",
+        "x-session-token": "",
+        "x-license": "",
+        "x-signature": "006d03da15d0aee5abb21b3d9b61a6e2669afbe76656609049619dcaccd79b71",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "accept": "application/json",
+        "x-signature-version": "web2",
+        "content-type": "application/json"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:48.009Z",
+      "method": "POST",
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/api/v8/hentai_videos/cool-de-m-2/play",
+      "headers": {
+        "x-user-license": "",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "x-csrf-token": "",
+        "referer": "https://hanime.tv/",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "x-time": "1776355547",
+        "sec-ch-ua-mobile": "?0",
+        "x-session-token": "",
+        "x-license": "",
+        "x-signature": "006d03da15d0aee5abb21b3d9b61a6e2669afbe76656609049619dcaccd79b71",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "accept": "application/json",
+        "x-signature-version": "web2",
+        "content-type": "application/json"
+      },
+      "postData": "{\"width\":1425,\"height\":900,\"ab\":\"kh\"}"
+    },
+    {
+      "time": "2026-04-16T16:05:48.013Z",
+      "method": "GET",
+      "resourceType": "document",
+      "url": "https://player.hanime.tv/?&",
+      "headers": {
+        "referer": "https://hanime.tv/",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:48.155Z",
+      "method": "GET",
+      "resourceType": "script",
+      "url": "https://player.hanime.tv/videojs.thumbnails.modded-1.0.5.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:48.155Z",
+      "method": "GET",
+      "resourceType": "script",
+      "url": "https://player.hanime.tv/js/chunk-vendors.2b7f19c2.js",
+      "headers": {
+        "origin": "https://player.hanime.tv",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:48.155Z",
+      "method": "GET",
+      "resourceType": "script",
+      "url": "https://player.hanime.tv/js/app.9ffad1a7.js",
+      "headers": {
+        "origin": "https://player.hanime.tv",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:48.155Z",
+      "method": "GET",
+      "resourceType": "stylesheet",
+      "url": "https://player.hanime.tv/css/app.2148485c.css",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:48.568Z",
+      "method": "GET",
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/api/v8/guest/videos/3427/manifest",
+      "headers": {
+        "x-user-license": "",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "x-csrf-token": "",
+        "referer": "https://hanime.tv/",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "x-time": "1776355548",
+        "sec-ch-ua-mobile": "?0",
+        "x-session-token": "",
+        "x-license": "",
+        "x-signature": "b13801e13a33f4dfc746b2a04297a1e91dca0e06eff590738153bc4b9b4d8b6d",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "accept": "application/json",
+        "x-signature-version": "web2",
+        "content-type": "application/json"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:48.569Z",
+      "method": "POST",
+      "resourceType": "xhr",
+      "url": "https://player.hanime.tv/cdn-cgi/rum?",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "content-type": "application/json",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": "{\"memory\":{\"totalJSHeapSize\":67656420,\"usedJSHeapSize\":53021000,\"jsHeapSizeLimit\":2248146944},\"resources\":[],\"referrer\":\"https://hanime.tv/\",\"eventType\":1,\"firstPaint\":240,\"firstContentfulPaint\":0,\"startTime\":1776355547996.7,\"versions\":{\"fl\":\"2024.11.0\",\"js\":\"2026.2.0\",\"timings\":2},\"pageloadId\":\"e54aafa0-7ab9-40bb-89bb-c26010c1d97d\",\"location\":\"https://player.hanime.tv/\",\"nt\":\"navigate\",\"timingsV2\":{\"nextHopProtocol\":\"h2\",\"domainLookupStart\":1.300000000745058,\"domainLookupEnd\":1.300000000745058,\"connectStart\":1.300000000745058,\"connectEnd\":1.300000000745058,\"requestStart\":80.90000000223517,\"responseStart\":138.80000000074506,\"responseEnd\":139.40000000223517,\"domInteractive\":152.5,\"domComplete\":564.6999999992549,\"loadEventStart\":564.8000000007451,\"loadEventEnd\":564.9000000022352,\"finalResponseHeadersStart\":138.80000000074506,\"firstInterimResponseStart\":0,\"transferSize\":1201,\"decodedBodySize\":2082},\"dt\":\"\",\"siteToken\":\"033afe4831c6415399baba9a25ef2c01\",\"st\":2}"
+    },
+    {
+      "time": "2026-04-16T16:05:48.870Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://cached.freeanimehentai.net/rapi/v7/hentai_video_storyboards?hv_id=3427",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:48.897Z",
+      "method": "GET",
+      "resourceType": "script",
+      "url": "blob:https://player.hanime.tv/43326eb9-0e9c-4535-b53d-6d497cfa718b",
+      "headers": {
+        "accept": "*/*",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:48.899Z",
+      "method": "GET",
+      "resourceType": "script",
+      "url": "blob:https://player.hanime.tv/ba9992fb-d806-4274-bbf5-f46408f04543",
+      "headers": {
+        "accept": "*/*",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:48.901Z",
+      "method": "GET",
+      "resourceType": "script",
+      "url": "blob:https://player.hanime.tv/5e085396-963e-4b78-b5f1-7e66b0d6d845",
+      "headers": {
+        "accept": "*/*",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:48.904Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/s3snkAsfAspvxmwhzzwzf20gsyZlf62dsr7vx9qnxpwsvwv1f8g41.m3u8",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:49.344Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:49.344Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0000.html",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:52.712Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:52.712Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0001.html",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:59.900Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:05:59.900Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0001.html",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:06:01.864Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:06:01.865Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0002.html",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:06:01.865Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:06:01.865Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0003.html",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:06:02.688Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:06:02.688Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0004.html",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:06:03.346Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    },
+    {
+      "time": "2026-04-16T16:06:03.346Z",
+      "method": "GET",
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0005.html",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://player.hanime.tv/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"147\", \"Not.A/Brand\";v=\"8\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "postData": null
+    }
+  ],
+  "responses": [
+    {
+      "time": "2026-04-16T16:05:43.097Z",
+      "status": 200,
+      "resourceType": "fetch",
+      "url": "https://hanime.tv/country_code",
+      "headers": {
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "private, no-store, max-age=0",
+        "cf-cache-status": "BYPASS",
+        "pragma": "no-cache",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ZICVrXnM5tvGnw14G%2B2kCra%2BPRe5mG9FXQP0KwFbKxsLkcrp1shzt4i%2BdQ0RzkdU7GCHPGT35OuiDE2Nowi5HdVzflg4KiYz48EhVv5gtRzSz0y0g2ju5UY%2F%2F5Q%3D\"}]}",
+        "cf-ray": "9ed46ed91d021ff3-SIN",
+        "expires": "0",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "content-length": "21",
+        "date": "Thu, 16 Apr 2026 16:05:42 GMT",
+        "content-type": "application/json",
+        "server": "cloudflare"
+      },
+      "bodySample": "{\"country_code\":\"SG\"}"
+    },
+    {
+      "time": "2026-04-16T16:05:43.098Z",
+      "status": 200,
+      "resourceType": "fetch",
+      "url": "https://hanime-cdn.com/vhtv2/env.json",
+      "headers": {
+        "cache-control": "public, max-age=0, s-maxage=31536000",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cf-cache-status": "HIT",
+        "etag": "\"c20f02c3bab55ccad90a1d62a61132f2\"",
+        "age": "2946752",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=kQbLji62T7u4Tpnzs4nSxHs9P%2Bral3vDPkANA%2BnBSR5abcZ8FEZCks333QHleQ8nUId8LOHqOPjhs1elm5GgSB5A05sxnmhUY1SZSDIfny2GPcwWJZXJhgqU%2BufVbOI5hg%3D%3D\"}]}",
+        "cf-ray": "9ed46eda39affe07-SIN",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "31",
+        "date": "Thu, 16 Apr 2026 16:05:42 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "last-modified": "Fri, 30 Jan 2026 09:30:23 GMT",
+        "server": "cloudflare",
+        "vary": "Origin, Accept-Encoding"
+      },
+      "bodySample": "{\"vhtv2_version\":1769765422353}"
+    },
+    {
+      "time": "2026-04-16T16:05:44.152Z",
+      "status": 200,
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/api/v10/search_hvs",
+      "headers": {
+        "x-request-id": "5a0f6152-75a7-4e0a-9010-abbffd3a7675",
+        "content-encoding": "zstd",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"fd2cca92a3f2eef8509dee79c844ccf2\"",
+        "age": "2853",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=fx40qpTka%2FtYa3Y130GL87ew7MqK2MhPtZo7aGp6SnPinBA1dxcL%2Bl8f18m3ZFkU7irOw4jJKOWGitoz46PCbHDj%2FxDsxEZ8rt0z9s0E6nBwithB%2F74aCyZBXBUVZQ2IuwfgwE4FdM%2FX7d%2BtYw%3D%3D\"}]}",
+        "access-control-allow-methods": "GET,POST,PUT,OPTIONS",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:42 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-runtime": "1.702034",
+        "access-control-allow-headers": "content-type,authorization,x-signature,x-signature-version,x-time,x-csrf-token,x-user-license,x-session-token,x-license",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=0, public, s-maxage=3600",
+        "access-control-allow-credentials": "true",
+        "cf-ray": "9ed46edbab80c189-SIN",
+        "access-control-allow-origin": "https://hanime.tv",
+        "server": "cloudflare"
+      },
+      "bodySample": "[{\"id\":5,\"name\":\"Yabai! Fukushuu Yami Site 2\",\"search_titles\":\"Yabai! Fukushuu Yami Site 2 Dangerous! Revenge - Website of Darkness Yabai! Fukushuu Yami Site ヤバい! -復讐・闇サイト- 위험해! -복수・암흑 Site-\",\"slug\":\"yabai-fukushuu-yami-site-2\",\"description\":\"\\u003cp\\u003eA mysterious fire and a bullied girl committing suicide led her brother (Ryou Tezuka) to take matters into his own hands.\\u003c/p\\u003e\\r\\n\\r\\n\\u003cp\\u003eKidnapping three girls -- Yukawa Ayano, Inami Misuzu, and Tsubaki Rina -- he rapes and tortures them to extract information on why they had to bully his sister?  Why did she have to die?\\u003c/p\\u003e\\r\\n\\r\\n\\u003cp\\u003eMisuzu Inami is a model that does well, Ayano Yukawa works as an actress in public entertainment, and Tsubaki Rina seemed to be his younger sister's best friend.\\u003c/p\\u003e\\r\\n\\r\\n\\u003cp\\u003eThere is also the mystery of a journal hiding a dark past...\\u003c/p\\u003e\",\"views\":3171571,\"cover_url\":\"https://hanime-cdn.com/images/covers/yabai-fukushuu-yami-site-2-cv3.png\",\"poster_url\":\"https://hanime-cdn.com/images/posters/yabai-fukushuu-yami-site-2-pv1.jpg\",\"brand\":\"Suzuki Mirano\",\"brand_id\":92,\"likes\":8028,\"dislikes\":181,\"downloads\":128749,\"tags\":[\"bondage\",\"virgin\",\"anal\",\"toys\",\"blow job\",\"censored\",\"ahegao\",\"horror\",\"filmed\",\"big boobs\",\"school girl\",\"facial\",\"scat\",\"cosplay\",\"hd\"],\"created_at_unix\":1399380969,\"released_at_unix\":1398384005,\"created_at\":\"2014-05-06T12:56:09.000Z\",\"released_at\":\"2014-04-25T00:00:05.000Z\"},{\"id\":6,\"name\":\"Yabai! Fukushuu Yami Site 1\",\"search_titles\":\"Yabai! Fukushuu Yami Site 1 Dangerous! Revenge - Website of Darkness Yabai! Fukushuu Yami Site ヤバい! -復讐・闇サイト- 위험해! -복수・암흑 Site-\",\"slug\":\"yabai-fukushuu-yami-site-1\",\"description\":\"\\u003cp\\u003eA mysterious fire and a bullied girl committing suicide led her brother (Ryou Tezuka) to take matters into his own hands.\\u003c/p\\u003e\\r\\n\\r\\n\\u003cp\\u003eKidnapping three girls -- Yukawa Ayano, Inami Misuzu, and Tsubaki Rina -- he rapes and tortures them to extract information on why they had to bully his sister?  Why did she have to die?\\u003c/p\\u003e\\r\\n\\r\\n\\u003cp\\u003eMisuzu Inami is a model that does well, Ayano Yukawa works as an actress in public entertainment, and Tsubaki Rina seemed to be his younger sister's best friend.\\u003c/p\\u003e\\r\\n\\r\\n\\u003cp\\u003eThere is also the mystery of a journal hiding a dark past...\\u003c/p\\u003e\",\"views\":3220094,\"cover_url\":\"https://hanime-cdn.com/images/covers/yabai-fukushuu-yami-site-1-cv3.png\",\"poster_url\":\"https://hanime-cdn.com/images/posters/yabai-fukushuu-yami-site-1-pv1.jpg\",\"brand\":\"Suzuki Mirano\",\"brand_id\":92,\"likes\":11505,\"dislikes\":181,\"downloads\":139048,\"tags\":[\"bondage\",\"swimsuit\",\"virgin\",\"pov\",\"censored\",\"plot\",\"big boobs\",\"mind break\",\"creampie\",\"filmed\",\"hd\"],\"created_at_unix\":1399430032,\"released_at_unix\":1393545606,\"created_at\":\"2014-05-07T02:33:52.000Z\",\"released_at\":\"2014-02-28T00:00:06.000Z\"},{\"id\":7,\"name\":\"Rin x Sen + Ran - Sem Cross Mix 1\",\"search_titles\":\"Rin x Sen + Ran - Sem Cross Mix 1 Rin x Sen + Ran-\\u0026gt;Sem: Cross Mix RINxSEN+Ran→Sem Cross Mix 린x센+란→셈 크로스 믹스 Rin x Sen + Ran-Sem Cross Mix RIN×SEN＋Ran→Sem Cross Mix RIN×SEN＋Ran→Sem Cross Mix RIN×SEN＋Ran→Sem　Cross Mix\",\"slug\":\"rin-x-sen-ran-sem-cross-mix-1\",\"description\":\"A cross over between the two hentai RIN×SEN and RAN→SEM.\\r\\n\\r\\n\\u003cbr\\u003e\\u003cbr\\u003e\\r\\n\\r\\nThe story starts with Urara still being abused in the Kurodou institute. \\r\\n\\r\\nOne day she is told by the headmaster that her fiancee, the one that set her \\r\\n\\r\\nwith a great debt and only her body to pay for it, has been seen in the Believe lab.\\r\\n\\r\\n\\u003cbr\\u003e\\u003cbr\\u003e\\r\\n\\r\\nLuckyly, two lecturers at the lab, the Ichinose sisters Riko and Anna introduce \\r\\n\\r\\nUrara to the lab master, Majima.\\r\\n\\r\\nThen in a luxurious and grossly decorated room, Majima can't stop licking his lips \\r\\n\\r\\nogling the sexy Urara. He tells her she being chosen by god, and that she must \\r\\n\\r\\nenter the seminar to obtain answers.\\r\\n\\r\\n\\u003cb"
+    },
+    {
+      "time": "2026-04-16T16:05:44.153Z",
+      "status": 200,
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/api/v8/playlists?source=related&hv_id=3427",
+      "headers": {
+        "x-request-id": "f8e2df29-61bc-4577-8393-10f83db54fe0",
+        "content-encoding": "zstd",
+        "cf-cache-status": "BYPASS",
+        "etag": "W/\"e283a9e57cda2395594ce9d52f66ad6e\"",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=4yBR0enri3dptw%2FjW0u0wt8GSsyDpidKzfZc8IFwYX3a8Lp3xpWcvb2M8%2BMPaIebI8hpVjVItl7zHocBWtLqOfNaGaM3inR5Z%2BudhCkgndIksG65z5LJm%2BV3XCiF852aoLK5QhaE%2B%2FeyG4pRTA%3D%3D\"}]}",
+        "access-control-allow-methods": "GET,POST,PUT,PATCH,DELETE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:42 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-runtime": "0.001256",
+        "access-control-allow-headers": "content-type,authorization,x-signature,x-signature-version,x-time,x-directive,x-token,x-user-license,x-license,x-session-token,x-csrf-token",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=0, private, must-revalidate",
+        "access-control-allow-credentials": "true",
+        "cf-ray": "9ed46edbbb9fc189-SIN",
+        "access-control-allow-origin": "https://hanime.tv",
+        "server": "cloudflare"
+      },
+      "bodySample": "{\"playlists\":[{\"id\":19691901,\"user_id\":2105000,\"visibility\":\"public\",\"title\":\"poro\",\"slug\":\"sjhgrmxpgjnyuxfdirlr\",\"created_at\":\"2024-12-02T00:03:47.608Z\",\"updated_at\":\"2026-04-16T15:25:16.660Z\",\"is_mutable\":true,\"count\":29,\"poster_url\":\"https://hanime-cdn.com/images/posters/shachiku-cinderella-2-pv1.webp\",\"hentai_video_slug\":\"shachiku-cinderella-2\",\"views\":3425,\"total_duration\":0,\"total_size\":0,\"custom_poster_url\":null},{\"id\":9097000,\"user_id\":2727458,\"visibility\":\"public\",\"title\":\"BEST ANIMATION OF ALL\",\"slug\":\"cs89sv0lxkuzguykivdk\",\"created_at\":\"2021-03-28T19:41:09.275Z\",\"updated_at\":\"2026-04-16T15:24:56.057Z\",\"is_mutable\":true,\"count\":250,\"poster_url\":\"https://hanime-cdn.com/images/posters/cool-de-m-2-pv1.webp\",\"hentai_video_slug\":\"cool-de-m-2\",\"views\":150813,\"total_duration\":0,\"total_size\":0,\"custom_poster_url\":null},{\"id\":21850966,\"user_id\":6750597,\"visibility\":\"public\",\"title\":\"Censored\",\"slug\":\"g3p9mrcxhc4iah3a9n2j\",\"created_at\":\"2026-03-01T08:30:03.387Z\",\"updated_at\":\"2026-04-16T15:13:22.392Z\",\"is_mutable\":true,\"count\":201,\"poster_url\":\"https://hanime-cdn.com/images/posters/15-bishoujo-hyouryuuki-1-inTwt.jpg\",\"hentai_video_slug\":\"15-bishoujo-hyouryuuki-1\",\"views\":30741,\"total_duration\":0,\"total_size\":0,\"custom_poster_url\":null},{\"id\":21847767,\"user_id\":7004497,\"visibility\":\"public\",\"title\":\"best for meee\",\"slug\":\"co5emz5zefqgrtp04kyh\",\"created_at\":\"2026-02-28T14:39:46.289Z\",\"updated_at\":\"2026-04-16T15:10:01.495Z\",\"is_mutable\":true,\"count\":45,\"poster_url\":\"https://hanime-cdn.com/images/posters/seifuku-wa-kita-mama-de-2-pv1.webp\",\"hentai_video_slug\":\"seifuku-wa-kita-mama-de-2\",\"views\":18861,\"total_duration\":0,\"total_size\":0,\"custom_poster_url\":null},{\"id\":21776705,\"user_id\":6982517,\"visibility\":\"public\",\"title\":\"11\",\"slug\":\"sua96rqh7w7lqspi0vf3\",\"created_at\":\"2026-02-11T12:22:30.747Z\",\"updated_at\":\"2026-04-16T15:09:44.971Z\",\"is_mutable\":true,\"count\":226,\"poster_url\":\"https://hanime-cdn.com/images/posters/cool-de-m-2-pv1.webp\",\"hentai_video_slug\":\"cool-de-m-2\",\"views\":84611,\"total_duration\":0,\"total_size\":0,\"custom_poster_url\":null},{\"id\":19722591,\"user_id\":5563890,\"visibility\":\"public\",\"title\":\"New but not intrested yet \",\"slug\":\"xuzwbdndsamnpwdoae98\",\"created_at\":\"2024-12-08T13:07:50.251Z\",\"updated_at\":\"2026-04-16T14:55:43.929Z\",\"is_mutable\":true,\"count\":26,\"poster_url\":\"https://hanime-cdn.com/images/posters/seihou-shouka-saint-lime-2-pv1.webp\",\"hentai_video_slug\":\"seihou-shouka-saint-lime-2\",\"views\":9501,\"total_duration\":0,\"total_size\":0,\"custom_poster_url\":null},{\"id\":17283853,\"user_id\":5545219,\"visibility\":\"public\",\"title\":\"Favorites\",\"slug\":\"jdcxsmtphxy2zz9fjlbd\",\"created_at\":\"2023-06-27T14:38:16.984Z\",\"updated_at\":\"2026-04-16T14:38:12.299Z\",\"is_mutable\":true,\"count\":55,\"poster_url\":\"https://hanime-cdn.com/images/posters/cool-de-m-2-pv1.webp\",\"hentai_video_slug\":\"cool-de-m-2\",\"views\":2759,\"total_duration\":0,\"total_size\":0,\"custom_poster_url\":null},{\"id\":20215934,\"user_id\":6514517,\"visibility\":\"public\",\"title\":\"Hentai\",\"slug\":\"kwvqfbqxijig9eb6hgck\",\"created_at\":\"2025-03-11T15:08:16.215Z\",\"updated_at\":\"2026-04-16T14:27:08.181Z\",\"is_mutable\":true,\"count\":65,\"poster_url\":\"https://hanime-cdn.com/images/posters/cool-de-m-2-pv1.webp\",\"hentai_video_slug\":\"cool-de-m-2\",\"views\":20205,\"total_duration\":0,\"total_size\":0,\"custom_poster_url\":null},{\"id\":21166397,\"user_id\":6176451,\"visibility\":\"public\",\"title\":\"Watched 2\",\"slug\":\"m7mjve2ot12s1as6vff2\",\"created_at\":\"2025-10-05T10:41:50.580Z\",\"updated_at\":\"2026-04-16T14:21:20.737Z\",\"is_mutable\":true,\"count\":80,\"poster_url\":\"https://hanime-cdn.com/images/posters/cool-de-m-2-pv1.webp\",\"hentai_video_slug\":\"cool-de-m-2\",\"views\":22536,\"total_duration\":0,\"total_size\":0,\"custom_poster_url\":null},{\"id\":21141470,\"user_id\":6802058,\"visibility\":\"public\",\"title\":\"Do Not Watch If You Are Not 18+\",\"slug\":\"hlipk23qo6jku8cw8at9\",\"created_at\":\"2025-09-28T13:19:11.207Z\",\"updated_at\":\"2026-04-16T13:56:33.339Z\",\"is_mutable\":true,\"count\":98,\"poster_url\":\"https://hanime-cdn.com/images/posters/shachiku-cin"
+    },
+    {
+      "time": "2026-04-16T16:05:44.446Z",
+      "status": 200,
+      "resourceType": "image",
+      "url": "https://hanime-cdn.com/images/video-player-fail-bg-v3.jpg",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cf-cache-status": "HIT",
+        "etag": "\"f6b0502dc66ab79a86ee70a37d4553de\"",
+        "age": "2956300",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=UZ87ayMeE5%2FuLaPz1LO0P1mJdDLEQ7UU53IJ1iDeaYjWJKq03pZ5JZ4jYygxWA0GFx%2FY%2F2evogGzC2FuK1nYcCdQVJoulja4BvSsgrzfALT4ry599%2F77VRO5eUjo8ryq6Q%3D%3D\"}]}",
+        "cf-ray": "9ed46ee2dcbd5d17-SIN",
+        "accept-ranges": "bytes",
+        "content-length": "88167",
+        "date": "Thu, 16 Apr 2026 16:05:43 GMT",
+        "content-type": "image/jpeg",
+        "last-modified": "Wed, 17 Sep 2025 10:41:01 GMT",
+        "server": "cloudflare",
+        "vary": "Accept-Encoding"
+      },
+      "bodySample": null
+    },
+    {
+      "time": "2026-04-16T16:05:44.603Z",
+      "status": 200,
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/rapi/v7/users?source=simple&user_ids[]=2105000&user_ids[]=2727458&user_ids[]=6750597&user_ids[]=7004497&user_ids[]=6982517&user_ids[]=5563890&user_ids[]=5545219&user_ids[]=6514517&user_ids[]=6176451&user_ids[]=6802058&user_ids[]=6122128&user_ids[]=4850791",
+      "headers": {
+        "x-request-id": "0e956658-f323-438f-81d2-fd877805f86a",
+        "content-encoding": "zstd",
+        "cf-cache-status": "BYPASS",
+        "etag": "W/\"dacc19e591bdfa45d179f48e8d144a3d\"",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=vdBz6t%2FK1pcZDA4V58po8qv14ewJrOU4VD0rP%2FDOhZc9NGPwz6ClKFSt8EQ111Ldzrg8WUl%2FbsZGYkD4BvT7muDiqvSkX6deEugyJ9YA%2FHy1grWevIkqW6IrgpZ0ynlblz0wtCJ02loAFWRvag%3D%3D\"}]}",
+        "access-control-allow-methods": "GET,POST,PUT,PATCH,DELETE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:43 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-runtime": "0.001360",
+        "access-control-allow-headers": "content-type,authorization,x-signature,x-signature-version,x-time,x-directive,x-token,x-user-license,x-license,x-session-token,x-csrf-token",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=0, private, must-revalidate",
+        "access-control-allow-credentials": "true",
+        "cf-ray": "9ed46ee2c826c189-SIN",
+        "access-control-allow-origin": "https://hanime.tv",
+        "server": "cloudflare"
+      },
+      "bodySample": "[{\"id\":2105000,\"identity\":\"f8Lv6NJdG4pwkdXtFw4MVV2u7aLNNi\",\"name\":\"ibuki\",\"number\":\"0927\",\"slug\":\"ibuki-0927\",\"avatar_url\":\"https://hanime-cdn.com/images/default-avatars/57.png\",\"effective_avatar_url\":\"https://hanime-cdn.com/images/default-avatars/57.png\",\"discord_user_id\":null,\"discord_username\":null,\"discord_avatar_url\":null,\"user_channel\":{\"id\":1653576,\"user_id\":2105000,\"theme_color\":null,\"title\":\"ibuki's Channel\",\"description\":null,\"website_url\":null,\"location\":null,\"social_media\":null,\"created_at\":\"2023-04-27T16:15:16.809Z\",\"updated_at\":\"2023-04-27T16:15:16.809Z\",\"slug\":\"ibuki-0927\",\"views\":70,\"intro_videos\":null,\"banner_url\":null}},{\"id\":2727458,\"identity\":\"QiRv07tMXOZeTPriJMPA8nLwfvFaiV\",\"name\":\"ILoveYouDarling\",\"number\":\"4169\",\"slug\":\"iloveyoudarling-4169\",\"avatar_url\":\"https://uploads.hanime-cdn.com/u/QiRv07tMXOZeTPriJMPA8nLwfvFaiV/avatar-YRxgThL904N7CgSMqSWJYAAW.webp\",\"effective_avatar_url\":\"https://uploads.hanime-cdn.com/u/QiRv07tMXOZeTPriJMPA8nLwfvFaiV/avatar-YRxgThL904N7CgSMqSWJYAAW.webp\",\"discord_user_id\":null,\"discord_username\":null,\"discord_avatar_url\":null,\"user_channel\":{\"id\":1666427,\"user_id\":2727458,\"theme_color\":null,\"title\":\"ILoveYouDarling's Channel\",\"description\":null,\"website_url\":null,\"location\":null,\"social_media\":null,\"created_at\":\"2023-04-28T23:10:01.807Z\",\"updated_at\":\"2023-04-28T23:10:01.807Z\",\"slug\":\"iloveyoudarling-4169\",\"views\":1338,\"intro_videos\":null,\"banner_url\":null}},{\"id\":4850791,\"identity\":\"f88fee3e4e35f239acf14bec0900263d\",\"name\":\"Hanu\",\"number\":\"7826\",\"slug\":\"hanu-7826\",\"avatar_url\":\"https://hanime-cdn.com/images/default-avatars/47.png\",\"effective_avatar_url\":\"https://hanime-cdn.com/images/default-avatars/47.png\",\"discord_user_id\":null,\"discord_username\":null,\"discord_avatar_url\":null,\"user_channel\":{\"id\":1705480,\"user_id\":4850791,\"theme_color\":null,\"title\":\"Hanu's Channel\",\"description\":null,\"website_url\":null,\"location\":null,\"social_media\":null,\"created_at\":\"2023-05-05T12:54:27.577Z\",\"updated_at\":\"2023-05-05T12:54:27.577Z\",\"slug\":\"hanu-7826\",\"views\":371,\"intro_videos\":null,\"banner_url\":null}},{\"id\":5545219,\"identity\":\"47cdd39c39600b39dc552ad4d12ccd79\",\"name\":\"Furasshu\",\"number\":\"0992\",\"slug\":\"furasshu-0992\",\"avatar_url\":\"https://uploads.hanime-cdn.com/u/47cdd39c39600b39dc552ad4d12ccd79/avatar-AHn2ejDSvzj49IyNBUbJ.webp\",\"effective_avatar_url\":\"https://uploads.hanime-cdn.com/u/47cdd39c39600b39dc552ad4d12ccd79/avatar-AHn2ejDSvzj49IyNBUbJ.webp\",\"discord_user_id\":null,\"discord_username\":null,\"discord_avatar_url\":null,\"user_channel\":{\"id\":1827395,\"user_id\":5545219,\"theme_color\":null,\"title\":\"Furasshu\",\"description\":null,\"website_url\":\"https://www.instagram.com/bilgehandmr?igsh=cjfhazvhbzfhahmz\\u0026utm_source=qr\",\"location\":null,\"social_media\":null,\"created_at\":\"2023-06-27T14:36:13.707Z\",\"updated_at\":\"2025-12-22T21:44:43.496Z\",\"slug\":\"derahoya-0992\",\"views\":180,\"intro_videos\":null,\"banner_url\":\"https://uploads.hanime-cdn.com/u/47cdd39c39600b39dc552ad4d12ccd79/banner-BL8nDkFBwkg0mYRLJIfC.webp\"}},{\"id\":5563890,\"identity\":\"43364bb650447b7bf22f5b6763d718b2\",\"name\":\"alfa\",\"number\":\"9029\",\"slug\":\"alfa-9029\",\"avatar_url\":\"https://hanime-cdn.com/images/default-avatars/13.png\",\"effective_avatar_url\":\"https://hanime-cdn.com/images/default-avatars/13.png\",\"discord_user_id\":null,\"discord_username\":null,\"discord_avatar_url\":null,\"user_channel\":{\"id\":1848188,\"user_id\":5563890,\"theme_color\":null,\"title\":\"alfa's Channel\",\"description\":null,\"website_url\":null,\"location\":null,\"social_media\":null,\"created_at\":\"2023-07-11T16:47:07.469Z\",\"updated_at\":\"2023-07-11T16:47:07.469Z\",\"slug\":\"alfa-9029\",\"views\":306,\"intro_videos\":null,\"banner_url\":null}},{\"id\":6122128,\"identity\":\"279174147b6c8104ea24063206857978\",\"name\":\"kira\",\"number\":\"0117\",\"slug\":\"kira-0117-b619a824-ad97-4801-8b36-e1b07a16fcf6\",\"avatar_url\":\"https://hanime-cdn.com/images/default-avatars/52.png\",\"effective_avatar_url\":\"https://hanime-cdn.com/images/default-avatars/52.png\",\"discord_user_id\":null,\"discord_username\":null,\"discord_avatar_url\":null,\"use"
+    },
+    {
+      "time": "2026-04-16T16:05:47.432Z",
+      "status": 200,
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/api/v8/hthreads?hv_id=3427&order=upvotes,desc&offset=0&count=12",
+      "headers": {
+        "x-request-id": "a596ec5f-2f0c-4a75-a3cd-90c529705968",
+        "content-encoding": "zstd",
+        "cf-cache-status": "BYPASS",
+        "etag": "W/\"a63b1820bb7dbc44ace2a978f925c9c4\"",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=5ftrcP8SGci8rVt2msEngJ0udzCh6uUYQcUhwwMoQSWSD79Gk%2FxrXgfMYSUfb5RPJuq9CpFjHe6HnusHmQu0qjCEPc7mVZjEfBhlsjr6nf0yBZe7N9%2B%2B%2B7d0NT7schDAO6om4oa9EdbSRnTbGw%3D%3D\"}]}",
+        "access-control-allow-methods": "GET,POST,PUT,PATCH,DELETE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:46 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-runtime": "0.001949",
+        "access-control-allow-headers": "content-type,authorization,x-signature,x-signature-version,x-time,x-directive,x-token,x-user-license,x-license,x-session-token,x-csrf-token",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=0, private, must-revalidate",
+        "access-control-allow-credentials": "true",
+        "cf-ray": "9ed46ef4985cc189-SIN",
+        "access-control-allow-origin": "https://hanime.tv",
+        "server": "cloudflare"
+      },
+      "bodySample": "{\"meta\":{\"totals\":{\"num_threads\":36,\"num_comments\":37},\"count\":12,\"offset\":0,\"order\":[{\"upvotes\":\"desc\"},{\"created_at\":\"desc\"}],\"my_hthreads_flags_hash\":{},\"my_hthreads_votes_hash\":{}},\"data\":[{\"id\":447456,\"identifier\":\"mC0f5sP9m7w5s6ctJaEe\",\"is_deleted\":false,\"hentai_video_id\":3427,\"is_first\":false,\"original_poster_user_id\":6155646,\"upvotes\":7,\"downvotes\":0,\"num_replies\":0,\"num_flags\":0,\"attachments\":null,\"emojis\":null,\"extra\":null,\"msg\":\"Female teachers wearing black stockings are hot af.\",\"created_at_unix\":1776278225,\"updated_at_unix\":1776341853},{\"id\":447440,\"identifier\":\"YsbYCiG5b5pIIafUWOOO\",\"is_deleted\":false,\"hentai_video_id\":3427,\"is_first\":true,\"original_poster_user_id\":6827393,\"upvotes\":7,\"downvotes\":4,\"num_replies\":0,\"num_flags\":0,\"attachments\":null,\"emojis\":null,\"extra\":null,\"msg\":\"First i guess\",\"created_at_unix\":1776276355,\"updated_at_unix\":1776322166},{\"id\":447451,\"identifier\":\"UbtBGApLPkB9jzQd60dB\",\"is_deleted\":false,\"hentai_video_id\":3427,\"is_first\":false,\"original_poster_user_id\":6845740,\"upvotes\":6,\"downvotes\":1,\"num_replies\":0,\"num_flags\":0,\"attachments\":null,\"emojis\":null,\"extra\":null,\"msg\":\"all nur girls look alike, can't fap to any of their hents\",\"created_at_unix\":1776277231,\"updated_at_unix\":1776341852},{\"id\":447471,\"identifier\":\"kwp0azBo1JqoBTRGi04q\",\"is_deleted\":false,\"hentai_video_id\":3427,\"is_first\":false,\"original_poster_user_id\":5979362,\"upvotes\":2,\"downvotes\":8,\"num_replies\":0,\"num_flags\":0,\"attachments\":null,\"emojis\":null,\"extra\":null,\"msg\":\"Just like pokemon all them Nurse Joy's and Officer Jenny's copy and paste but come on add fat bastards and NTR to this shit.\",\"created_at_unix\":1776279423,\"updated_at_unix\":1776324433},{\"id\":447465,\"identifier\":\"QuBqEAwSPBm9ZV5xQyKb\",\"is_deleted\":false,\"hentai_video_id\":3427,\"is_first\":false,\"original_poster_user_id\":6398333,\"upvotes\":2,\"downvotes\":1,\"num_replies\":0,\"num_flags\":0,\"attachments\":null,\"emojis\":null,\"extra\":null,\"msg\":\"0 Hours is crazy\",\"created_at_unix\":1776278964,\"updated_at_unix\":1776300308},{\"id\":447533,\"identifier\":\"L0mO4iBq5CH5AdMh1HeW\",\"is_deleted\":false,\"hentai_video_id\":3427,\"is_first\":false,\"original_poster_user_id\":7036003,\"upvotes\":1,\"downvotes\":0,\"num_replies\":0,\"num_flags\":0,\"attachments\":null,\"emojis\":null,\"extra\":null,\"msg\":\"yall fw opbr?\",\"created_at_unix\":1776317432,\"updated_at_unix\":1776333424},{\"id\":447472,\"identifier\":\"ZqxTEFxwRtocBipsSd6r\",\"is_deleted\":false,\"hentai_video_id\":3427,\"is_first\":false,\"original_poster_user_id\":6702520,\"upvotes\":1,\"downvotes\":1,\"num_replies\":1,\"num_flags\":0,\"attachments\":null,\"emojis\":null,\"extra\":null,\"msg\":\"Finally \\\"0\\\" Hour Gang Now i can proudly Say My Life Is 100% Fucked up\",\"created_at_unix\":1776279463,\"updated_at_unix\":1776329448},{\"id\":447458,\"identifier\":\"AdPuRB6SzKMt3AUdOxJ6\",\"is_deleted\":false,\"hentai_video_id\":3427,\"is_first\":false,\"original_poster_user_id\":6396138,\"upvotes\":1,\"downvotes\":1,\"num_replies\":0,\"num_flags\":0,\"attachments\":null,\"emojis\":null,\"extra\":null,\"msg\":\"0 hour gng\",\"created_at_unix\":1776278671,\"updated_at_unix\":1776300323},{\"id\":447442,\"identifier\":\"NfrNh2hutTycTqLSojcl\",\"is_deleted\":false,\"hentai_video_id\":3427,\"is_first\":false,\"original_poster_user_id\":2947090,\"upvotes\":1,\"downvotes\":1,\"num_replies\":0,\"num_flags\":0,\"attachments\":null,\"emojis\":null,\"extra\":null,\"msg\":\"Maybe third is also good\",\"created_at_unix\":1776276428,\"updated_at_unix\":1776278646},{\"id\":447544,\"identifier\":\"Jlpt1yMVKdPFHsmejDxJ\",\"is_deleted\":false,\"hentai_video_id\":3427,\"is_first\":false,\"original_poster_user_id\":1338251,\"upvotes\":0,\"downvotes\":0,\"num_replies\":0,\"num_flags\":0,\"attachments\":null,\"emojis\":null,\"extra\":null,\"msg\":\"after a while all these hentai start looking the same. This especially looks the exact same as like 50 others I've seen, the way she moves, her character art, her boob shape and size, every goddamn thing. Sigh\",\"created_at_unix\":1776324250,\"updated_at_unix\":1776324250},{\"id\":447537,\"identifier\":\"U6rCsb1QsZX2XGg3fOHc\",\"is_deleted\":false,\"hentai_video_id\":3427,\"is_first"
+    },
+    {
+      "time": "2026-04-16T16:05:47.903Z",
+      "status": 200,
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/rapi/v7/users?source=comments&user_ids[]=6155646&user_ids[]=6827393&user_ids[]=6845740&user_ids[]=5979362&user_ids[]=6398333&user_ids[]=7036003&user_ids[]=6702520&user_ids[]=6396138&user_ids[]=2947090&user_ids[]=1338251&user_ids[]=4731694&user_ids[]=7058999",
+      "headers": {
+        "x-request-id": "4307999d-a55d-4fe6-b061-58531eb05e2f",
+        "content-encoding": "zstd",
+        "cf-cache-status": "BYPASS",
+        "etag": "W/\"2e87c1676cee0a1fe485a67d714d49f1\"",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=wcpO4xnbK5AynEe8Pw6OK47oSojJdv5aCnoxVJX6cMK1wXDS0ynnGF5Zv8l6APk%2FivPNORIpPGyz0vk4%2BE%2BDNh3kCt%2B3u%2B24I1x%2FGr8UpCij1Zw17o6e3bhouGdLkbJ9aoMVH21UHBJ9BXE3DA%3D%3D\"}]}",
+        "access-control-allow-methods": "GET,POST,PUT,PATCH,DELETE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:46 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-runtime": "0.001720",
+        "access-control-allow-headers": "content-type,authorization,x-signature,x-signature-version,x-time,x-directive,x-token,x-user-license,x-license,x-session-token,x-csrf-token",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=0, private, must-revalidate",
+        "access-control-allow-credentials": "true",
+        "cf-ray": "9ed46ef77970c189-SIN",
+        "access-control-allow-origin": "https://hanime.tv",
+        "server": "cloudflare"
+      },
+      "bodySample": "[{\"id\":1338251,\"identity\":\"VkdwkCpaSiUxuakUktLJaqawsQNgsj\",\"name\":\"how did i get here\",\"number\":\"0899\",\"slug\":\"how-did-i-get-here-0899\",\"avatar_url\":\"https://hanime-cdn.com/images/default-avatars/13.png\",\"effective_avatar_url\":\"https://hanime-cdn.com/images/default-avatars/13.png\",\"discord_user_id\":null,\"discord_username\":null,\"discord_avatar_url\":null,\"user_channel\":{\"id\":1656470,\"user_id\":1338251,\"theme_color\":null,\"title\":\"how did i get here's Channel\",\"description\":null,\"website_url\":null,\"location\":null,\"social_media\":null,\"created_at\":\"2023-04-27T22:19:16.714Z\",\"updated_at\":\"2023-04-27T22:19:16.714Z\",\"slug\":\"how-did-i-get-here-0899\",\"views\":3197,\"intro_videos\":null,\"banner_url\":null}},{\"id\":2947090,\"identity\":\"V4XXHvMuTxHyArwCWl0ahmhRgv1v5B\",\"name\":\"Klappi\",\"number\":\"9005\",\"slug\":\"klappi-9005\",\"avatar_url\":\"https://uploads.hanime-cdn.com/u/V4XXHvMuTxHyArwCWl0ahmhRgv1v5B/avatar-AsIQX1g7EcwNRVXiHtkXNDCc.webp\",\"effective_avatar_url\":\"https://uploads.hanime-cdn.com/u/V4XXHvMuTxHyArwCWl0ahmhRgv1v5B/avatar-AsIQX1g7EcwNRVXiHtkXNDCc.webp\",\"discord_user_id\":null,\"discord_username\":null,\"discord_avatar_url\":null,\"user_channel\":{\"id\":1662198,\"user_id\":2947090,\"theme_color\":null,\"title\":\"Klappi's Channel\",\"description\":null,\"website_url\":null,\"location\":null,\"social_media\":null,\"created_at\":\"2023-04-28T12:40:21.234Z\",\"updated_at\":\"2025-11-27T05:15:10.247Z\",\"slug\":\"klappi\",\"views\":2441,\"intro_videos\":null,\"banner_url\":\"https://uploads.hanime-cdn.com/u/V4XXHvMuTxHyArwCWl0ahmhRgv1v5B/banner-9KSsvYFOAEZpvscivANMuGg8.webp\"}},{\"id\":4731694,\"identity\":\"a0637374d91187ce56b5a0e211f7741f\",\"name\":\"Nada-sama\",\"number\":\"1538\",\"slug\":\"nada-sama-1538\",\"avatar_url\":\"https://hanime-cdn.com/images/default-avatars/12.png\",\"effective_avatar_url\":\"https://hanime-cdn.com/images/default-avatars/12.png\",\"discord_user_id\":null,\"discord_username\":null,\"discord_avatar_url\":null,\"user_channel\":{\"id\":1671064,\"user_id\":4731694,\"theme_color\":null,\"title\":\"Adrian-sama's Channel\",\"description\":null,\"website_url\":null,\"location\":null,\"social_media\":null,\"created_at\":\"2023-04-29T12:45:34.255Z\",\"updated_at\":\"2023-04-29T12:45:34.255Z\",\"slug\":\"adrian-sama-1538\",\"views\":721,\"intro_videos\":null,\"banner_url\":null}},{\"id\":5979362,\"identity\":\"f1fd8a2cb71abfe4067d3e45e8d51904\",\"name\":\"Number1DirtyFatBastard\",\"number\":\"5933\",\"slug\":\"number1dirtyfatbastard-5933\",\"avatar_url\":\"https://uploads.hanime-cdn.com/u/f1fd8a2cb71abfe4067d3e45e8d51904/avatar-rqLvQa8meZC013qmp6GcIAnM.webp\",\"effective_avatar_url\":\"https://uploads.hanime-cdn.com/u/f1fd8a2cb71abfe4067d3e45e8d51904/avatar-rqLvQa8meZC013qmp6GcIAnM.webp\",\"discord_user_id\":null,\"discord_username\":null,\"discord_avatar_url\":null,\"user_channel\":{\"id\":2092567,\"user_id\":5979362,\"theme_color\":null,\"title\":\"Number1DirtyFatBastard's Channel\",\"description\":\"I like triggering beta cucks. My likes/dislikes ratios just means its working.\",\"website_url\":null,\"location\":null,\"social_media\":null,\"created_at\":\"2024-04-23T23:41:59.838Z\",\"updated_at\":\"2025-08-17T08:17:21.195Z\",\"slug\":\"number1dirtyfatbastard-5933\",\"views\":23742,\"intro_videos\":null,\"banner_url\":null}},{\"id\":6155646,\"identity\":\"355c1c9499033562b79a35c10f5051f8\",\"name\":\"Kazami Yuuji\",\"number\":\"1159\",\"slug\":\"kazami-yuuji-1159\",\"avatar_url\":\"https://uploads.hanime-cdn.com/u/355c1c9499033562b79a35c10f5051f8/avatar-jzPtkb7ywRfgfHcULc6pACBc.webp\",\"effective_avatar_url\":\"https://uploads.hanime-cdn.com/u/355c1c9499033562b79a35c10f5051f8/avatar-jzPtkb7ywRfgfHcULc6pACBc.webp\",\"discord_user_id\":null,\"discord_username\":null,\"discord_avatar_url\":null,\"user_channel\":{\"id\":2181920,\"user_id\":6155646,\"theme_color\":null,\"title\":\"9029\",\"description\":\"Kazami Yuuji.\\nOccupation, student.\",\"website_url\":null,\"location\":null,\"social_media\":null,\"created_at\":\"2024-08-30T08:25:51.635Z\",\"updated_at\":\"2025-11-27T05:15:16.221Z\",\"slug\":\"kazami-yuuji-1159\",\"views\":10972,\"intro_videos\":null,\"banner_url\":\"https://uploads.hanime-cdn.com/u/355c1c9499033562b79a35c10f5051f8/banner-i8OxP3DfXpcPdwFvcOa5qzYQ.webp\"}},{\"id\""
+    },
+    {
+      "time": "2026-04-16T16:05:48.159Z",
+      "status": 200,
+      "resourceType": "document",
+      "url": "https://player.hanime.tv/?&",
+      "headers": {
+        "access-control-allow-origin": "*",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "cf-cache-status": "REVALIDATED",
+        "cf-ray": "9ed46efa49921ff3-SIN",
+        "content-encoding": "br",
+        "content-security-policy": "frame-ancestors 'self' https://hanime.tv https://*.hanime.tv https://freeanimehentai.net https://*.freeanimehentai.net;",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 16 Apr 2026 16:05:47 GMT",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=PzLF8yjvCDJRfCw3ucP95cwmpM08nIcXCq8V%2BwEVBN8Wlb8y0BVY3%2FOLu3NfkxNIjGApEuv57ULiGdDAPuCr95%2FegUjOs90wTlQ0MroL%2Bdwb%2FJP0vtg0YdwHwyI%3D\"}]}",
+        "server": "cloudflare",
+        "server-timing": "cfCacheStatus;desc=\"REVALIDATED\"\ncfEdge;dur=5,cfOrigin;dur=4",
+        "vary": "accept-encoding",
+        "x-content-type-options": "nosniff"
+      },
+      "bodySample": "<!DOCTYPE html><html lang=\"en\"><head>\n  <meta charset=\"utf-8\">\n  <meta name=\"referrer\" content=\"origin\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0\">\n  <title>Video Player</title>\n\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700\" rel=\"preload\" as=\"style\" onload=\"this.onload=null; this.rel='stylesheet'\">\n\n  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js\" defer=\"\"></script>\n  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.2/alt/video.novtt.min.js\" defer=\"\"></script>\n  <script src=\"/videojs.thumbnails.modded-1.0.5.js\" defer=\"\"></script>\n  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/videojs-hotkeys/0.2.25/videojs.hotkeys.min.js\" defer=\"\"></script>\n  <script src=\"https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.min.js\" defer=\"\"></script>\n\n  <link href=\"https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.2/alt/video-js-cdn.min.css\" rel=\"preload\" as=\"style\" onload=\"this.onload=null;this.rel='stylesheet'\">\n<script defer=\"\" src=\"js/chunk-vendors.2b7f19c2.js\" type=\"module\"></script><script defer=\"\" src=\"js/app.9ffad1a7.js\" type=\"module\"></script><link href=\"css/app.2148485c.css\" rel=\"preload\" as=\"style\" onload=\"this.onload=null;this.rel='stylesheet'\"><script defer=\"\" src=\"js/chunk-vendors-legacy.e306fbb9.js\" nomodule=\"\"></script><script defer=\"\" src=\"js/app-legacy.852e465d.js\" nomodule=\"\"></script></head>\n<body><div id=\"app\"></div>\n<!-- built files will be auto injected -->\n\n\n<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516\" integrity=\"sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==\" data-cf-beacon='{\"version\":\"2024.11.0\",\"token\":\"033afe4831c6415399baba9a25ef2c01\",\"r\":1,\"server_timing\":{\"name\":{\"cfCacheStatus\":true,\"cfEdge\":true,\"cfExtPri\":true,\"cfL4\":true,\"cfOrigin\":true,\"cfSpeedBrain\":true},\"location_startswith\":null}}' crossorigin=\"anonymous\"></script>\n</body></html>"
+    },
+    {
+      "time": "2026-04-16T16:05:48.216Z",
+      "status": 200,
+      "resourceType": "stylesheet",
+      "url": "https://player.hanime.tv/css/app.2148485c.css",
+      "headers": {
+        "content-encoding": "br",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"c1ed08cf6dd108046ce4205c823ed531\"",
+        "age": "2131413",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=y%2BqTnzb81HNYaD67fYUfKcgwrypefGn0k6t4bRmsiJGuRXBrrvxXxK0rcmBoDS%2B8kqXBEnjNzbWH7AKHBLqhtou60L4%2FJjOo%2FOEipj36Auws2mI8fuczHQMGYq4%3D\"}]}",
+        "x-content-type-options": "nosniff",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:47 GMT",
+        "content-type": "text/css; charset=utf-8",
+        "vary": "accept-encoding",
+        "content-security-policy": "frame-ancestors 'self' https://hanime.tv https://*.hanime.tv https://freeanimehentai.net https://*.freeanimehentai.net;",
+        "cache-control": "public, max-age=31536000, s-maxage=31536000, immutable",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "cf-ray": "9ed46efacb0b1ff3-SIN",
+        "access-control-allow-origin": "*",
+        "server": "cloudflare"
+      },
+      "bodySample": "#omni_player{width:100%;height:100%;position:relative}#omni_player .htv_video_poster{position:absolute;top:0;left:0;width:100%;height:100%;opacity:.75}#omni_player .htv_video_poster_play{font-size:64px;position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer}@media(min-width:600px){#omni_player .htv_video_poster_play{font-size:100px}}@media(min-width:1264px){#omni_player .htv_video_poster_play{font-size:128px}}#omni_player .htv_video.video-js{position:relative;width:100%;height:100%;overflow:hidden}#omni_player .htv_video.video-js :focus{outline:none}#omni_player .htv_video.video-js.wide video{width:auto;height:100vh}#omni_player .htv_video.video-js.tall video{width:100%;height:auto}#omni_player .htv_video.video-js video{position:absolute;top:50vh;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}#omni_player .htv_video.video-js .vjs-click-region{position:absolute;top:0;left:0;width:100%;height:100%}#omni_player .htv_video.video-js.vjs-quality-changing .vjs-control-bar{visibility:visible;opacity:1;display:-webkit-box;display:-ms-flexbox;display:flex}#omni_player .htv_video.video-js .vjs-big-play-button,#omni_player .htv_video.video-js .vjs-poster{display:none}#omni_player .htv_video.video-js .vjs-control-bar{position:fixed!important;width:100%;height:100px;padding-top:52px;background:-webkit-gradient(linear,left bottom,left top,from(rgba(0,0,0,.75)),to(transparent));background:linear-gradient(0deg,rgba(0,0,0,.75),transparent)}#omni_player .htv_video.video-js .vjs-control-bar .vjs-control{width:48px;height:48px}#omni_player .htv_video.video-js .vjs-control-bar .vjs-control .vjs-icon-placeholder:before{font-size:28px;margin:0 0 auto auto;position:absolute;top:0;left:0;bottom:0;right:0}#omni_player .htv_video.video-js .vjs-control-bar .vjs-spacer{-webkit-box-flex:1;-moz-flex:1;-ms-flex:1;flex:1}#omni_player .htv_video.video-js .vjs-control-bar .vjs-progress-control{position:absolute;bottom:48px;left:0;width:100%;cursor:default;height:32px}#omni_player .htv_video.video-js .vjs-control-bar .vjs-progress-control .vjs-thumbnail-holder{position:absolute;left:-1000px;bottom:48px;-webkit-transition:opacity .2s ease;transition:opacity .2s ease;border:5px solid #000;border-radius:3px;pointer-events:none;overflow:hidden;-webkit-box-shadow:0 0 10px rgba(0,0,0,.5);box-shadow:0 0 10px rgba(0,0,0,.5)}#omni_player .htv_video.video-js .vjs-control-bar .vjs-progress-control .vjs-thumbnail-holder .thumbnail-image{opacity:0;position:absolute}#omni_player .htv_video.video-js .vjs-control-bar .vjs-progress-control .vjs-progress-holder{height:32px;background-color:transparent;-webkit-box-shadow:none;box-shadow:none}#omni_player .htv_video.video-js .vjs-control-bar .vjs-progress-control .vjs-progress-holder:focus{outline:none}#omni_player .htv_video.video-js .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-load-progress,#omni_player .htv_video.video-js .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-play-progress,#omni_player .htv_video.video-js .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-progress-holder-visual{height:2px;margin:auto 0;position:absolute;top:0;left:0;bottom:0;right:0}#omni_player .htv_video.video-js .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-load-progress div{background-color:hsla(0,0%,100%,.3)}#omni_player .htv_video.video-js .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-progress-holder-visual{background-color:hsla(0,0%,100%,.1)}#omni_player .htv_video.video-js .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-mouse-display{bottom:0;pointer-events:none}#omni_player .htv_video.video-js .vjs-control-bar .vjs-icon-next-item{cursor:pointer}#omni_player .htv_video.video-js .vjs-control-bar .vjs-icon-next-item:before{font-size:32px}#omni_player .htv_video.video-js .vjs-control-bar .vjs-volume-panel{margin-right:64px;position:fixed;top:0;right:0}@media(min-width:600px){#omni_player .htv_video.v"
+    },
+    {
+      "time": "2026-04-16T16:05:48.218Z",
+      "status": 200,
+      "resourceType": "script",
+      "url": "https://player.hanime.tv/js/app.9ffad1a7.js",
+      "headers": {
+        "content-encoding": "br",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"abb19b5edeaf31154bf41a60c8a9e0e1\"",
+        "age": "1957760",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Q%2BMgMNELHCiX0WnVNcVUl7ZB0%2BAA6TCUZnHwwDv%2F2GEKq9dwYWaMVujhR1MeT7zjNRrs7aenpu7ChmQkQJEpi5ppYWQHbc8wpSShVf6FUyxNNBvW%2BfHq79F7Xqc%3D\"}]}",
+        "x-content-type-options": "nosniff",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:47 GMT",
+        "content-type": "application/javascript",
+        "vary": "accept-encoding",
+        "content-security-policy": "frame-ancestors 'self' https://hanime.tv https://*.hanime.tv https://freeanimehentai.net https://*.freeanimehentai.net;",
+        "cache-control": "public, max-age=31536000, s-maxage=31536000, immutable",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "cf-ray": "9ed46efacb0f1ff3-SIN",
+        "access-control-allow-origin": "*",
+        "server": "cloudflare"
+      },
+      "bodySample": "(function(){\"use strict\";var e={1297:function(e,t,i){var s=Vue,r=i.n(s),o=function(){var e=this,t=e._self._c;return t(\"div\",{attrs:{id:\"omni_player\"}},[e.url?t(\"video\",{ref:\"video_ref\",staticClass:\"htv_video video-js vjs-default-skin vjs-has-started\",attrs:{id:\"primary_video\",controls:\"\",preload:\"auto\",playsinline:\"\",autoplay:\"\"}}):e._e()])},n=[],a=(i(8111),i(7588),{components:{},data(){return{is_dev:!1,is_ios:!1,is_mac:!1,is_safari:!1,is_in_full_browser_screen:!1,is_autoplay:!1,browser_width:0,browser_height:0,url:null,resolutions:null,hv_id:null,hv_slug:null,player:null,is_local_storage_available:this.isStorageAvailable(\"localStorage\"),storyboards:[],videos_manifest:null,selected_server:null,selected_video_stream:null}},beforeMount(){let e=navigator.userAgent;this.is_mac=/Mac/i.test(navigator.platform),this.is_ios=/(iPhone|iPad|iPod)/.test(e),this.is_safari=/^((?!chrome|android).)*safari/i.test(e),this.updateBrowserDimensions()},mounted(){window.App=this,this.initialize(),this.setPlayerSizingClass();let e=this;window.addEventListener(\"resize\",function(){e.updateBrowserDimensions(),e.setPlayerSizingClass()},!0)},methods:{onWindowMessage(e){if(e.data)if(\"VIDEOS_MANIFEST_RESPONSE\"==e.data.kind)l(\"received event VIDEOS_MANIFEST_RESPONSE\"),l(\"response:\",e.data),this.videos_manifest=e.data.videos_manifest,this.selected_server=e.data.selected_server,this.selected_video_stream=e.data.selected_video_stream,this.url=this.selected_video_stream.url,r().nextTick(this.continueInitialize);else if(\"VIDEO_PLAYBACK_SPEED_CHANGE\"==e.data.kind){l(\"received event VIDEO_PLAYBACK_SPEED_CHANGE\");let t=e.data.kind_id;this.onVideoPlaybackSpeedChange(t)}else\"VIDEO_STREAM_CHANGE\"==e.data.kind&&this.onVideoStreamChange(e.data.server,e.data.video_stream)},initialize(){window.addEventListener(\"message\",this.onWindowMessage,!1);let e=window.location.hash.replace(\"#\",\"\");if(e.indexOf(\",\")>-1){let t=e.split(\",\"),i=t[0];\"v2\"==i&&(this.hv_id=t[1],this.hv_slug=t[2],l(\"hv_id:\",this.hv_id),l(\"hv_slug:\",this.hv_slug),this.requestVideosManifest())}else this.url=decodeURIComponent(e),this.hv_id=this.getHVIDFromQueryString(),r().nextTick(this.continueInitialize)},continueInitialize(){this.is_mac&&this.$refs.video_ref&&(this.$refs.video_ref.muted=!0);let e={chromecast:{appId:\"hanime.tv\",metadata:{title:\"hanime.tv Player\",subtitle:\"\"}},controlBar:{children:{playToggle:{},progressControl:{},volumePanel:{},currentTimeDisplay:{},timeDivider:{},durationDisplay:{},spacer:{},qualitySelector:{},fullscreenToggle:{}}}},t=this;this.player=videojs(this.$refs.video_ref,e),this.player.fill(!0),this.player.aspectRatio(\"16:9\"),this.configureThumbnails();let i=videojs.getComponent(\"Button\"),s=videojs.extend(i,{constructor:function(){i.apply(this,arguments),this.addClass(\"vjs-icon-next-item\"),this.controlText(\"Next\")},handleClick:function(){t.player.userActive()&&parent&&t.nextVideo()}});videojs.registerComponent(\"NextVideoButton\",s),this.player.getChild(\"controlBar\").addChild(\"NextVideoButton\",{},1);let r=videojs.extend(i,{constructor:function(){i.apply(this,arguments),this.addClass(\"vjs-icon-cog\"),this.controlText(\"Settings\")},handleClick:function(e){t.openVideoSettingsMenu(),e.stopPropagation()}});videojs.registerComponent(\"SettingsMenuButton\",r),this.player.getChild(\"controlBar\").addChild(\"SettingsMenuButton\",{},8);let o=videojs.extend(i,{constructor:function(){i.apply(this,arguments),this.addClass(\"vjs-icon-square\"),this.controlText(\"Maximize\")},handleClick:function(e){t.toggleFullBrowserScreen(),e.stopPropagation()}});videojs.registerComponent(\"FullBrowserScreenButton\",o),this.player.getChild(\"controlBar\").addChild(\"FullBrowserScreenButton\",{},9);let n=document.createElement(\"div\");n.className=\"vjs-progress-holder-visual\";let a=document.querySelector(\".vjs-load-progress\");if(a.parentNode.insertBefore(n,a),this.browser_width<960){let e=document.createElement(\"div\");e.className=\"vjs-click-region\",e.addEventListener(\"click\",()=>{this.player.userActive()&&(this.player.paused()?this.p"
+    },
+    {
+      "time": "2026-04-16T16:05:48.219Z",
+      "status": 200,
+      "resourceType": "script",
+      "url": "https://player.hanime.tv/videojs.thumbnails.modded-1.0.5.js",
+      "headers": {
+        "content-encoding": "br",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"e9f7dd72f3c7fbc2c219ebd721b7af4c\"",
+        "age": "2033452",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=hA6RiTlq6pTfjjr2pMCl3FmZL83HVB%2BzWN2zXkHvO7aOiZxHctCkk%2BZjUqGN%2B9kP280J9kylvr3yj6wW2stDlMv0rcSxFGi0ZRQqMUs4KuN9PF7ezJcWJXeoUXA%3D\"}]}",
+        "x-content-type-options": "nosniff",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:47 GMT",
+        "content-type": "application/javascript",
+        "vary": "accept-encoding",
+        "content-security-policy": "frame-ancestors 'self' https://hanime.tv https://*.hanime.tv https://freeanimehentai.net https://*.freeanimehentai.net;",
+        "cache-control": "public, max-age=31536000, s-maxage=31536000, immutable",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "cf-ray": "9ed46efacb141ff3-SIN",
+        "access-control-allow-origin": "*",
+        "server": "cloudflare"
+      },
+      "bodySample": "(function() {\n  var defaults = {\n      0: {\n        src: 'example-thumbnail.png'\n      }\n    },\n    extend = function() {\n      var args, target, i, object, property;\n      args = Array.prototype.slice.call(arguments);\n      target = args.shift() || {};\n      for (i in args) {\n        object = args[i];\n        for (property in object) {\n          if (object.hasOwnProperty(property)) {\n            if (typeof object[property] === 'object') {\n              target[property] = extend(target[property], object[property]);\n            } else {\n              target[property] = object[property];\n            }\n          }\n        }\n      }\n      return target;\n    },\n    getComputedStyle = function(el, pseudo) {\n      return function(prop) {\n        if (window.getComputedStyle) {\n          return window.getComputedStyle(el, pseudo)[prop];\n        } else {\n          return el.currentStyle[prop];\n        }\n      };\n    },\n    offsetParent = function(el) {\n      if (el.nodeName !== 'HTML' && getComputedStyle(el)('position') === 'static') {\n        return offsetParent(el.offsetParent);\n      }\n      return el;\n    },\n    getVisibleWidth = function(el, width) {\n      var clip;\n\n      if (width) {\n        return parseFloat(width);\n      }\n\n      clip = getComputedStyle(el)('clip');\n      if (clip !== 'auto' && clip !== 'inherit') {\n        clip = clip.split(/(?:\\(|\\))/)[1].split(/(?:,| )/);\n        if (clip.length === 4) {\n          return (parseFloat(clip[1]) - parseFloat(clip[3]));\n        }\n      }\n      return 0;\n    },\n    getScrollOffset = function() {\n      if (window.pageXOffset) {\n        return {\n          x: window.pageXOffset,\n          y: window.pageYOffset\n        };\n      }\n      return {\n        x: document.documentElement.scrollLeft,\n        y: document.documentElement.scrollTop\n      };\n    };\n\n  /**\n   * register the thubmnails plugin\n   */\n  videojs.registerPlugin('thumbnails', function(options) {\n    var div, settings, player, progressControl, duration, moveListener, moveCancel;\n    settings = extend({}, defaults, options);\n    player = this;\n\n    var storyboard_url = ''\n    if (settings.storyboards && settings.storyboards[0] && settings.storyboards[0].url) {\n      storyboard_url = settings.storyboards[0].url\n    }\n\n    (function() {\n      var progressControl, addFakeActive, removeFakeActive;\n      // Android doesn't support :active and :hover on non-anchor and non-button elements\n      // so, we need to fake the :active selector for thumbnails to show up.\n      if (navigator.userAgent.toLowerCase().indexOf(\"android\") !== -1) {\n        progressControl = player.controlBar.progressControl;\n\n        addFakeActive = function() {\n          progressControl.addClass('fake-active');\n        };\n        removeFakeActive = function() {\n          progressControl.removeClass('fake-active');\n        };\n\n        progressControl.on('touchstart', addFakeActive);\n        progressControl.on('touchend', removeFakeActive);\n        progressControl.on('touchcancel', removeFakeActive);\n      }\n    })();\n\n    // create the thumbnail\n    div = document.createElement('div');\n    div.className = 'vjs-thumbnail-holder';\n    extend(div.style, settings.style);\n\n    // keep track of the duration to calculate correct thumbnail to display\n    duration = player.duration();\n\n    // when the container is MP4\n    player.on('durationchange', function(event) {\n      duration = player.duration();\n    });\n\n    // when the container is HLS\n    player.on('loadedmetadata', function(event) {\n      duration = player.duration();\n    });\n\n    // add the thumbnail to the player\n    progressControl = player.controlBar.progressControl;\n    progressControl.el().appendChild(div);\n\n    moveListener = function(event) {\n      var left, pageX, right, pageXOffset, clientRect;\n      pageXOffset = getScrollOffset().x;\n      clientRect = offsetParent(progressControl.el()).getBoundingClientRect();\n      right = (clientRect.width || clientRect.right) + pageXOffset;\n\n      pageX = event"
+    },
+    {
+      "time": "2026-04-16T16:05:48.248Z",
+      "status": 200,
+      "resourceType": "script",
+      "url": "https://player.hanime.tv/js/chunk-vendors.2b7f19c2.js",
+      "headers": {
+        "content-encoding": "br",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"b805fd958ecb65bd71b8d3e7bd0f9380\"",
+        "age": "1962498",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=8vI5e2YqvJ8TBBmcyw90xQZY5iVRWluoQcbJuxhyXpY2daeVyd4swiW3oT%2BimVA0EUW%2Bdlo7OFOBe6hJQ2SI0cXF1XGA0sJY2W6eXjQ69LjBalB77IsDyOYglXY%3D\"}]}",
+        "x-content-type-options": "nosniff",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:47 GMT",
+        "content-type": "application/javascript",
+        "vary": "accept-encoding",
+        "content-security-policy": "frame-ancestors 'self' https://hanime.tv https://*.hanime.tv https://freeanimehentai.net https://*.freeanimehentai.net;",
+        "cache-control": "public, max-age=31536000, s-maxage=31536000, immutable",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "cf-ray": "9ed46efabae51ff3-SIN",
+        "access-control-allow-origin": "*",
+        "server": "cloudflare"
+      },
+      "bodySample": "\"use strict\";(self[\"webpackChunkplayer\"]=self[\"webpackChunkplayer\"]||[]).push([[504],{34:function(t,n,r){var e=r(4901);t.exports=function(t){return\"object\"==typeof t?null!==t:e(t)}},81:function(t,n,r){var e=r(9565),o=r(9306),i=r(8551),u=r(6823),c=r(851),f=TypeError;t.exports=function(t,n){var r=arguments.length<2?c(t):n;if(o(r))return i(e(r,t));throw new f(u(t)+\" is not iterable\")}},283:function(t,n,r){var e=r(9504),o=r(9039),i=r(4901),u=r(9297),c=r(3724),f=r(350).CONFIGURABLE,a=r(3706),s=r(1181),p=s.enforce,l=s.get,v=String,y=Object.defineProperty,h=e(\"\".slice),b=e(\"\".replace),d=e([].join),g=c&&!o(function(){return 8!==y(function(){},\"length\",{value:8}).length}),x=String(String).split(\"String\"),m=t.exports=function(t,n,r){\"Symbol(\"===h(v(n),0,7)&&(n=\"[\"+b(v(n),/^Symbol\\(([^)]*)\\).*$/,\"$1\")+\"]\"),r&&r.getter&&(n=\"get \"+n),r&&r.setter&&(n=\"set \"+n),(!u(t,\"name\")||f&&t.name!==n)&&(c?y(t,\"name\",{value:n,configurable:!0}):t.name=n),g&&r&&u(r,\"arity\")&&t.length!==r.arity&&y(t,\"length\",{value:r.arity});try{r&&u(r,\"constructor\")&&r.constructor?c&&y(t,\"prototype\",{writable:!1}):t.prototype&&(t.prototype=void 0)}catch(o){}var e=p(t);return u(e,\"source\")||(e.source=d(x,\"string\"==typeof n?n:\"\")),t};Function.prototype.toString=m(function(){return i(this)&&l(this).source||a(this)},\"toString\")},350:function(t,n,r){var e=r(3724),o=r(9297),i=Function.prototype,u=e&&Object.getOwnPropertyDescriptor,c=o(i,\"name\"),f=c&&\"something\"===function(){}.name,a=c&&(!e||e&&u(i,\"name\").configurable);t.exports={EXISTS:c,PROPER:f,CONFIGURABLE:a}},397:function(t,n,r){var e=r(7751);t.exports=e(\"document\",\"documentElement\")},421:function(t){t.exports={}},616:function(t,n,r){var e=r(9039);t.exports=!e(function(){var t=function(){}.bind();return\"function\"!=typeof t||t.hasOwnProperty(\"prototype\")})},679:function(t,n,r){var e=r(1625),o=TypeError;t.exports=function(t,n){if(e(n,t))return t;throw new o(\"Incorrect invocation\")}},741:function(t){var n=Math.ceil,r=Math.floor;t.exports=Math.trunc||function(t){var e=+t;return(e>0?r:n)(e)}},757:function(t,n,r){var e=r(7751),o=r(4901),i=r(1625),u=r(7040),c=Object;t.exports=u?function(t){return\"symbol\"==typeof t}:function(t){var n=e(\"Symbol\");return o(n)&&i(n.prototype,c(t))}},851:function(t,n,r){var e=r(6955),o=r(5966),i=r(4117),u=r(6269),c=r(8227),f=c(\"iterator\");t.exports=function(t){if(!i(t))return o(t,f)||o(t,\"@@iterator\")||u[e(t)]}},1072:function(t,n,r){var e=r(1828),o=r(8727);t.exports=Object.keys||function(t){return e(t,o)}},1181:function(t,n,r){var e,o,i,u=r(8622),c=r(4576),f=r(34),a=r(6699),s=r(9297),p=r(7629),l=r(6119),v=r(421),y=\"Object already initialized\",h=c.TypeError,b=c.WeakMap,d=function(t){return i(t)?o(t):e(t,{})},g=function(t){return function(n){var r;if(!f(n)||(r=o(n)).type!==t)throw new h(\"Incompatible receiver, \"+t+\" required\");return r}};if(u||p.state){var x=p.state||(p.state=new b);x.get=x.get,x.has=x.has,x.set=x.set,e=function(t,n){if(x.has(t))throw new h(y);return n.facade=t,x.set(t,n),n},o=function(t){return x.get(t)||{}},i=function(t){return x.has(t)}}else{var m=l(\"state\");v[m]=!0,e=function(t,n){if(s(t,m))throw new h(y);return n.facade=t,a(t,m,n),n},o=function(t){return s(t,m)?t[m]:{}},i=function(t){return s(t,m)}}t.exports={set:e,get:o,has:i,enforce:d,getterFor:g}},1291:function(t,n,r){var e=r(741);t.exports=function(t){var n=+t;return n!==n||0===n?0:e(n)}},1625:function(t,n,r){var e=r(9504);t.exports=e({}.isPrototypeOf)},1656:function(t,n,r){function e(t,n,r,e,o,i,u,c){var f,a=\"function\"===typeof t?t.options:t;if(n&&(a.render=n,a.staticRenderFns=r,a._compiled=!0),e&&(a.functional=!0),i&&(a._scopeId=\"data-v-\"+i),u?(f=function(t){t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,t||\"undefined\"===typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),o&&o.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(u)},a._ssrRegister=f):o&&(f=c?function(){o.call(this,(a.functional?this.parent:this).$root.$options.shadowRoot)}:o),f)if(a.fun"
+    },
+    {
+      "time": "2026-04-16T16:05:48.449Z",
+      "status": 200,
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/api/v8/hentai_videos/cool-de-m-2/play",
+      "headers": {
+        "x-request-id": "63704b82-2ce9-4724-a0a4-bc0e9be21815",
+        "content-encoding": "zstd",
+        "cf-cache-status": "DYNAMIC",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=wMi35ETMaMZG4%2BuBK9k59sXCsm3eln5dZrNLgPZgQfagPNP%2FrotrvrbU5rBsjmreNuS0JDPAPTlFePBHZvk1M2OGlSbVG0N3BPVd7of2QZGDALLf4GjtfepXP3uq3Dz%2BvYKgRFb%2Botfosls%2FXQ%3D%3D\"}]}",
+        "access-control-allow-methods": "GET,POST,PUT,PATCH,DELETE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:47 GMT",
+        "content-type": "application/json",
+        "x-runtime": "0.002689",
+        "access-control-allow-headers": "content-type,authorization,x-signature,x-signature-version,x-time,x-directive,x-token,x-user-license,x-license,x-session-token,x-csrf-token",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "no-cache",
+        "access-control-allow-credentials": "true",
+        "cf-ray": "9ed46efb2bccc189-SIN",
+        "access-control-allow-origin": "https://hanime.tv",
+        "server": "cloudflare"
+      },
+      "bodySample": ""
+    },
+    {
+      "time": "2026-04-16T16:05:48.620Z",
+      "status": 204,
+      "resourceType": "xhr",
+      "url": "https://player.hanime.tv/cdn-cgi/rum?",
+      "headers": {
+        "access-control-max-age": "86400",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ry%2Bbs%2Bs9SPmAHb3V4Cz3ttOTY7R7QYMWy6Her41osLG8F6wprh2WvehYupJy%2B6toTnBTRbKIhJZkSXQK68lde9M8lju2nsh7zcFDGkTBDX39kroPEG2Iz0xv5S6UGS8xqAii\"}]}",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "POST,OPTIONS",
+        "cf-ray": "9ed46efd49d41ff3-SIN",
+        "access-control-allow-origin": "https://player.hanime.tv",
+        "date": "Thu, 16 Apr 2026 16:05:47 GMT",
+        "content-type": "text/plain",
+        "vary": "Origin",
+        "server": "cloudflare"
+      },
+      "bodySample": ""
+    },
+    {
+      "time": "2026-04-16T16:05:48.887Z",
+      "status": 200,
+      "resourceType": "fetch",
+      "url": "https://cached.freeanimehentai.net/api/v8/guest/videos/3427/manifest",
+      "headers": {
+        "x-request-id": "e31a4007-947a-45f7-8df7-cc6bd81cc350",
+        "content-encoding": "zstd",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"4f91ac2856b81efa1c0e2f34d1855bbb\"",
+        "age": "89",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=POdZ6KFdfRvts1tzthrtjGLpagKyAXKbNW97e3iJicQ3COBq6VBNyJVIU4TaHsPFRQPrHMIH3wmlm0b8wnwU4fJj1vxeXGtYOOdx%2FCkH2h1qV1T%2Bz7MqAwqFdVWEuGnd3mFoVl3UuN5Srm3NqA%3D%3D\"}]}",
+        "access-control-allow-methods": "GET,POST,PUT,PATCH,DELETE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:47 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "vary": "authorization, cookie",
+        "x-runtime": "0.004852",
+        "access-control-allow-headers": "content-type,authorization,x-signature,x-signature-version,x-time,x-directive,x-token,x-user-license,x-license,x-session-token,x-csrf-token",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=0, public, s-maxage=120",
+        "access-control-allow-credentials": "true",
+        "cf-ray": "9ed46efeacf5c189-SIN",
+        "access-control-allow-origin": "https://hanime.tv",
+        "server": "cloudflare"
+      },
+      "bodySample": "{\"videos_manifest\":{\"servers\":[{\"id\":14,\"name\":\"Golem\",\"slug\":\"golem\",\"na_rating\":3,\"eu_rating\":3,\"asia_rating\":3,\"sequence\":70,\"is_permanent\":true,\"streams\":[{\"id\":86323,\"server_id\":14,\"slug\":\"golem-3427-cool-de-m-2-h1x-720\",\"kind\":\"hls\",\"extension\":\"m3u8\",\"mime_type\":\"application/x-mpegURL\",\"width\":1280,\"height\":\"720\",\"duration_in_ms\":1499000,\"filesize_mbs\":275,\"filename\":\"cool-de-m-2-720p-h1x.mp4-h1x.m3u8\",\"url\":\"https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/s3snkAsfAspvxmwhzzwzf20gsyZlf62dsr7vx9qnxpwsvwv1f8g41.m3u8\",\"is_guest_allowed\":true,\"is_member_allowed\":true,\"is_premium_allowed\":true,\"is_downloadable\":false,\"compatibility\":\"all\",\"hv_id\":3427,\"server_sequence\":70,\"video_stream_group_id\":\"cool-de-m-2-h1x\",\"extra2\":null},{\"id\":86320,\"server_id\":14,\"slug\":\"golem-3427-cool-de-m-2-h1x-480\",\"kind\":\"hls\",\"extension\":\"m3u8\",\"mime_type\":\"application/x-mpegURL\",\"width\":854,\"height\":\"480\",\"duration_in_ms\":1499000,\"filesize_mbs\":116,\"filename\":\"cool-de-m-2-480p-h1x.mp4-h1x.m3u8\",\"url\":\"https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/Amj1yglr6ht8hwyv7z3dwrbvv1Zmx7pj7njg3g0t7bzqdr4f0v0r7.m3u8\",\"is_guest_allowed\":true,\"is_member_allowed\":true,\"is_premium_allowed\":true,\"is_downloadable\":false,\"compatibility\":\"all\",\"hv_id\":3427,\"server_sequence\":70,\"video_stream_group_id\":\"cool-de-m-2-h1x\",\"extra2\":null},{\"id\":86317,\"server_id\":14,\"slug\":\"golem-3427-cool-de-m-2-h1x-360\",\"kind\":\"hls\",\"extension\":\"m3u8\",\"mime_type\":\"application/x-mpegURL\",\"width\":640,\"height\":\"360\",\"duration_in_ms\":1499000,\"filesize_mbs\":86,\"filename\":\"cool-de-m-2-360p-h1x.mp4-h1x.m3u8\",\"url\":\"https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/81bbf26q53dAbgf962d7yyp1d3ZcvldfmrsgAr2l142xwAtv3Ak92.m3u8\",\"is_guest_allowed\":true,\"is_member_allowed\":true,\"is_premium_allowed\":true,\"is_downloadable\":false,\"compatibility\":\"all\",\"hv_id\":3427,\"server_sequence\":70,\"video_stream_group_id\":\"cool-de-m-2-h1x\",\"extra2\":null}]}]}}"
+    },
+    {
+      "time": "2026-04-16T16:05:48.940Z",
+      "status": 200,
+      "resourceType": "script",
+      "url": "blob:https://player.hanime.tv/ba9992fb-d806-4274-bbf5-f46408f04543",
+      "headers": {
+        "content-type": "application/javascript",
+        "content-length": "79884"
+      },
+      "bodySample": "var browserWorkerPolyFill = function iu(e){return e.on=e.addEventListener,e.off=e.removeEventListener,e};\nbrowserWorkerPolyFill(self);\nvar e=function(){this.init=function(){var a={};this.on=function(e,t){a[e]||(a[e]=[]),a[e]=a[e].concat(t)},this.off=function(e,t){return!!a[e]&&(t=a[e].indexOf(t),a[e]=a[e].slice(),a[e].splice(t,1),-1<t)},this.trigger=function(e){var t,i,n,r=a[e];if(r)if(2===arguments.length)for(i=r.length,t=0;t<i;++t)r[t].call(this,arguments[1]);else{for(n=[],t=arguments.length,t=1;t<arguments.length;++t)n.push(arguments[t]);for(i=r.length,t=0;t<i;++t)r[t].apply(this,n)}},this.dispose=function(){a={}}}};e.prototype.pipe=function(t){return this.on(\"data\",function(e){t.push(e)}),this.on(\"done\",function(e){t.flush(e)}),this.on(\"partialdone\",function(e){t.partialFlush(e)}),this.on(\"endedtimeline\",function(e){t.endTimeline(e)}),this.on(\"reset\",function(e){t.reset(e)}),t},e.prototype.push=function(e){this.trigger(\"data\",e)},e.prototype.flush=function(e){this.trigger(\"done\",e)},e.prototype.partialFlush=function(e){this.trigger(\"partialdone\",e)},e.prototype.endTimeline=function(e){this.trigger(\"endedtimeline\",e)},e.prototype.reset=function(e){this.trigger(\"reset\",e)};var u,t,i,n,r,a,s,o,l,d,c,h,p,f,m,g,y,v,_,b,T,S,w,E,k,C,I,x,A,P,L,D,O,M,R,N,U,B,F,j=e,H=Math.pow(2,32),q={getUint64:function(e){var t=new DataView(e.buffer,e.byteOffset,e.byteLength);return t.getBigUint64?(e=t.getBigUint64(0))<Number.MAX_SAFE_INTEGER?Number(e):e:t.getUint32(0)*H+t.getUint32(4)},MAX_UINT32:H},V=q.MAX_UINT32;!function(){if(T={avc1:[],avcC:[],btrt:[],dinf:[],dref:[],esds:[],ftyp:[],hdlr:[],mdat:[],mdhd:[],mdia:[],mfhd:[],minf:[],moof:[],moov:[],mp4a:[],mvex:[],mvhd:[],pasp:[],sdtp:[],smhd:[],stbl:[],stco:[],stsc:[],stsd:[],stsz:[],stts:[],styp:[],tfdt:[],tfhd:[],traf:[],trak:[],trun:[],trex:[],tkhd:[],vmhd:[]},\"undefined\"!=typeof Uint8Array){for(var e in T)T.hasOwnProperty(e)&&(T[e]=[e.charCodeAt(0),e.charCodeAt(1),e.charCodeAt(2),e.charCodeAt(3)]);S=new Uint8Array([\"i\".charCodeAt(0),\"s\".charCodeAt(0),\"o\".charCodeAt(0),\"m\".charCodeAt(0)]),E=new Uint8Array([\"a\".charCodeAt(0),\"v\".charCodeAt(0),\"c\".charCodeAt(0),\"1\".charCodeAt(0)]),w=new Uint8Array([0,0,0,1]),k=new Uint8Array([0,0,0,0,0,0,0,0,118,105,100,101,0,0,0,0,0,0,0,0,0,0,0,0,86,105,100,101,111,72,97,110,100,108,101,114,0]),C=new Uint8Array([0,0,0,0,0,0,0,0,115,111,117,110,0,0,0,0,0,0,0,0,0,0,0,0,83,111,117,110,100,72,97,110,100,108,101,114,0]),I={video:k,audio:C},P=new Uint8Array([0,0,0,0,0,0,0,1,0,0,0,12,117,114,108,32,0,0,0,1]),A=new Uint8Array([0,0,0,0,0,0,0,0]),L=new Uint8Array([0,0,0,0,0,0,0,0]),D=L,O=new Uint8Array([0,0,0,0,0,0,0,0,0,0,0,0]),M=L,x=new Uint8Array([0,0,0,1,0,0,0,0,0,0,0,0])}}(),u=function(e){for(var t,i=[],n=0,r=1;r<arguments.length;r++)i.push(arguments[r]);for(r=i.length;r--;)n+=i[r].byteLength;for(t=new Uint8Array(n+8),new DataView(t.buffer,t.byteOffset,t.byteLength).setUint32(0,t.byteLength),t.set(e,4),r=0,n=8;r<i.length;r++)t.set(i[r],n),n+=i[r].byteLength;return t},t=function(){return u(T.dinf,u(T.dref,P))},i=function(e){return u(T.esds,new Uint8Array([0,0,0,0,3,25,0,0,0,4,17,64,21,0,6,0,0,0,218,192,0,0,218,192,5,2,e.audioobjecttype<<3|e.samplingfrequencyindex>>>1,e.samplingfrequencyindex<<7|e.channelcount<<3,6,1,2]))},f=function(e){return u(T.hdlr,I[e])},p=function(e){var t=new Uint8Array([0,0,0,0,0,0,0,2,0,0,0,3,0,1,95,144,e.duration>>>24&255,e.duration>>>16&255,e.duration>>>8&255,255&e.duration,85,196,0,0]);return e.samplerate&&(t[12]=e.samplerate>>>24&255,t[13]=e.samplerate>>>16&255,t[14]=e.samplerate>>>8&255,t[15]=255&e.samplerate),u(T.mdhd,t)},h=function(e){return u(T.mdia,p(e),f(e.type),a(e))},r=function(e){return u(T.mfhd,new Uint8Array([0,0,0,0,(4278190080&e)>>24,(16711680&e)>>16,(65280&e)>>8,255&e]))},a=function(e){return u(T.minf,\"video\"===e.type?u(T.vmhd,x):u(T.smhd,A),t(),g(e))},We=function(e,t){for(var i=[],n=t.length;n--;)i[n]=v(t[n]);return u.apply(null,[T.moof,r(e)].concat(i))},s=function(e){for(var t=e.length,i=[];t--;)i[t]=d(e[t]);return u.appl"
+    },
+    {
+      "time": "2026-04-16T16:05:48.959Z",
+      "status": 200,
+      "resourceType": "script",
+      "url": "blob:https://player.hanime.tv/43326eb9-0e9c-4535-b53d-6d497cfa718b",
+      "headers": {
+        "content-type": "application/javascript",
+        "content-length": "6002"
+      },
+      "bodySample": "var browserWorkerPolyFill = function iu(e){return e.on=e.addEventListener,e.off=e.removeEventListener,e};\nbrowserWorkerPolyFill(self);\nvar e=\"undefined\"!=typeof globalThis?globalThis:\"undefined\"!=typeof window?window:\"undefined\"!=typeof global?global:\"undefined\"!=typeof self?self:{};function t(e,t,i){return e(i={path:t,exports:{},require:function(e,t){return function(){throw new Error(\"Dynamic requires are not currently supported by @rollup/plugin-commonjs\")}(null==t&&i.path)}},i.exports),i.exports}var i=t(function(e){function n(e,t){for(var i=0;i<t.length;i++){var n=t[i];n.enumerable=n.enumerable||!1,n.configurable=!0,\"value\"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}e.exports=function(e,t,i){return t&&n(e.prototype,t),i&&n(e,i),e},e.exports.default=e.exports,e.exports.__esModule=!0}),n=t(function(i){function n(e,t){return i.exports=n=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e},i.exports.default=i.exports,i.exports.__esModule=!0,n(e,t)}i.exports=n,i.exports.default=i.exports,i.exports.__esModule=!0}),r=t(function(e){e.exports=function(e,t){e.prototype=Object.create(t.prototype),e.prototype.constructor=e,n(e,t)},e.exports.default=e.exports,e.exports.__esModule=!0}),a=function(){function e(){this.listeners={}}var t=e.prototype;return t.on=function(e,t){this.listeners[e]||(this.listeners[e]=[]),this.listeners[e].push(t)},t.off=function(e,t){if(!this.listeners[e])return!1;t=this.listeners[e].indexOf(t);return this.listeners[e]=this.listeners[e].slice(0),this.listeners[e].splice(t,1),-1<t},t.trigger=function(e){var t=this.listeners[e];if(t)if(2===arguments.length)for(var i=t.length,n=0;n<i;++n)t[n].call(this,arguments[1]);else for(var r=Array.prototype.slice.call(arguments,1),a=t.length,s=0;s<a;++s)t[s].apply(this,r)},t.dispose=function(){this.listeners={}},t.pipe=function(t){this.on(\"data\",function(e){t.push(e)})},e}();\n/*! @name aes-decrypter @version 3.1.3 @license Apache-2.0 */\nvar d=null,m=function(){function e(e){var t,i,n;d=d||function(){for(var e,t,i,n,r,a,s,o=[[[],[],[],[],[]],[[],[],[],[],[]]],u=o[0],l=o[1],d=u[4],c=l[4],h=[],p=[],f=0;f<256;f++)p[(h[f]=f<<1^283*(f>>7))^f]=f;for(e=t=0;!d[e];e^=i||1,t=p[t]||1)for(s=16843009*h[n=h[i=h[c[d[e]=r=(r=t^t<<1^t<<2^t<<3^t<<4)>>8^255&r^99]=e]]]^65537*n^257*i^16843008*e,a=257*h[r]^16843008*r,f=0;f<4;f++)u[f][e]=a=a<<24^a>>>8,l[f][r]=s=s<<24^s>>>8;for(f=0;f<5;f++)u[f]=u[f].slice(0),l[f]=l[f].slice(0);return o}(),this._tables=[[d[0][0].slice(),d[0][1].slice(),d[0][2].slice(),d[0][3].slice(),d[0][4].slice()],[d[1][0].slice(),d[1][1].slice(),d[1][2].slice(),d[1][3].slice(),d[1][4].slice()]];var r=this._tables[0][4],a=this._tables[1],s=e.length,o=1;if(4!==s&&6!==s&&8!==s)throw new Error(\"Invalid aes key size\");var u=e.slice(0),l=[];for(this._key=[u,l],t=s;t<4*s+28;t++)n=u[t-1],(t%s==0||8===s&&t%s==4)&&(n=r[n>>>24]<<24^r[n>>16&255]<<16^r[n>>8&255]<<8^r[255&n],t%s==0&&(n=n<<8^n>>>24^o<<24,o=o<<1^283*(o>>7))),u[t]=u[t-s]^n;for(i=0;t;i++,t--)n=u[3&i?t:t-4],l[i]=t<=4||i<4?n:a[0][r[n>>>24]]^a[1][r[n>>16&255]]^a[2][r[n>>8&255]]^a[3][r[255&n]]}return e.prototype.decrypt=function(e,t,i,n,r,a){for(var s,o,u,l=this._key[1],d=e^l[0],c=n^l[1],h=i^l[2],p=t^l[3],f=l.length/4-2,m=4,t=this._tables[1],g=t[0],y=t[1],v=t[2],_=t[3],b=t[4],T=0;T<f;T++)s=g[d>>>24]^y[c>>16&255]^v[h>>8&255]^_[255&p]^l[m],o=g[c>>>24]^y[h>>16&255]^v[p>>8&255]^_[255&d]^l[m+1],u=g[h>>>24]^y[p>>16&255]^v[d>>8&255]^_[255&c]^l[m+2],p=g[p>>>24]^y[d>>16&255]^v[c>>8&255]^_[255&h]^l[m+3],m+=4,d=s,c=o,h=u;for(T=0;T<4;T++)r[(3&-T)+a]=b[d>>>24]<<24^b[c>>16&255]<<16^b[h>>8&255]<<8^b[255&p]^l[m++],s=d,d=c,c=h,h=p,p=s},e}(),l=function(t){function e(){var e=t.call(this,a)||this;return e.jobs=[],e.delay=1,e.timeout_=null,e}r(e,t);var i=e.prototype;return i.processJob_=function(){this.jobs.shift()(),this.jobs.length?this.timeout_=setTimeout(this.processJob_.bind(this),this.delay):this.timeout_=null},i.push=function(e){this.jobs.push(e),this.timeout_||(this.timeout_=setTimeout(this.processJob_.bind(this),this.delay))},e"
+    },
+    {
+      "time": "2026-04-16T16:05:48.962Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://cached.freeanimehentai.net/rapi/v7/hentai_video_storyboards?hv_id=3427",
+      "headers": {
+        "x-request-id": "62620f1f-2a2e-4b3e-b57c-4a3a70b98325",
+        "content-encoding": "zstd",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"341ac0ecfbfc0e07256dd9740e0ceeea\"",
+        "age": "79209",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=H3Yym2qNr3eZIxcmKiDSx7VHQNnmKc%2BRrQa3OKQ4oU8201QhHBk1%2Fbbqa%2FK%2Bc2RW1B6aZgSZQUU%2FpTpLbx3W5oF16XEVDuHWjIQhNrSql8ZOh3Mrfjy95FZjJCoKCZ%2BtQ99MlaZ%2BROa%2FRIiqZg%3D%3D\"}]}",
+        "access-control-allow-methods": "GET,POST,PUT,PATCH,DELETE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:48 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-runtime": "0.005265",
+        "access-control-allow-headers": "content-type,authorization,x-signature,x-signature-version,x-time,x-directive,x-token,x-user-license,x-license,x-session-token,x-csrf-token",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=0, public, s-maxage=86400",
+        "access-control-allow-credentials": "true",
+        "cf-ray": "9ed46eff2e89c189-SIN",
+        "access-control-allow-origin": "https://player.hanime.tv",
+        "server": "cloudflare"
+      },
+      "bodySample": "{\"hv_slug\":\"cool-de-m-2\",\"hentai_video_storyboards\":[{\"id\":15364,\"num_total_storyboards\":1,\"sequence\":0,\"url\":\"https://hanime-cdn.com/images/storyboards/cool-de-m-2-720p-h1x.webp\",\"frame_width\":160,\"frame_height\":90,\"num_total_frames\":180,\"num_horizontal_frames\":5,\"num_vertical_frames\":36}]}"
+    },
+    {
+      "time": "2026-04-16T16:05:48.974Z",
+      "status": 200,
+      "resourceType": "script",
+      "url": "blob:https://player.hanime.tv/5e085396-963e-4b78-b5f1-7e66b0d6d845",
+      "headers": {
+        "content-type": "application/javascript",
+        "content-length": "79884"
+      },
+      "bodySample": "var browserWorkerPolyFill = function iu(e){return e.on=e.addEventListener,e.off=e.removeEventListener,e};\nbrowserWorkerPolyFill(self);\nvar e=function(){this.init=function(){var a={};this.on=function(e,t){a[e]||(a[e]=[]),a[e]=a[e].concat(t)},this.off=function(e,t){return!!a[e]&&(t=a[e].indexOf(t),a[e]=a[e].slice(),a[e].splice(t,1),-1<t)},this.trigger=function(e){var t,i,n,r=a[e];if(r)if(2===arguments.length)for(i=r.length,t=0;t<i;++t)r[t].call(this,arguments[1]);else{for(n=[],t=arguments.length,t=1;t<arguments.length;++t)n.push(arguments[t]);for(i=r.length,t=0;t<i;++t)r[t].apply(this,n)}},this.dispose=function(){a={}}}};e.prototype.pipe=function(t){return this.on(\"data\",function(e){t.push(e)}),this.on(\"done\",function(e){t.flush(e)}),this.on(\"partialdone\",function(e){t.partialFlush(e)}),this.on(\"endedtimeline\",function(e){t.endTimeline(e)}),this.on(\"reset\",function(e){t.reset(e)}),t},e.prototype.push=function(e){this.trigger(\"data\",e)},e.prototype.flush=function(e){this.trigger(\"done\",e)},e.prototype.partialFlush=function(e){this.trigger(\"partialdone\",e)},e.prototype.endTimeline=function(e){this.trigger(\"endedtimeline\",e)},e.prototype.reset=function(e){this.trigger(\"reset\",e)};var u,t,i,n,r,a,s,o,l,d,c,h,p,f,m,g,y,v,_,b,T,S,w,E,k,C,I,x,A,P,L,D,O,M,R,N,U,B,F,j=e,H=Math.pow(2,32),q={getUint64:function(e){var t=new DataView(e.buffer,e.byteOffset,e.byteLength);return t.getBigUint64?(e=t.getBigUint64(0))<Number.MAX_SAFE_INTEGER?Number(e):e:t.getUint32(0)*H+t.getUint32(4)},MAX_UINT32:H},V=q.MAX_UINT32;!function(){if(T={avc1:[],avcC:[],btrt:[],dinf:[],dref:[],esds:[],ftyp:[],hdlr:[],mdat:[],mdhd:[],mdia:[],mfhd:[],minf:[],moof:[],moov:[],mp4a:[],mvex:[],mvhd:[],pasp:[],sdtp:[],smhd:[],stbl:[],stco:[],stsc:[],stsd:[],stsz:[],stts:[],styp:[],tfdt:[],tfhd:[],traf:[],trak:[],trun:[],trex:[],tkhd:[],vmhd:[]},\"undefined\"!=typeof Uint8Array){for(var e in T)T.hasOwnProperty(e)&&(T[e]=[e.charCodeAt(0),e.charCodeAt(1),e.charCodeAt(2),e.charCodeAt(3)]);S=new Uint8Array([\"i\".charCodeAt(0),\"s\".charCodeAt(0),\"o\".charCodeAt(0),\"m\".charCodeAt(0)]),E=new Uint8Array([\"a\".charCodeAt(0),\"v\".charCodeAt(0),\"c\".charCodeAt(0),\"1\".charCodeAt(0)]),w=new Uint8Array([0,0,0,1]),k=new Uint8Array([0,0,0,0,0,0,0,0,118,105,100,101,0,0,0,0,0,0,0,0,0,0,0,0,86,105,100,101,111,72,97,110,100,108,101,114,0]),C=new Uint8Array([0,0,0,0,0,0,0,0,115,111,117,110,0,0,0,0,0,0,0,0,0,0,0,0,83,111,117,110,100,72,97,110,100,108,101,114,0]),I={video:k,audio:C},P=new Uint8Array([0,0,0,0,0,0,0,1,0,0,0,12,117,114,108,32,0,0,0,1]),A=new Uint8Array([0,0,0,0,0,0,0,0]),L=new Uint8Array([0,0,0,0,0,0,0,0]),D=L,O=new Uint8Array([0,0,0,0,0,0,0,0,0,0,0,0]),M=L,x=new Uint8Array([0,0,0,1,0,0,0,0,0,0,0,0])}}(),u=function(e){for(var t,i=[],n=0,r=1;r<arguments.length;r++)i.push(arguments[r]);for(r=i.length;r--;)n+=i[r].byteLength;for(t=new Uint8Array(n+8),new DataView(t.buffer,t.byteOffset,t.byteLength).setUint32(0,t.byteLength),t.set(e,4),r=0,n=8;r<i.length;r++)t.set(i[r],n),n+=i[r].byteLength;return t},t=function(){return u(T.dinf,u(T.dref,P))},i=function(e){return u(T.esds,new Uint8Array([0,0,0,0,3,25,0,0,0,4,17,64,21,0,6,0,0,0,218,192,0,0,218,192,5,2,e.audioobjecttype<<3|e.samplingfrequencyindex>>>1,e.samplingfrequencyindex<<7|e.channelcount<<3,6,1,2]))},f=function(e){return u(T.hdlr,I[e])},p=function(e){var t=new Uint8Array([0,0,0,0,0,0,0,2,0,0,0,3,0,1,95,144,e.duration>>>24&255,e.duration>>>16&255,e.duration>>>8&255,255&e.duration,85,196,0,0]);return e.samplerate&&(t[12]=e.samplerate>>>24&255,t[13]=e.samplerate>>>16&255,t[14]=e.samplerate>>>8&255,t[15]=255&e.samplerate),u(T.mdhd,t)},h=function(e){return u(T.mdia,p(e),f(e.type),a(e))},r=function(e){return u(T.mfhd,new Uint8Array([0,0,0,0,(4278190080&e)>>24,(16711680&e)>>16,(65280&e)>>8,255&e]))},a=function(e){return u(T.minf,\"video\"===e.type?u(T.vmhd,x):u(T.smhd,A),t(),g(e))},We=function(e,t){for(var i=[],n=t.length;n--;)i[n]=v(t[n]);return u.apply(null,[T.moof,r(e)].concat(i))},s=function(e){for(var t=e.length,i=[];t--;)i[t]=d(e[t]);return u.appl"
+    },
+    {
+      "time": "2026-04-16T16:05:49.338Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/s3snkAsfAspvxmwhzzwzf20gsyZlf62dsr7vx9qnxpwsvwv1f8g41.m3u8",
+      "headers": {
+        "x-request-id": "b13e2d75-6985-4f77-99af-fbaa8559487f",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=0, private, must-revalidate",
+        "cf-cache-status": "DYNAMIC",
+        "etag": "W/\"d624ac733af0444a48b9a24fcad9b13b\"",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=NA9t51xctbtAr3hvzmIUI6an9m%2B4m6IbNGJ6tBECoIOYIvToLEUVydguEWD9etaqEnTk%2FcqSM1NTCYEjWQ8iS6GND0oGzWEPoqVcH%2FHHhE0R%2BI0yGOEJh%2Bpn68XL6uS8%2BoJSKaAkUD7MVQ%3D%3D\"}]}",
+        "access-control-allow-methods": "GET,POST,PUT,PATCH,DELETE",
+        "cf-ray": "9ed46f00a877fdf2-SIN",
+        "access-control-allow-origin": "*",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:48 GMT",
+        "content-type": "application/x-mpegURL; charset=utf-8",
+        "server": "cloudflare",
+        "x-runtime": "0.002690",
+        "access-control-allow-headers": "*"
+      },
+      "bodySample": "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXT-X-INDEPENDENT-SEGMENTS\n#EXT-X-TARGETDURATION:14\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-KEY:METHOD=AES-128,URI=\"https://hanime.tv/sign.bin\"\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0000.html\n#EXTINF:5.588917,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0001.html\n#EXTINF:10.051708,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0002.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0003.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0004.html\n#EXTINF:10.385375,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0005.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0006.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0007.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0008.html\n#EXTINF:10.385375,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0009.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0010.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0011.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0012.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0013.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0014.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0015.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0016.html\n#EXTINF:10.385375,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0017.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0018.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0019.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0020.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0021.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0022.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0023.html\n#EXTINF:10.176833,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0024.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0025.html\n#EXTINF:12.012000,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0026.html\n#EXTINF:10.385375,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0027.html\n#EXTINF:9.509500,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0028.html\n#EXTINF:4.462792,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0029.html\n#EXTINF:4.254250,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0030.html\n#EXTINF:4.504500,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0031.html\n#EXTINF:4.004000,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0032.html\n#EXTINF:6.756750,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0033.html\n#EXTINF:13.722042,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0034.html\n#EXTINF:8.216542,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0035.html\n#EXTINF:6.965292,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0036.html\n#EXTINF:6.715042,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0037.html\n#EXTINF:4.004000,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0038.html\n#EXTINF:7.340667,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0039.html\n#EXTINF:10.343667,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0040.html\n#EXTINF:7.841167,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0041.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0042.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0043.html\n#EXTINF:10.010000,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0044.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0045.html\n#EXTINF:4.212542,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0046.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/"
+    },
+    {
+      "time": "2026-04-16T16:05:50.856Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0000.html",
+      "headers": {
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "content-encoding": "zstd",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"846ab47746f06f5209e71cb0d6a2af77\"",
+        "age": "79317",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=zywuYl0k%2BS3UMUmgBwLLMxE%2Bk6IVrahXBXY4C4M8wu1j44wm3yEbdITMxZtxBRRRvDFN1BWfP8aoO7CpukGIumwlZ0RFCcIH3eJDBF4GvFX8IIX0w2AUkLM6BY3dUlEvF1Uekt2JMg%3D%3D\"}]}",
+        "cf-ray": "9ed46f0348fbf916-SIN",
+        "access-control-allow-origin": "https://player.hanime.tv",
+        "date": "Thu, 16 Apr 2026 16:05:48 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "last-modified": "Wed, 15 Apr 2026 18:01:33 GMT",
+        "server": "cloudflare",
+        "vary": "Accept-Encoding"
+      },
+      "bodySample": "��\fF3�?�s�<���\u0015\u0005\u001f��3'y>/���y�,\u001b\u0003\u001a`,\b'(�33� ���LsIn�Y޲i�`l�\u0007\u0002�'s\u0019�v\u001ct������9\n\u000b��i���\"2�\u001d=�\u0011�6�L\u0019�\u0011�mUK+Re��#V<%\u0011:�\u0010�%?\bl�o �e�V��~{\u0019���`�a4[\u00034�~�y�]�Y�\u000b.$�h\u001b�槲�\u0011���6Ǘ�����k���\u0007�\b��L�W�]���ry?��m�o����Y{\u0010Tb���E�Ua[Cl9�\u0006�\u0002�V\u001emrN�%nQ\u000b*��0D�b�6���r�%h�R~`�+��Em�p%�\u0010�Ģs�$[u�\u0019��p��Y\u0004��Z5dٮ\r\u0007��\u001d��}1�y�\u0003CP\u0006��\u0003i/g���y\u0001TH\u0003M�>��M��\"L0���F���ͪ�[_e��h��x�;Ϻ���\"2c��Zjɷ�t\u001f�\u0014�{�\bj���k�b���\u001e��W�\u001dɪ���\n4.�H��=\u0018L��!\u001an�Ȁ��\r}Bc]VѸ(\u0019`�\f\f��\\Ȗ\t�?m�*��#&n�྆�K ���i�\u001al\"|r\"\u001d\u0010��#�w3>�!u\"��[T����\u000f�d�n(a�J��\u0011\u0016X�:ڱ�l\u0012^^h��H������y��x\tiyB�\u000b\u0016Y�u�\b�\"Z>:j<c���ΎjQ��V;���w�񻦈ޓ\bh�-iT��\u0016��'j�ŋ�|k��\u0013\u001dð�J���V,�\u0011�#��<��w{Ra��%�F���[�#�y�C�Aj��\\��\u0016H��\r������\u0006,)��u\\��\u001c�\u001e��wTf䝁�\u0002^��\u0002�B�dC��]fb��4�5��:���L9C'\u001a\u0016\u0010�$\u001bo�3��n��(`��AI��l�.��\u0012�2.��\u001e\u001b�דB��s8\u0005uܣ\"pd��5�\u000b�?�[<!\u0002B\\��hE_\u0013xָ���%���M�2��\r\u0018��\u00035�S�Z\u0003�\u0015G�\u0000\u000b92\u0002���\u0012Q�2��\u001dF�\"LC\\\u0007���E�\u0002��~+)H������/�{+\\S��P�����\u000b����|��\u0004\u0012�\u001ek\rT�b�MDx�Q\u0014���5\u0019�\u001c\"�{�\"\u0012\by�%}t�l�ϛ\u0011\b��v.\\�G\u001ci�A����6��\u0007k����^s�����y���E��@��u=\u0018%�b�\u0014���\"&�H\u0014[\u0017J\u0019�=D�牕���iU�a1�'cc����d�/�G\u001cĦW�\u001f�!�ϕ�}wUtg����W�U�W�r�b�\u0017\u0015��_\u001cOq�\u001c\tc!��\"uJ~`�ױ\f~|�r��A�.�k���V/�I]�\t\u001bJ� w6\u0018��\u001az�W���<�\u0007��\u0016�$��B\u0016�x�d���c`�x<DJQh�x�mO$\u001f5�%\u001dN\u0006�\u000f�4��i�y�}��Gm@��W\b\ry\u0002\n������H���P��\f��c<�&\u0015Y��\b��'�jw96������%����\n�T�z<tm��ڛ\u0002r�\u001d9�Y�\u0002��0ԓw\u0013\u000e?QI�H�\u0016x�b޻�z�|�-QT�\u001f\u0007�أ���_B�\u0019��\u0019+�P�A\u0004���֯�\u0019��\u001f��0O\u0011�j?���*�\u0001�\r��\u0001�L�X�Sgϱo��\u001f@�\u000f86��oc��T�/�\u0014fU�q�\u0014k�y(�\u0012�'���bc�(ɛ\u001c�ٜ\\�v$8\u0010y4[P����(A�uyF?�>���e/G\u0019��n핸Omֳuj�7+;��f�c�� �s~�\r�@�\f�$}�9�<�rWX�h^��h��f\u0001{��C��o\u0004�7-�Pd(�T�ޚ��ji\u000e֛o��~3���Ε���~0q+�4Q0$\u001b�~>8�M\u0003�e\u0018��@8\u0006�%�\u001f�����K�.���\t�\u001dA�2��q�\u0014F'\"Wmr����ώ�j����\u0007�\u0016r�^�A�C���F�\u0018��8gln��\u000e\u0018�A`�9��}�o�.&Ǒ@�<H|�\u0006B�/zZ�P�P}x��\u0016l\u0019}I}�X�j�ǥ=\b��s�������~�RG�'}+�j���&\b�\u001cP�\r�=�чi��[ƫ\u0018�\u001b�A�\u001d�[��^\u0017�[\rs\u0002\n\u0011���\u0013����a7���7��n֛�n\u001bf�����\u0007\u0014��\b��yB[��\t�Ϡ9q��# ��\u001aQ�YBz\u0010����\u0017GU�!�y'(�\u0018)�6@6\r�\u001f��\u0018�?�\t)��;1�O�\u001b\r�>�r�k��0ȅ@S�w�#�\u001b�\n�ўq�\\X$�\u0015M�Dp��y��˄�\u0010\u0003�w)Z�m��Y���a��7���gpϜ˙�\u001d�4�N���\u00079y(��,��R%��,��w)0���ݷ�~��OTP B��#�]U�-�q낤�E���6����eQ��\t=�U\u001ff�e���$g�7\u0016N5\u0010�\u00010g�\t9~O�U�mF��c_�%����\u0013)�ٺ�c'0,�[9?N�����d\u0011W~0���\u001f��rh�/\u0016e���/��)D�p��C��\u0015H�^��\f\u0017�b\u0005%\tL����\u0005&�}?Ĉ\rd#�� 4��\u001c\u0001����.\u0004�N�+\u001e��\u001c_��ړ���0�\r\u001al�\u0007�\u0001@�z�Y����\u001af|�� ;�b=E��ŀ[ׄ���s��y\u0013��v�\\��+,SI��~�(�,h1g��Sd�R�}ڐ+8�|.�Ku(An֠��\nM�\u0011f\u0006�^����Z8��HwDZ�>n}���u Cc\u0000\u0001\u0010X�\u001eq�\u0004\u0005OP|�t-)����N�\u0011��\u0013�\u0017%�y���bp�XѴĮ�,�JC���hK�q�`��k75}ɰ\u001f\u0012\u0013��\u0003T��=,��9;J2P��\u0018.��J����_x�\u0016�֣2>(\\%�=�4��z���8)~&�\u000f�-rY\u001a�^�z��d~\u000f�\u000b g.^�~��/�%�\u0019������fPYԹ6�\u000f��\u0012�����$т,�,�=���|jYq��\u0011ܣ\u0007\f�Ye�K\u000e�;(Ѽ��\u0000�{�㺎|P�X@\u0019�N\u001c�\u000b3,ۻ)W�\u0012�É�\u0003�=��OSi\u001d\u0004�Ap^�CN\u0019E4\u001fx��&�*_\u0018�ٝ�o�?;��>)�\u0002\u0015���tJ��?(�ev\b>ͦE��\u0000��B�M�`�F�](}&$×f����\u001ao*_Ӭq�E\u0017��3b\u0001�����r\u001f��=�\u000ef�ǦY^m��H+�$�ϒ�����]I?}�����;�[u�S�A)\u000bw���9\n�\u0015�f��\u0013�\u001fԈ\\�U��\u001e\u001a��YY��a��R�I�X%o����v)\f��|h˜\u001b�o1\u0016#���V�^\u0007���T���H�\nm�W�SA\fm��ۧ\u0017�W.h����\u0001����x\u0016�ҷ7&��@(��\u0003�.��V��Fj�B\u0013�\u0015\r\u0015n�U͊tjhl�仓!\u001dw�Q���\u0016\u0004��US��X\f���v���F*�}_-���🾑\u0014��eJ�c�9=\u0015�T����K��\\QQ�,�Loߑ<q����ڴ�������%�����\u0017w\u0018�D\u0015�\u0019=�\n�K#�\u0015\r��ۤ(;vƵ��\u0018\bo��S���\u0002�<�\"�)B�BΝ�G��*��N\u0017�'v�\u001f�\t����\\$��o�X��OΫq\u001a�L�\u00133\u001dE���$�=ܐ���\u0010R��-ӷ��\u0013�9g��(\u001aJt/�\u0006���.E�_�Kc%�\r�\u001e�\u0018Ȣ#5�%>:ⅺ4˘�)��凚�0U���[\u001f�[d��?~\\|��D��٥�����\u001e\u0010���\u0010)�G8T���d\u001d�7��Ad���N!)H���\u0019qZ\u0015X��:�.s@LB��\"�Z�\u0019$�ԍ\u0003B�n�jc���ۍ�UC�\u000e2v\r��\u0018\u000b\u0007\u0016z]:\"���u�\u0003\u001e�y$堊Rm,_�!�0\u001d���H������\u000e�=�\u0007�\u0007v�c�_E�%�\u0011��+����갲TB-Չ����\n5\u0006�L2�C\u0015�\u0013|&�A<J��x=+ao�ȚU�-rl8�\u001f�KfA\u0012�7Q6��&�(�\u0014�����\u0003T��zi\u0002����$_�s;���%M�\u000b񻐠$=\u0019\u0014�k\u001c�/|�xm\u001d�}\u000f�%�|wՂ�}hS�tR\u0001ˉ��h\\&��E<\u0003���\u0004B�q\"�;\u0011'^�r�h�`F�BnZ�d;Q�B�\u0017a0ܲ�e\u0011$]'0�jn�]��H��O'��:\u0016�<��\u001a��u�M\\\u000b뒡P�qH\f��0,2���2B��\r׿�@\u001b��w�{�ީ�y�\u0012%\u0011Ǆ�X��huJ�/�\t��3���R���<\u0007~R��T�\u001d�\u0001�\u0014�x�:��\u0012��)MN%��\u000e���)7��V�R\b�NB�ҁC ���\u0017es7\u0015� �U\u001b\\�\u0001c��ȶ�t�Ў���х,ܨ1pG\u0016\u001d���\u0002�5�,�ݲ��\u0012�����2�K8�\u0003=Gݡr�����+��ܡ��ml7Jh7\u0005�fwV��\u001a�,�-��wtgf�u\u0010�ugp��4�T\\�ٯ�)L_LQK����0Z�G�)�H�&��u��d[�]\u00188��\u000bS���\b\u001dS�!�tx��#=�j�\u0001�d򷑔�fy\u001d�\u0006q�\t�\u000b|0b�\"\fa>��\u0002�\u000eR����Uϰ�0t��G\f���ܙ\u0005���,�1\u0018u�8c��]t�!���\u0019�qD3\u0018\u0005@�\u001c\u000fp\u0003v�B���d�>��W��\b���+��;�˽�ȯE��u��c�\nZ����U��֛=٘\u0014��\\8��!��vQ�EDf?\u001a\u0005]�\u0014�\u00057�P\u001c�+4À�c���ߣ�\u001d�\u0006�IkZ\u0018�Yηt-�Ӡ�\u0016�T&w58\u0002\u0001��xi���Ʀ�I����Y{�\r�\t�O�\u001f�l\\�\u0016s ��k|��qt\n��-�\u0002�\u0002�f\u001c�\b�`�J]�\u0016��a�8\u0015�8�*pZ������\u001b�Y35QtE�R�4u歸�x�\u000e��\u001b4`�s\u0000\u0019\u0005��y�\u0004vy�&\u0019�~�NYS�y\u0006���x����0Al�|���y��sM�\u001b}\u000b��=\u0007W.3�������oZ�É�t�\u0011���de�H�y�?b�i�go���x^]?;;6\u0014�(��o��� d��G��\u0014�C�����:�������\b\u0005�4Ee��\u0004�\u000eu*\u0014�#TS�.����:�\u0016�C\u0004Q�\u0017љm�J��\u0017����\f�Q\u0006��"
+    },
+    {
+      "time": "2026-04-16T16:05:52.290Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "etag": "\"69034cde-10\"",
+        "age": "2320599",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=1l1W2P00YbbeC5Yr9%2FM1iRDSnndvOCw1dQiAhGKr4gN%2BVL4EvOSdxybplBwO1NvY8lVX2e3J5IMKv7tDRXPS0%2BLxrKx9jnYDEFJb2jwU7Qh3S6fZzi%2FG6D37Sy8%3D\"}]}",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "expires": "Sat, 20 Mar 2027 19:29:11 GMT",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:51 GMT",
+        "content-type": "application/octet-stream",
+        "last-modified": "Thu, 30 Oct 2025 11:32:46 GMT",
+        "access-control-allow-headers": "*",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "cf-ray": "9ed46f111ceffede-SIN",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "16",
+        "server": "cloudflare"
+      },
+      "bodySample": null
+    },
+    {
+      "time": "2026-04-16T16:05:52.713Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "etag": "\"69034cde-10\"",
+        "age": "2320599",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=1l1W2P00YbbeC5Yr9%2FM1iRDSnndvOCw1dQiAhGKr4gN%2BVL4EvOSdxybplBwO1NvY8lVX2e3J5IMKv7tDRXPS0%2BLxrKx9jnYDEFJb2jwU7Qh3S6fZzi%2FG6D37Sy8%3D\"}]}",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "expires": "Sat, 20 Mar 2027 19:29:11 GMT",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:51 GMT",
+        "content-type": "application/octet-stream",
+        "last-modified": "Thu, 30 Oct 2025 11:32:46 GMT",
+        "access-control-allow-headers": "*",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "cf-ray": "9ed46f111ceffede-SIN",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "16",
+        "server": "cloudflare"
+      },
+      "bodySample": null
+    },
+    {
+      "time": "2026-04-16T16:05:52.886Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0001.html",
+      "headers": {
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "content-encoding": "zstd",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"16044dd428ef6b224a1b6edabb91e413\"",
+        "age": "79319",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ERZ121aHHiO398I8qpE%2FrQ8chgbrK4VUH5Kxk18mGJolo5ZwLnUs1FnyHZ5VQQDNDZ%2FV5I4%2FtNe%2FNHcJiJLKNEicJqoqb3z4eb%2BGIc82IZeV0%2F%2FbujRyear9JlZk%2FUTdx2OgoVisnw%3D%3D\"}]}",
+        "cf-ray": "9ed46f172987f916-SIN",
+        "access-control-allow-origin": "https://player.hanime.tv",
+        "date": "Thu, 16 Apr 2026 16:05:51 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "last-modified": "Wed, 15 Apr 2026 18:01:33 GMT",
+        "server": "cloudflare",
+        "vary": "Accept-Encoding"
+      },
+      "bodySample": null
+    },
+    {
+      "time": "2026-04-16T16:05:59.902Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "etag": "\"69034cde-10\"",
+        "age": "2320599",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=1l1W2P00YbbeC5Yr9%2FM1iRDSnndvOCw1dQiAhGKr4gN%2BVL4EvOSdxybplBwO1NvY8lVX2e3J5IMKv7tDRXPS0%2BLxrKx9jnYDEFJb2jwU7Qh3S6fZzi%2FG6D37Sy8%3D\"}]}",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "expires": "Sat, 20 Mar 2027 19:29:11 GMT",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:51 GMT",
+        "content-type": "application/octet-stream",
+        "last-modified": "Thu, 30 Oct 2025 11:32:46 GMT",
+        "access-control-allow-headers": "*",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "cf-ray": "9ed46f111ceffede-SIN",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "16",
+        "server": "cloudflare"
+      },
+      "bodySample": null
+    },
+    {
+      "time": "2026-04-16T16:06:01.853Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0001.html",
+      "headers": {
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "content-encoding": "zstd",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"16044dd428ef6b224a1b6edabb91e413\"",
+        "age": "79326",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=SX0Lst1noQ%2BMPxnB9dyx%2FUb1nWt1A5kg1A%2BaWQvHRil9EYxoTdnfd69nbB5coIML9kF3CMKsVTC1WliPn7SDbXTopiyT2QqM4s2wz5PQmrC181xjkRZvOTc9lX0nyWcN%2B6A%2Fzb3gPg%3D%3D\"}]}",
+        "cf-ray": "9ed46f44fb815ff3-SIN",
+        "access-control-allow-origin": "https://player.hanime.tv",
+        "date": "Thu, 16 Apr 2026 16:05:59 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "last-modified": "Wed, 15 Apr 2026 18:01:33 GMT",
+        "server": "cloudflare",
+        "vary": "Accept-Encoding"
+      },
+      "bodySample": "j\u0004y\u0000� j�5�v�CmJ)�(lB�WFuww\u0003�@$��\u0005�l����y\u001d�\u000e�\u0003\u0011\u000e�]�B��}�0�\u000b�%nW���W�*\u0019z��\u0003$M�0],�F�_��B�g8\u0014��̚��2�AM\"�O/�i�&��\bn�lUiz�=h�\u00018g��S��!��E=/�[�f�l\u001d9L�@^�)\r��iF��\fCY��<�(�)����n�HW����#ƃ�c:l�g�6/��]0�g�\"M��A��f�\u0004�`K\u0003�hP�]�7�\u0007��?�?\u0017�1.�w�1�\u0016�Q1�S�:�\\��5��[�u^�{����j�ڝ�DQ�9�U!9�$�<B;y����]oK�`g=�*'��\u0002H����\u0010wǅ\"˅�Ū��ǻ�\u0014hc\u001e���8\u001e���U���ȵ5{�Xl\\~��\u001d������b\u0001�q�Uˌ\t��J\u001b�i9Kl�r��Oq�1>a�`\"����\u0007M  �3��\u0007\u0013��\u0019��#a�G2K\u0018���\u001ec�՝\u000ebZ��|��%��뮿�䅽\u0006}\u0002\"�Y�}�F#��\u0019i'1\u001b�Us���\u0000P�U���j�\u001c��gJ��)���\"�\u0010\fM\u0007�هf��7�H|ņ�|Tl\u0005���\u0013�A��+�\u0019�y8���),�Xڔp�\u0015'�P\u0019]o*F[�'L�L��0��\u0002\u0001\u001c��`��0�9]�>64�i�O3�.5~�/)z���i��\u0017�P�\u001f�,I��:'m\u001c\u0010��3bQ\u0007�X��{ڎ�=�oD�k��a��\u0016(�\u001fّ��\u001e�?�T��7MGK�z��\u0006^�&-���:B@\\��@�\t��1{:�RJ-�\u0004�q�T�p\u0005\u0014���\u001e��D5\"�)�B���!�\u0010��S�s�j�eH����ze�/��\u00000\u001e\u0004�\u000e�)�/ԡ\u0001��n\u000e�\u0014ɗ,�ܻ�\u001de$\u0002}\u0017��s��T.ӳp�Ԝ\u0017�*�-t�g$�l�#͚~�\u0004tu�\u0010��x�Ĺ�W��ũ\u001aKM�\u0004����*ź~��.\u0019}\u0007u�����.y̻Bd8\u0018�pW��\u0011\u0003;�\u001ay\u001aw�#��\u0011��\u0010��8`�{!d�5?\u001a���0��\rߺ�\u0011�%��6$\u001b�n��Ȟ�i��g �L\u0001�!���\u0000�\u001f�0�\u0005,��y�4\b���̽�7P\u0017���\fs�\u001c�J'0sd�\u000b\u0015��\u0013�\u001f�\u00049�ػ���\u0012NF�ë��hW\u0014\u0001��2[�\u0012\f�-z����ȷpk�\b\u0004���!\\\u0019T\u0000�W0�s�b���}\u0019:�\u0003#w�\u001f��M\u0018�o��E\u0006B?\"��T�)N.��zj�M��&,-��Ýw�DgW*�\t��l]���.\u001a����H��6��i�G'����e�\u0013|�l&��{��b\u0002buƄD�0qE�#�~��\u0000�\u0013��*��L~?����Vi\u001bC���l'Ľ��aVD�i�J�4���nUR�1~b�Y�2�F\u0001�\u001a�x�\u0003�f\\^���\u0007��N[���~ �x\n{�.0\u0013Od\u0012���0:��x,.\u0014x���hn�\u000f�N*I\r�b��\u000fc�\u0013\u001f��d[2Yj�M�Ļ��~�M\u0006��\u0015�0����1��=�\u00045���\u000e�\u0000��<�R�no�tO\\\\��B<�\r\u0018��@xA�P2�P^�\u00113:\u0011��>\u0010>J9��ڲ���ۖ�ɺ\nV �f�)�d�\u0018o�4\u0018I#:�EPԗ\"�����|�j�\u0000���\u0011�\u0007�-��˘l\u001d�\u0010����Q����I���{\u0002���I�\n\u001d>^։&�K���z��Wb�g����lz��eݒ�I3�����Ң��|!$��\u000e�jd!c���\u0011hw��\u0014���\u0002\u0017�W��\u001drL�Eko��\u000b\u0006@�\u0006̗t$\u0011��\u001f�RV�H����2�7�Z�\u0003\u0016^��\u000b>O_�CDgp�]�\nBuv�)�5>��6v&2~�\t����Ȅ*�3���`6\u0019��XV���]��\u0005������_!�>��I�Њ���\n}}C�P\u001fV�\tx\u0010���?9e��̕{�њ��\u0004�=(Z�&�c`��鑛ѹ>+�\t\u001e����*6ç�w�<'��w�7��7eW�:�\u0015a�\u0015���٢f�\"�eǗo�\u0004��kR��/�V��\u0005\bϾ�HA�޼'��\u0013=�\"%\u0004W )&Q��=���\rk-��ym�.A�W�\"_�\u000b��ͬf�Tl�s�OY#��;*\u001e*G�cĕ�W[i.�늷d�9�x�GO��/��)E$��W�U�2���2G��쀵VR\u0004ɟ\u0001�E��*\u0015�9��:�c�\u0001�$��\b�&��.��\u001dȍ\u00136u.��I�\u0005!V�͢1B�k�0����y�+\u0017F}\f)\u0017'gQ�[E���1S��}�cㇾ(�H-Υf��j(m�B(%����;����hc�\u001d�e+k!lf}��h��#'��\u0013�,�7\u000b�\u0000\u0019��C$K\"C\u001eޅ\u0015w۬�U�څ��\u0010m\ntƽ\" �v�1�>���(\u001e{��l�ӊ$���\u0016�L<�G�\u000e�o�)���I��?@N�\u0002\u000e�xЫTd�\u0018zV��=,����\r~�rn^�s���l|�ӝ���\u0016F�^����\u0003e����Ƨ�k�4\u0006���\br�7-)rw��~�����~�8p\u0016���\u0005MM_H7�b\u001b\u0013���\u0010\u00105eO�T\u001d�f�����r٭\u0003e��g�\u0003�K���ꨣ��F�u�\u0016\u0001�]��B��\u0016T�vym3cd�jJ��^�?�ok�H��qg%��qpf�{\u001b\u0015Bq����t�xطe�[j\u0001BiW�W- `mB]rO�]\u0017c\u0013K�����`�EkԠ�ґ=u\u00184�\u0019)���\u000b�.c`dĔr%\u0011p��\u0000\u0005\u0005۫\u0000��\u0007+E\\��\u0011\u0011�G�E#�'�A�u\"N`����4�\u0014�\u0012@A��@t��6\"$wK�\u0018Z��3���,b��]\u0010\u0015jY1\u0017i�)V�0\nMm;�񬈂#,�\n��/��\u000b� �\t�� ����_%�7��WM8��W��쁏I\u0017\u000bTʈ�\u001fY������B�D��c���Z��\u0006�~�d*Y\u0014�\u0006I�K�f/�\u0016�\r�;d�p���/�\u001c�|�/�s\u0010n;\n:y��w����\u0006\t��\u0015W�^��!�K\u0017-�S\u0007,*'ܫ'X�?2O(\bF\u001a�;��$n����_\n\u0018�\u000b�;��/խ��v���\\��Hӟ]#ʎ���ǳ�\u0004�������I�D�\u0019�l��,|\u001e�4�f����΋!�/R�Ͽ�\u001f\u0016�Z/�\u001e�i:\u0000WS�~Ϻ�8IuۑFa#�P\u001ftJ]S�fj�\u0002�\u0007g��\\�ۨ��\u001f��\u0016�fX9���9\u0003��i��<�8lh8_���Z_#��?\\�;\u0012\u0000s�D�;�r�\u0015\u001aho�::�Bhy�j(�E\u0012�x*�՛��#N\u001a g\u001c\u0015g���\b���\u000bK�!F<j\u0002�q��xޠ\u0014�\u000e0�\n�3g����3q�=^�%'�\u0000A\u0013���bҵ�\u0000^��$��e.C;�*\\��*\bY#k�蒝�����nt]{X�qVە\nӀ�b]���L\u0007��\u001f��o��v=�Ȼ��\u0018�Uo\u0013`<Ќ4�\u001f\u0018>r��ׯ\u0004NħW�X#�g;\u000b�!Ř+!���K���5\u0007$&��3�ۛ������f�\u000e}�����.���K��,�����\t�I\u001dFs�r\f<�aX\n���\\]\u0005��c�qB\u0001�\\rE\u0012>����\\F�L\f�ֳ��>`aZ��:����N�4�|��\u0010;�\u0014V���S\u000b�D�׮�/��\u0007ڼ�����چ^\u001f5�݋ݜ��\u001c\u0013\u0005�5����^�]U;�4QL�| �]��\u0002�}\u001f�(�\u000b�i�\b���c؟�1�\u0016(��%������a,Ē\u0017���(��\u000bM\u00066��K�I��F/,@T�\"�\u001f�e��6�)�r��}\u0003R�y������\u0000�\u0004\f`��>�'�{\u000b\u001fE>��^_���o=\"���R\u0001�{�\u0002ve��O7�s��*�b\u001b�L��E\u0011#ӡ�\u0005��}�b��<�z�T&�0\u0015�\u0019�=��\u0019��S���U%\u000f��$�߄>@V\u0016��c���\u0000\\�)��U�i)��2\u001b��[OMt���p��т��u�j�ʧ6��h��O˓�V'&���\u0011W6w��!b\u001fL�����\u000e�\u000b�A�$\u0019\u0001\u0007�%�+D��JtK\u001d�w��H`�(��Bo\u0014�nL��ū\r�\u00183l��^\u0004Y���`'7��W��3�O�]\u0002��M�\u0011WCȌ��\n���\u00161r�9\\9����\"�ڐ�\u0002��\n�W/���\u001ceCб\u0002�me2V�XK\u0007G\n��T\u000b\u0004��$Z\u0018�ɗ@\t��G\u0001\u0001\\\u0014�؇Mj��\t�\u0007��G�e��;EJ\u0016����{TED�\u0019��=�z��T+�^Jz�\u001e\u001f#�tE��@s�cbc�����\u0010�\u0019�ֿ\u0010\u0007۩�1d\u0012��\u0013���\u001b�,��ƭ�\u000ek�fŬ`��\u0005��\b:(G�,(h�h��_ה�Ezq퍍-(�y)�1���L\u000e@\u001f,j�m8}��Y��&^~ k\u0018�ɪS���<�KpA$`/�U�\u0014\u0001\u0011�M;� C���J(T����d-\b\u000f�[���Rs�\u0012k'{�g呴�1�\\� \u0001N����h�\u0001�\u0001�bT�\u0018;R`�2A���o�E�޾r�f\u0019����]\u0012O�If��\u0016` #/���\u001f�B�\u000f�gz\\,�D�ꍋ����\f,ٚ����m@�ѷ\\v�e�%����,8}~�2��{��l�Jz\u0014\u0015��J�� �ֵK) �5��,`��m�lt4\u00148\"�0Z]�E�6���\"�\\긻u���Q\u0006�Jg�.�{2���sG\u000bh�M�2��R\u0013-�!�B�ʏ\t�_�)#8\u000e�)l�s\u000fX�m6��'�I��S��Ɂ�y���,�\t\u0002\rI���(\u0012*���e\u0017F\u0004h��h\\.���e�7A�b]���#���=�Z\u0005\u0005���]\u0007�6j\u0016�F�Y��h}�\u0002'�\u0010�*��^������-����S'�F�-MoR\r�2\u0016�\u0016�Ǿ�]@����a�^\u000b�;�zD\u0004H@�Y�u�lG\u001ej��\u0002\u001fI�*q�\r\b,�Q\u0004N����\u000b�<g�\u0019_�i��!�m:�N����M�\f���8�\u0011ҴA�8���>!\u001cv�\u0012��F\u0018��z�\u0017�v\u0012rZxI�8�\b%\r?�"
+    },
+    {
+      "time": "2026-04-16T16:06:01.865Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "etag": "\"69034cde-10\"",
+        "age": "2320599",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=1l1W2P00YbbeC5Yr9%2FM1iRDSnndvOCw1dQiAhGKr4gN%2BVL4EvOSdxybplBwO1NvY8lVX2e3J5IMKv7tDRXPS0%2BLxrKx9jnYDEFJb2jwU7Qh3S6fZzi%2FG6D37Sy8%3D\"}]}",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "expires": "Sat, 20 Mar 2027 19:29:11 GMT",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:51 GMT",
+        "content-type": "application/octet-stream",
+        "last-modified": "Thu, 30 Oct 2025 11:32:46 GMT",
+        "access-control-allow-headers": "*",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "cf-ray": "9ed46f111ceffede-SIN",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "16",
+        "server": "cloudflare"
+      },
+      "bodySample": null
+    },
+    {
+      "time": "2026-04-16T16:06:01.865Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "etag": "\"69034cde-10\"",
+        "age": "2320599",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=1l1W2P00YbbeC5Yr9%2FM1iRDSnndvOCw1dQiAhGKr4gN%2BVL4EvOSdxybplBwO1NvY8lVX2e3J5IMKv7tDRXPS0%2BLxrKx9jnYDEFJb2jwU7Qh3S6fZzi%2FG6D37Sy8%3D\"}]}",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "expires": "Sat, 20 Mar 2027 19:29:11 GMT",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:51 GMT",
+        "content-type": "application/octet-stream",
+        "last-modified": "Thu, 30 Oct 2025 11:32:46 GMT",
+        "access-control-allow-headers": "*",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "cf-ray": "9ed46f111ceffede-SIN",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "16",
+        "server": "cloudflare"
+      },
+      "bodySample": null
+    },
+    {
+      "time": "2026-04-16T16:06:01.903Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0002.html",
+      "headers": {
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "content-encoding": "zstd",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"6fad9e0b9aaffebee0e0743ce3ad2ccb\"",
+        "age": "79327",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Zmfcm8T9b4aPlm71oHSXIkRioWVMXKXVSLV6lJO1Eq%2B2adtBFDthz%2FYyktDr1ScOTcm25kay1ZKeHSAEhs0ZSzszLfsYhr3uanocRRVzSzgCzQ4tDvFh4gn8R%2FIjeT0UvYXgchdXVQ%3D%3D\"}]}",
+        "cf-ray": "9ed46f4d6ca15ff3-SIN",
+        "access-control-allow-origin": "https://player.hanime.tv",
+        "date": "Thu, 16 Apr 2026 16:06:00 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "last-modified": "Wed, 15 Apr 2026 18:01:32 GMT",
+        "server": "cloudflare",
+        "vary": "Accept-Encoding"
+      },
+      "bodySample": "��dH�ehH�u1\u0001�{���ѧM��+ڇ|��o�\u001b%��by\u000ekR�V�b�ԯ�\u0015ɻ��`$E�(��[\n\u0003e�\u000f�b�\u0017�R��\u001b���=FU\u0015�n��Y\u0012�\u001b�y����褋��۸��OU�s���W\u000e:�\u001dc/�4\u0007ޟ#�\u0019]-\u001c��N�/ޝt�V��\u0014�J����\u001b��9��r����c\\�-K\u0007R��\u0004�F\u0011C\u001c[\u0017o\u0017�/��yƓ�f����\u0001�z2a\u001er\u0019�<'o3m�0o\u001bN,�\u0003veb �6)M�q�����\u001f��)wO-L\u001b=ѥe��JќR���rU�r^��M�x�S��4M\u0000�}^wa(�E�uꛇ%�\u001b���������#����)���;\u000e��͆Э\u000e�����`�T�D�\u0012�S���K\u001c��Tf�X\u000fܡ��n\u001c\u0004�\u0007�R�3\u0007\u0017f�]\u0000�M,B�j@��~W�\u0012)\\��ٵ������\u000e5!nn݌���au\u000b��\u001c������\u0016�+|�\u0002�\u001f�\u001b\u0014��&o�ֳ� ��B�\u0006'�#6\u0019��@8�\f�1*u<c��\u001bi��E�İ:\u0007\u0001+pHrp\u0002�c�\u0006�\"�)E���Bm���LG�>�I<*$H8�[�k�]�bb=u�\u0004.^�r\u0000\u0001V\tMH<�M�\r�\u0002bEq\u0013\f҃q�$\u000b����'��8� ݑ�O��=�5!\b2Y'�\u0001�o���-x��ˍ�������[�S\u0019\u001bwPI�0�h�3�L�R)h�#��W\u0019\u0004\u0011!\u001eK��N�չ�^\u000b;\f��qYrN���A������dT��\u001a�r$E�q������7���m��M\u0007\u0017�%��H��^�3����H\u001c|٫���\u001f�����,\u0013�q�^�\u001d�ЈM�O\u0000#-Up\u001a\u0002��Z��Dw��\u0012I�z\nt\u0005ߤ�UV6FH��\u001d)�\\tㆲ]u��\t\u001f�\u0019���_y7�m��]�+\u000f\u0019�1��V\u0004����a��\n�џB�d#�_�؃��t��,\u0000(�Ӟ��a&X�6\u00069p�Hp����U�{$�\u0014g�P�du\u0005��k�t�\u001d<�\\,��لH���E\u0017wQ�ba��\tʍ'���������\u001f_*�@JA����炙__<�QK�*�\u001bɐ�y��02ₑ@���\"6zP⪤zQ�\u0002�^�\u001d�\u0004WC��C\u0012a`\u0019���i�&Dƫ\u0018\rm5�}��\u0012u6�\u000bLԙ�<�]\u001a��w�B����\u0015<-L1�\u001b`�����\u0002�^\u0001�\r�df�\u001f^��C�ĸ��9�Wi�t�Kk>KA9�4t\u0007��0��;��M��\u0016\u001d�g��S�p��r\u000b�q�dB�40L6f��x�׺S#�>(Ѣ�#�X�\u000e�#\u001bL{��\u000e��w\u0017�!\u0017x��J�\u0013��\u0005�Ε\u0017�\u0001�Y4���@�)\u0006����L\u000b�>��\u0016\u0015�� �Rg��\u001c?<\u0005���\u0013���\r]=��od��\u0000�A#-뗧���I��F�f]��Y�}ñA'\u0015Ş\f����\u001a��JZBMwZ�_��\u0004�t�B�\u0013�F1\u0015�\npI4i���)/$_���<�\by1S�Tw7�JH�C��\u0003�ݛ�v9A���\u0000s�*TM��b�:z�\u0019��2��es z�I�P��3j�\\$�Y@�'\u001dY+\"ᶘ%>��D�+�����'V\u000fJ�C��Y�a�\u001d_\u000e�\u001d�7R&\f��a\u0006�\f�\u0010\u001e�q�\u001at�ؚ\u0003�@��\u0013��D��D�\u000b��r\u00117�Y��\u0003�K��aqi��F�Ӏ�\u000b\tBt�-כP2G�`Ϝe�\u001a\u0015�\u000bj��Oa��o���%�ڂOQ>lu8�j^0���@��f\u0007�s4\\M޸\u0017I;�Xs�\u0007\t���Ï��H٤Q�\f��zL�\u0007�2Ӹ�:\u001e��zh﨑\u001a{,��\u0016[(�V\"\u001cR���ƹQ�u�w�\u0014\f\u0005�| [\u001e�\u001b\n\u000b�6�\u001eB\f�E#���D�\u001dm]C\u0007���S�\u000e��УW���,�x��uY�p}����\u001fS%���6��\u001b /B&��VA[�@ο��.^��T\u0016=�\no�Z��.� 8�\u0015\u0012��\u0001T\u000bR6���\r�\u0010^�,ʓ�K�{I�3�\u001f<�W�:��fCIj8nB��WAw�\u0015\u0002��a�h���\t\u001d�M��v,�\\S�U�5\\��s�\n\u0003�,�t�\u0011�\f�]��.o߾�P~�;�6�5�\u0015\u0010��\u0003`���z&\u0006�4�ڡs\u001f`�Z\u001a���\u0002�v��+c�\u001e�=���h\nh!�n\u0012���R1/�g\u0002=렊\"�-.bդy�\u0010�`�|��i���bК��8+��$D��k�v(��*��9փRXݫ\u0002�\u0001\u0015|\f1uM�8\u001fΎ+.�|�p��Y8S�Y\u0004���^b#=%r�ʽ�>*M�\u001f��~-�\\�G�\be%g��\u0007&+��g�\u0018�����#\u0012�\t���vpT�\t\u000bȒ\u0016N�OF(�}�����%�ծ,��T2�X��~~-\u0005\u0016x\u0017\u0016��\u0005�9�V!\u0012+vUn\u0018sM�V=NE@\u0015z\t�3�H}7�`��\t�5h��T�y�\u0011��r%TB� Fp�\b��\n�\u0000�p��\u0005�[�����E�\u00070\"Ξ\u0016|5�(�Kvb\tһ��qB����J7\u0017��[;�s\u0010�{\u0005^�z\u0014�q1��,�������\f\u001f\u0002㤌�B���U�?�/o\u0017�'�\u001c�\u0013��@���y\\�\u001a�4�\u0000f�:\"\u000b�6㣝�\u001cz��b\u0019���.x+�\u0019���Lá��;x���ʚiJ^fLe��s{��S��:��@m�\u0013!\u0000\u001e�$ӿ���mW��3E�j\u0006BI\u001b\u0001�C�C�j'Y�>�u�����'\u0011K��\u0011�1}�*�AF�^H���\u000e���\u0012N 4�ڝ��\u0019�P9@�~%~iW\r��\\\u0010\u0006���0�P�\u001a��C6��p㊅v\u000f;�\u000bC����&���\u0001�QIc�q�R4�o\"pD.�\bHԁ�������\u0018Fi5�C`�\u000b\u0011l}X�Hi�lN���\u0003U?�L��-��A2��\u000b\bD�)�\u0016\\�g���\t�?�ܼ\u0006��&\u0013҂�~��-����0Ct\u00116�����IQ�I�dV��_!�G�w��pt۲�\u0006����:p\u0005\u0004:1���/�\u0001%&|HcA�3y��}z��4���d�a�Vw�\u001a�^t/w��Q�L�\u0003�Jj����\f�I����ճ��ߪ���\u000fdc�k\u0013\u0003��-#�\u0011c��}t<�\u0003��b��.M�I���]�\u0010�s8����\u0000J�SK���#p��E�����Л�N�I\u0005\u001ea�\u00010\rL�g�C4Z\u0017�\u001f�l%�����U�\u0011��Vm�Ý4E\t\u0015��b-�\u0018�Ds\u0012K�y�\u000fC\r�0\u0011�\u000bH_X A�\u00111������6��s\u0012�\u000e�\u0005��\u0005����i���\u0015�_pD��\u0007�x�{\u000f/\u0003���0s?c�?�ncA������}��ʉ@ z�\b��z\u0015&��@%1�M��J�g�4/B����V;�˛C�H�]8Bs��7\u0011��؈к{>���X��\u0019=lȟ����P�� h�A\u0000\u001a�#c�<7\u0015D��[C\r�Agӄ�|m�\u0006�Uin�dC~\u0017�j\u0015kz�\u000e]��k�HH\u0013d-�\f@\u000f3d�E�}�FN���\u0014�f3��珈l��p�<\u0011�\u0001Nz�\"ڨ�d\r�#\u0010GG�����MXP�}Yf��Z\u0006�\u000e8j�l��\\��N$~�\u000f�N欆\u0003���Qe3�ȝݷ�'1��_@r/�⿣ǔ/\u00132�\f\f\u0007�\u001b�^��p�p\u0011��\";�\u0004a��Es\u0007\u0011\u0012d�\u0015��&�X�\u0004���\f����%�-h�\u0005Nz� �X%�\f�w*�\u0003�U�Y8O>Gl\u001d\u0013��d?}�7_\u0011>�\u0005���\u0015@���{M�\u000fO�︝R�`�p����ُ{NmI:\n\bp|��I�����N�j�_l��5�GUZ�-9\u0012�\u0007gM�8�e#U.�z�\u0011�wU�{�s�n|���m٣6�`חp3{��e�`�y=\b��$���5�/0���\u0016�2F��-��\f���\u0000~O�\u0014��1�.�'\u0001T��)��m���>�\u0000�*3�~�b�Dxu�\n疂p�03C�T�5�\u001c�%\u0018��Py7\u0016\u001e\u000b���KX���B1��?��\u0006\u0018.��\u001e70�9���\u001c��:�]�$�Y\u00052]\rH��֣�]W,�I�ձ�/�s�U�j`�4\u001d�\u0006�@[�f�w\u001d�\u001cC\u001c�Eb\r\u001e,�x!�I=1$�r\u0011z��\u001d\u0001M�X\u001a\b��|#�5E5��p���\u0018�)\u0012��\u0002�h}F�ܭ)��\u0019󍵬���3S\u0017\u0015\b�)ۥ�6l;�V+����ؓ0I-�4F�\u0011�k�\u000f�zS/\u0015�\u0011%V�K�{�h�<�sV�[�%��Ag��D\u0006���\u0015ڱ@���%�+\fC\u0005!ƜY��\t�U��Q�$�7��\u0011z\\d��e\n�\r\u001c��E\thLm�\u001c\u000ev�z�Nm�Dg�ZI\u0019(HM�\ni��p�\u001f\u001a��:}w�\u000b�I��L�E\n�\n\u000f\u0007�4�8@��\nh%�4\u0015��d��r\u001bz�dw�3�K=pQF���6�V���ˉ9�Υ\u000f��LQG��\b�w5\u001a�`�\tC�\u0015�`?V��ӟ����$KOu�67�%L�NqLi�(�&+s'ߠVMu-�o\u000fg�X{d�\u0001b\u001eo�@�Z�\u0005�zG\u000b\u0007\u0004F�7)�)(e���d,>\u001b���J\u001eo��U\u000bp\u00175���M���L�I�\u001c����Y�p�4P\u0013�\u0001��Zw�L\u000fo\n��r��N\r�\n�\b�:[݃���PS��:\u001c�+M�%��}��(*n6u�A��ob��|��\u001f�\u0013�����G�����H)�E�\u0007ݺd1ձ�~�Ye�U\tK���P޿L�\u0011\u0012�\u0011�+���U�Ɠ�R5\u0014�x;ʭq\u001f��i��r\u0012\u001a�q��<y.\u00100�lD����Ɯ����_�|���\bk1\u0019�Q�k�.д��\u000f8�<(\u000eO��\u0019ߝ�B;K��+�#��oK\u0004C\f\u0005�5S����>x��\u001c�\u0011��\na\u0007�Mɓ�f�x\u000b\u0003BM\u0003\u0018g��5�\u0019���e7)\u001f\u0018�\t�|�0-��[65��ס��٭_�D\u001d�X�\u001c^�+Ћ��!�����YߛB\u001fT�Qt\r$�~,\u001fmn���[��wxx{=�q�a�9dS��\u001d\u0010P4��*e? �\u0000,����ayl.\u0001\n�%ю�l�$of�5\u0018��"
+    },
+    {
+      "time": "2026-04-16T16:06:02.688Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0003.html",
+      "headers": {
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "content-encoding": "zstd",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"500a8743946ba1690dc5d3a2867bac74\"",
+        "age": "79327",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=0lVmikYvX5gv754i9OQJ4b5vVq9Z8J1bnS4H7ijsY7yxGoIQlUG9B%2BpPYabZOHlRmgUHTUInMWRLzpZ%2BJDNTnRhrdG5MOWuYKc%2ByYCQEuV9gKOnhmdWcxoE0llvuShlr%2BKKW1yfIcg%3D%3D\"}]}",
+        "cf-ray": "9ed46f4e2d645ff3-SIN",
+        "access-control-allow-origin": "https://player.hanime.tv",
+        "date": "Thu, 16 Apr 2026 16:06:00 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "last-modified": "Wed, 15 Apr 2026 18:01:33 GMT",
+        "server": "cloudflare",
+        "vary": "Accept-Encoding"
+      },
+      "bodySample": "A\u0015�����\u0004Oa�R�9�Tؗ����p0����\u0001\n7\u001ck#2\u0011\"\u0015n�v�:/S��f�\u001dg\u001e�/��\u0001Q��m6\u0001O\u0010\u0004�d�Ω�a|�\u0014:�6\t�5h\u0019+���4�\u001e&L�����4?+�\u000b\u00044\b<n��\u0014�p8n\u0010�ziM\u001az˪�\u001d��\u0005�:�J\u0018�aY{Ң\u0014�e9��bkߪ\u0013j\u0001�\u0014n�2\u0004\u0007�l���l��֠���Y��\u0002\u001a��\r{�s����ܹ�\u0000+�EE�B?\u0019�F��.)�pN���^�嫹��\u0002\u0011[\u0015\u0003\u0013\u0012�}#\u0019�[�yXwy\u001d��-�Ԅl\u000bdz�w76-\u001cP곩�|D�g��z=��Ȳ�\u001a�����t@��\u000b��i/�\u0010�D��\u001f�:��\u0000��\n��c]�A\u0019�\u0005\u001cV��\u000e\u0012�.�ex�-�E\b\u0010��\nePd�#\u001f�\u0003N���>\u0017\"�SY.����3CA�\f���e\u0019�{�����-Tʾ��-� ��U\ny-�P���\u001dd��#a\u0016\u0015<��=�h�`\u0005�2�F������-��ȶ3�o֫�)�Y���1\u001a��\u0001\"\u0010l���;=^\\ɵ�b��7�/�U��O\u000b\u000e\u0002��\u001a�P�I{�#ˌ\u001d,݋D�\u001fM ����7�fd�\u0015(#\fh\u0001V\u0018k�ë��\u0000q_��\n�]�wB�\u0018��k�\u0010x*�ϓ}�\\\u001d�!7�w\u001f�D#����\u000b!꼄#���#J����4*\t�u CL������1(��b�qu2w��2T^'����j\u0003\u0018�w\r�R\t�Nx�9�7��\b�\u0000cz�z{b\u0005Sf�R��ô�\u0005I��\u0017 ���\u0019\u000b�1flNZ\u0001ur�}\u001b-� ��_��\u000e�Xi�r\u001a�o]_G��}m���^d;�!a\u000f�}vV\u001c[m��\\��}>��3�%����ۅ0ָ,o\u000ep�w\u001e���N���0�\u0018Ŭd !&�V\u00113x�/fx�SwX�\u0006;O\u0015}*\u0011Ȕ����H��ĩ�q��\u000fsĎ�-��f�\u0000%\u001a��\u001b��\u0013 à#�{�\u0011\u0018\u0012@�u���WLy���:��1$[�g8>�~�˪fˋ\u0001Z���Ҋ7�\u0005\u0016v�*\u0013\u0007l������?�\u001d��\u001e�5e\f�\t�_0쿋LގIX\u0014\u0015�^�z���G���hg�\u001d`��\u000f`�ý�.���P\u0004����\u0017�#/U�R���9�B\u0006PN�������n'}���\\��\t��N�ŨN)Ҡn�\u0018;�c�j���m����P���P�q̶+_i���\u001eN��e�N�G�-w=,�\u0001߂J��a`��5H���;j�m\n�LP�I/g�ȈB&�L]\u0015�a�+��8��0\u0005�ڸ��kME�'\u0007\r���R�D���\u0013�sdK��xw^�ð8�ڳGe���$�&4Vqt���\u0010��$�\u0011�\u0011*,�9���!w\\Q+6TfQZ0��\u00109�\u001b�˙�J�]h�MK�9WO�Q\u0001�Y.}@���\u0010�k-���U�L��m�\nk\u0001\b�Ͻ�\"��H\u0019\u0014A3�q\u000e-��\u000bw�Tl\u000et>|����\u0015�y�\t\u0016�F�\u0005u�50@��\u001b���o+\\ਆ�n3d��P&\u0016��;ǥ�v�����\u0017T�\b�4ɬ^m2]�/����\t2u�\u0012�Ո�u��3i7�*Қc�����\u001f��Ơ�n��5��pZx���d���o\u0005U/|E��d\f�\u0016a�|�[�\b)�ɗE,\t*ʜ�o8�Y\\\r�_5p\u0014��=,�c45r��GNu�\b\u0013x'�AX{�J�n\\�1>5w�\bg:�\u001c��PK�3\u0015���'�y�p�}��0)lL\u0011�\u0007p�3S�\u0004\u001b�g\u0013N�\u0011��c�N���~q\u0015\u0011=Cr+�w҃\u001f��B�hY�y�dJ�y�\u0018yv\u0013o�]��=�|\u0013\f3�\u001c9f��[��\u001e\\���w���E�����O2\tB9�4��W�3��Z���>�\u0010���`5?m��\u0016�C�\u0005<�Pj�c��gIu���%I��m^��\bu��v�\u001b��\u001a�f\u0015���\\3\u000e���\u0002\u0004��h���\u000f�Ղ0}�����j9\u0001\rbB�:\u001e`\"2�\u0014\u001d|�*��_�C���\u0001KO�}O$}��g��l�\u001b(�\u0003�iC��\u0007����\u0003��7+\"I\u0012\u000f��R\u0003���X\u001dB5�%\u00158��\u000bO����ZwR�ރ��i-:V��};\u001e�p7�:��_OU�\b_@�|�,��\td�a!\u0004���=\u0013�d�c�\u001ca�5�H\u0002i��C/u\u0006�t@�k\u0003\u0017rG�r�-�\u000fz�_XxU\u0014�JP�+p��Q3�\\v\u000b:;\u001a����{\u0005��t��@��>�\u0000���3�CBq�\u001cN��c8߹����\u0003\u0016���\u000esE��&�\nA�F�ɫ��G�\u000fU�v��i�.\u000b�H�օ\u001c7h�ê7K���3�\u0019��_���2�F�\u0013���v\u0000�%���:\u00189T�E\u0002���箵#\u000b�'_�\r�>�J�\u000b\u0006�ߟ\u0003�%\u0005���t�\rʑ�5�4ӚS\"~�:\u001b��qK���\u0001�\u001b�G��G\u000e�\u0018 �V�\f�0]�M����\u0011URԓ��'j��\u0010[����;?�ĵ�Q?�\u000e\t\u0001��j�0Ȋ�G\u0011:{�ʼ�\u0011�|*XI\u001b��f6�(\u0011���D�\u000f�ig�X�܍��1�|�%��Q�\u000b-���h�ӸKH5\u0016aq�Z�p\u001d���d�����@�d�_�\u001c\u0017���y�������{@\u0019Ű^<���\u001e�\u0011��N��\u000bg�\u0017��}mE35!�\u0013��sgd ��Z�����c*.)\u001fqXK@Y{P\u0005�\\\b?&�\u001b�V�T�򔆚կy�C5�;�b\u0006\u0017s0/�3]\u0017O=f�T����d���\u0003L����\u001b���֭\u0012�Fj2֫��\u0000?�Y�\u0018�<\u0005�����Hߏ�};�Q�I�ĸo��V6�K�\u000b�2π\u00005j�\t��#�'�c!\\6��cf�UՍ[��\u001d]\u0015�<+_ /����i�\u000e�����\u0016�0\u0002�9w�:��N}=�9�\u0010�`|��\u0018;�t�����\u0016��`\u001eT�&���2�$��\u00064ڙ>�hi\fe\u0015�&�h\n�F��5����Z�Ϛ\u0000\u0016����\u0001�\f\u0014\u0002���O�\u0013�\u0001����\u001c�����4��6\u0014A��\u0004,�*�|\\��qt��ˣT}\u001e���\u000e����I\u001b��ڴu&�����yK��VS��0>�����Ω�߻�T\u0012M}��3\u0000��~���\u0016$Urb�SAm��O�\u000f��\u0005+�\u0006+4�H+M���W�\u0016U\u0013!�X������A�2{\"F�%\u0018��s��� 4��/C�\u0006~#��omwB�d���1dO�)��=���h�uS\u000e�\u0012X\u0011TCD�m\f�*�\u0018k��q�L%�X5��k���QO��T������r��\u0010��K���(\u0003���\u0002�T!��\u000fI\u000b)���Q�wV��4\u000f��B���\u0010\u0017�~\u001f����R��Z�(�\u0013�\u0007�/�r\u0018x�k�!�R���s��1[��7�&&�>k����o�\u0002�N؛x4\u0014\u0013�Ra +�\u001b�3�\u0015c�py�^d\u0013V\u0000H)ت\u0013x�\n�Փ4N�s�\u0016i�j&>����_��h�Y��X\nlأ�\u0017\u0013��\u0019�\u0010��5�@�i�����[�'���@��^ln�ǚ/��9;|F���=\u0007�a[yQ�FTM�]mBM\u001b��\u001b�\u000fĹ\u0000w\u001fp��p\u0005`��\u0012�\u0014�����C�g�\u001dLR\n��\f�\u0016.\u0000���8\n��k\u000f���\u0013�\u001b�\u0000y��$\u0001��l�o\u000e\u0013\u0011qӭtؐ���\u000f�79���eK�jP�3�s^\u000f��Ŝ]�w\u001e�EB\u0004`�\u001e\u0014\u0015�\u0003`�dā��{T\b��\u0003\"u��h{/;V;�2���W��\u0015�˭QJ \nHImq�UN��c6�ZMW����\u0006W�+@�����N\u0010��\u0006s\u0015V`�V��:�D�k��\u0010c\r\u001c6_\u0017�^n��Y�0�\r�k�\u0000KԷ:�]#zs5\u001e�ϒ\u001d0=���\u0002���\u001e\u0007\u0006_�{�Y`\u0010+��A\u001d�2Rey��8��\u0011N�\u0000_��H-�yc���gii!\u0018�DQ(\u0011\u000e`D?_�\b�\\����Ȋ.���h,�>ll��R\u001d\u001dpɪ���H��0Vx�L\u0015�@\u0012��\u001b�\"\u001bvN�OCu�<��2��})^�YD#Z���b|6��)U�ڑ�\u001dE/'�\bڃ|@1�����.R|ԡ%⋘a��\u0006�xǢ�B1��0&��\u0016�\u0016���\u001c���h�\u000ev|�lp�\u0011�@YahK��1�6�\u0006\u0007Pq�ֿ0���s>����e���\u001e�\u001d{p��6�D�\u0010_\u001eB�\u000fNL�\u001eq�\u0015S��\u0003��Gq��\u000f�vj�\u001dx]\n�\r�ݫCs\u0015#��%H���$�aVO\u0001ۿ/�q\n!�V�U��4\u00161Ǡz\\�\u001a�Q\rx ��r⥎�\r��ize��k���.Y<\tph\n��\u001c�\"?��\u0005O∰V\u0013�;\u0014�˳;=��pߝaM��Z��D�O�\u0007�f����QD�S�NC���\\�\u0010\u0014�o\u000f�Z\u0002\u001a\u001a�Ѝ랹�+��\u0000�|�\u0012�>X�\u001f�b�L���]닱���\u0019��^�=�\bƪ���\\\u0002��q��E=���%�h��raJ\b�`\u001c5\r}v�o��ie��ײ\u000f�k��\u0001�ŷ�6��\r��I埫�\u0013��\u001cQu<Zp�4���yG�!A&=5\f�\u0015�ZY\f+���7|\u001b�*\u0004��[�\u0012� �\bl�6�ax\u001b�\u001d����N�\u0019\u0013���\u001a8>Ɇ��o\u0013\u0006\u0006-�ء�\u0016��H'l^7����c\u0005,\u001c2;/�>��ZV#�*��L���z��8g\u000fy�<odssr��-�R���d��i�a�O����eM���#e\u00118��z]\u0014{ZD졣�ʍ��OM�LY;�����<t)裘�9k3��0d��Ͼ�n�[�{�@�\u0006�y�g�x\u0015\u000b��4� ��GQ\nK�0�Gv\u0004�ȥ\u0001����]�9f]|�z)\u0006�\fE~�\u0005\n���@\u0007m��\u0015�\u0010��!��\"� �\f�D���L״J��dcM��\u0013��ٔ\u0007�\u0019��A�{ �{\u001b��^\u0014���h��X���7ؾ7ˑF\u0018;�����㞎�.�@<\u0015\r!�s\u0007��?E��H\b5CP�\n7c\u0016��\u0007\u001fJ\u0002��{�1�l�e�5��\u0007@ԣ��=0@v2ƹ��p��>gw��P+������Vz�`3��A\u0002�\fk�z�\"��\u001f"
+    },
+    {
+      "time": "2026-04-16T16:06:02.688Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "etag": "\"69034cde-10\"",
+        "age": "2320599",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=1l1W2P00YbbeC5Yr9%2FM1iRDSnndvOCw1dQiAhGKr4gN%2BVL4EvOSdxybplBwO1NvY8lVX2e3J5IMKv7tDRXPS0%2BLxrKx9jnYDEFJb2jwU7Qh3S6fZzi%2FG6D37Sy8%3D\"}]}",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "expires": "Sat, 20 Mar 2027 19:29:11 GMT",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:51 GMT",
+        "content-type": "application/octet-stream",
+        "last-modified": "Thu, 30 Oct 2025 11:32:46 GMT",
+        "access-control-allow-headers": "*",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "cf-ray": "9ed46f111ceffede-SIN",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "16",
+        "server": "cloudflare"
+      },
+      "bodySample": null
+    },
+    {
+      "time": "2026-04-16T16:06:03.344Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0004.html",
+      "headers": {
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "content-encoding": "zstd",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"5dea751a30c515df96a271d70947c850\"",
+        "age": "79294",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=IDKi%2B%2FujX2m2BTvdeTsY03VKdvZo%2BTNx38rtJ4as1KgpA%2FxIJBNE3UIAquTxB%2BMXRDKbI6zT1yLjwcRAZI1vRYQtNLBC3riuIKgdWKWTA2wlUdIT%2F0S0WV8CLJD62f5ViD%2FSmYyq%2BA%3D%3D\"}]}",
+        "cf-ray": "9ed46f5249d25ff3-SIN",
+        "access-control-allow-origin": "https://player.hanime.tv",
+        "date": "Thu, 16 Apr 2026 16:06:01 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "last-modified": "Wed, 15 Apr 2026 18:01:32 GMT",
+        "server": "cloudflare",
+        "vary": "Accept-Encoding"
+      },
+      "bodySample": "Q3�L����G�w�K\u0011[;�1T��\u001b�\u001d�#�h�q@���. ���6d d\bTE,�#EdhQB~�|I�:��\u0004�K��8;L,h|$J�=>cϡ\nmT\\��\u0016��+f%qv\u001au��C�F�T���������\u001d�~<�\u0010�-���5��'~I\u0006%HЁ�gu��&\u0012[\f�=��tB\u000ecM(��c��$�\u0017��0$��~c����J�8��l�t�\u000f��\t��x��\u0005:���M�6�3�\u0013��\u0012�Fݳƭ\u0001��[\u0006M��+8�F�\u000bS\u0011�\u0011�(�Sm�\u001b,��Ʌh\u0014sZ�M�U�2i��S�4`�>�\u00010�~DG�\\\u0000��&�%�\u001bd�\t��&�7�dv\u0002����h/�����@qwv>Rj�� �ˆH�1\u0019L{��'jr1\u001co8�)�8\u0015;��ό�<��\u0015O6�CE�S_.i��F\u00057�V�u9('��\u0004z}�\u0002��|��؅\u0016��Ǒ\u0005_�����\u0000+�\u0010����\u000fEV%�+\u001ac�{�Z��ij$k���,\u0006]k�B��,��ԙ�|\u0015��AnWzr~�5\u0017\t@\u0019�o\u001b{�P���z�Ū�Sܩ���R#���yǛf\u0004���\u001e�5x �M\t�\u000e\u0016*\u001b+9|.����B�K���)�r}�^�,���\u000f%E՝���\u0013X]\u001c�-�z�]�z�y�ݗe��\u0016^��XI���\u0018g���D�3U��������\u0000\u0013�;V�d�9\r>cjYZ>\u0019���M��\u0012�-�Ҵ��#%4Eb��\u000ew�w��z��:�k��w����pO��l����h5ؓ\u0001\u001b^s\u001e��\u0004�7ɯx\u0007\u0017�~�\u0006\u0015<�E>:#��q�G)�[�;Y�����`�PG�\u0018�!��,U8�\u001d\u0016\u0011�8�\u0007���pE�/���x�!ƹ*�}�*>Y\u0016FfS��!J\u0002m�W=���tBPY���\fџx\r����\ts�x$�\u001b�S���b�(��\u0000���\u001449��\u0017͓�(��r\r-c���n��|����\u001d\"6CX�P��@\u001eȻ��\t����u�\u0001\u0017\\���E^a�b�\u0001\b�S.�!ݬG^\u0001\nB���%1�h&\u0019Ҧ.�{��6���\u000fO�\u0010+�-\u0015�M�\u001b5k\u0004�Y���ҡ��\u00149�yϘg\u001c�۵�y\u0014Md\u0019\u0011t��-g%���+�Tm�)V1m\u0012g^Ak���*A��FbJH�\n���\u000b3�I��M�N�i�n-\u0010\f���<���G�\f���Jދqp\u0005�,�����\u0007C�NR�\u0010¤��3hS\u0018�����\\c\t��\u0002$��+�k�1�X��,3@L�\u001c��\"�Pҫk�%]�F���9�\u0017\u001b��2\u000fh�W\u000f��E�\u0003|�<�''�\t��\u0015��Q�cq�2q��`6<�̱F\u001f\u001d�\u0011���\u000f�@��m�ˮ�ߡӒf\u001d�'91�G��F���H՚�\u0018?\\�$�vɶ�L\u001a!�KB�J#�-�f�\\�64p�\u0003�\u0003�r�;\\̽Nɕ\u0006\u0002�SQ\u0003�M��P�����/Y_�טY�4o�]ǭ֮QR\u0013\u0013���\u0007���.��\u0000��3oHK�!�K'\u0017T'9:ʘ���!�\u0010l|�i�\u0016q����\u0003��0�ʋ�\u0011��NG}�ԟ�>�@�,9��\tJ�\u001f�}\u0016M���\"jⶹ��t�FI�����\u0018\u0014�\u000b$W\u0015J\u0015�����\u001c�^Z��\u0016̀)-���Q/���U�ݻ=�\u001d�\u0013��6\u0017�!\u000e��X\u001f�\f\u0000v�a�\u0006�*\u0002i\u001a��\u000e%����\bϙ\u001e�\u000b���{\u000e��:��eI\u0002'��c\r:�k�\u0004�����[ro�Ý3��2D̖Q}�L�\u001f� 8��\u0013=B���\\�\u0011�nlw�<҆0\\�fD\u000b���&F���<q�\u0018 ~B\"w\u0002h;���L�\b���c�\u00123=ˮ\u001a�d\u0002��:D�dp�UJ���T��)�:���/�v_���|��Q4m���?�y��R���FΦݕP$����.�~SI<\u0004�u��z\u001bISg���\\\u0010��W��4\t\u0001\u0005���I�9D�:�xo��Ϣ\n��Gs��Xl�?��M(�sЏ\bt��D��\b=n(��\u0016\n\u001b�&5\u0006K�cdC7���\u0017�\u0018j�\t�j�6�F\u0019���ţq\b=��?�سG��\u0004\u0007�@�O�\f��J\u0004�\u0002_73�)x5��!�\n�Tے�j\b:�\u001a���dX+�\u0013\u00079�q�l�xrS�+q'e�\u000f�\u0010 �w�@�WZ���\u000f�l\u0018�\u0011Q���\u001e��w�o�\u0019�#鮦��=3%��\u0014�^N��r���_��p���u8��w\f<���V��9\u0019_\u0001��vߑn�{�.\u0012.�S5X\u0013���\u0014����9H���U�v�\u0001.\nCcG�#\u001c�f9`a�/�%����5�ƞM\f��0\n��H\u0015<I���j\u0019�33�S�NBMxL#�]#�c��k������ݩ�j��2P�}�%\u001dƃ�R[�M\u0011�\u0002t��\u001c\f�>5ۢ�\u000f|�d��3\u0015���Q�9 �!�B\r��\u001b\r8h\u000e�53#|cs�iL�P����\"k��#�\u0014���:|�\u0010P\u0018��U��ʆ\u0010�\u0006z�\bQ���kx �P\f��\u0014��-W2W#���\u0003\".C�&`rZ==ȆM\u000e�[</��\b�e�t���ˆc*�W!��ɷ\u0013�Ae��&~�U$�F2����3��l��\u001f(i�����͸�2E����&.1L�g�<+Af�\u0000�M\u0012w�s�\u0017�L\u001f�\u0002\u0004\u001e�(���fq��\u0013~�\u0001&�ߵN�Ȇ�,GJ\u0001�\u0019��\u0004s�r��#���!9d(q\u001fc��\n{���\u0003TX\u0015�*�c�t8\u0004 W\f�O�\n\f��\u0015I�+BUl�{4\u000b��!ǌ��ML\u001e�-\f�Qn\u001f\u0003>��A�S��`S\\�\u0017\f�;E\u001aX��\u0019,\u000b>�Ӯ�5\u0012�\u0005���ϭ���S�\u0007)\u001f\n/\u0016��&e\u0000�o��M\u0017����c���\u0003\u000f�eu\u0010�b9Zb\u001c6�A��\\��?�\u001dM�4Q�l\u001d\u0001MA��\u0018\u001a�x\u0002L\u001f =cqU�\u0006Qvؘijv���I�h\u0011A�֖&��K;��z\u001ehW�̖\u0015\u000e��\u0018|�2\u0005�6s\u0011�f��\u00015[�\u0014\nм̸\br�B\rNĮ\u000b�~��l�\u001f\u0012$!QJq:�\u0007�\u0017\u000b�/�Ec�/�9\nf�#v\u0004��˟���\f\"0�NЕ���\u0012��6���h\u0007���nN�\u0018y�<�\u0004�����9\b\u0002�W`����)�-�\"i\u000f�-wSGMv2`�Ô��jo\t���7,\n�3k��:�&<\nD��\u0017\u0006F���\u001c\f�psK��\u0017 ���II�{��\u0004�bx~�+޺7�\u0004l;���cמl\tS~�T-e\"�\u0010��\u001c3Us���\u001fT��J���k\u001a�ϛ�����\"=8޻�\u0012\u0005���R��UF�1�~<��\u001b{��5pX�\u000b��1!\b[^��<�'\u0012�\u0017�i`��<�4�T��0�\u0004\u001b-�N8^:R�'õ��x��Hs�h\u0002E���\t��\u000e�vR�7e�4���\f�d�U \u0000�2҄���H!��L�{��Y9v�\u001aM��</֥\u0000)�W�9�-G��&��\u0016�[�\u001f\u0016H�\rÃ����d\u0011\u0001\n���馗\u0010X\u0011�aN�\u0010��\u0018x3ֲ-\u001e;Y��s���8x������w�.\u0018�1&/�\\�\u0014^��m��w�g�7\u0004�\u0019��~\\��q�w��ă?�����B�\r��\u0001m�![��\u001ca\u001c�������E�ۢ1�Ie�+sB\f����6���U`\u0000\b�u�\u0005g�^.�{����&\u0012��{'Aq���&�d\u000bԘי�Jq7Xo\nw{g���r���0u�Xo�[�\u000b���hh�S\u0018Bpt�i\b@�#�U_��|X>��x���Z\u0019�V\u0003|.έ�\u0011U��'ޜxG��W�}Ji :}\u0011k�J�sDm)��*.\u0005��Q\u001d�vCdy&��p\u0015\u001b�-g�\u0012H^��eH\u0002р�4���x�Q��5<����ȹ����őRJV����qJ1�%\u0017;lh�f4~�K�L��\u0006L��0��\f��)4m9\u0003#���\u00109��S<�Q\u0012�Z�k\\����7����'���x�̟{;�\u0013\u0006�b<<D\u000e�+�'�qp(�;P��������\u0005�\u0003>�8\u0004���\u001b�8,Bk���i\u001c�%��\u0004\u0017��b\u0012�\u0007\u0016\u001c�T|l~H�sOK�%�\n��]K�]�'<��\u000eP\u000f�\u001e�\u0006��+4$�l@��̝X\u0005\u0001��p�O�\t\u0000rttϱ��keF���T��=\u001c!�;.Do\u0015��\r(�Et�ե��/D\u0018�[�-\u0019\u0016��\u0002N2K\u001a\u0005���q\u001a\u0007�q��@���9.�u��\u0007�0�Q��\u00149�@��\u001e%��R&��+\u000ei8�A�/���]�;ۉ+���\u0010M�rU\u0006 :\u0016�\u0007�<����\n1�\f;3#�+��0Y���\u001b�ˌc~M\u0001�>j\u000e\u0003=H\u0013ߋ���\u00138\u0001\"�b\u0003v\u0010�J\u0007�jņ�/R�e�<Yȼ�d\u000f��h�5���Z��$�|\u0019����<&��\u0016(�\u0018>(\u0001)��'���� {�7\u0004V<K���@N̎\u0006\u0005�\\2�kh�e�\u0013Z-��\u0019�\u0012��\u0011\u0001E\u0002��c�v<ZL�l�_Bp�e\u001e��$������\u0010�Z\u0019�r@@J�:��\u001e\u0017E>m'��6�jt��˲S/��Hb~�\u001dT���t\b�`琍@\u0014���;fs�\u001aV^���2��\u001eظc��{~M�\n(kߟ�\\\u000f>SQ�\r�J\u0002��k?+�N�*���\u0003�Л���\u001aa\u0000\\�2\u0003A\u0017�\u001a|X�R=�\u000b=\\�������F\u0016�\u0003y�\\\u0011\u0004@�e�\u0003�v�9��\u000e��瘣���\u0006F����\u0001��\u000eZ�<�?�E���\"�\u001c\u000b\u001d��J�\u001c\u0005}����Od�D\u0017x��O4�\\��\u00040?G:��\u000f��;���Ω�08�9��E�V<��t�\u001fW��(Dѡ�n����\r��C���T㰏\u0003K\u000e�o�I-��(�mҚ�\u000b׾Oה-\u001f��+�h�x�詓5��O�9��\u0005����Uw�\u0000J��<�v\n�\u0002�����\u0006�\u0013°\u001f́`\t��C�2Υ;BP栟n���tm�R=�����˺ʯ˓��w�\u0001�t`a�����qyt�|n[w_��Ġ�\u0012f��{\u0013c��(� ]�|ѷ���R�G�\u0003�M�0�}�X^������\u001c�feԱ\u001b"
+    },
+    {
+      "time": "2026-04-16T16:06:03.346Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://hanime.tv/sign.bin",
+      "headers": {
+        "cf-cache-status": "HIT",
+        "etag": "\"69034cde-10\"",
+        "age": "2320599",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=1l1W2P00YbbeC5Yr9%2FM1iRDSnndvOCw1dQiAhGKr4gN%2BVL4EvOSdxybplBwO1NvY8lVX2e3J5IMKv7tDRXPS0%2BLxrKx9jnYDEFJb2jwU7Qh3S6fZzi%2FG6D37Sy8%3D\"}]}",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "expires": "Sat, 20 Mar 2027 19:29:11 GMT",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "date": "Thu, 16 Apr 2026 16:05:51 GMT",
+        "content-type": "application/octet-stream",
+        "last-modified": "Thu, 30 Oct 2025 11:32:46 GMT",
+        "access-control-allow-headers": "*",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "cf-ray": "9ed46f111ceffede-SIN",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "16",
+        "server": "cloudflare"
+      },
+      "bodySample": null
+    },
+    {
+      "time": "2026-04-16T16:06:03.772Z",
+      "status": 200,
+      "resourceType": "xhr",
+      "url": "https://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0005.html",
+      "headers": {
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cache-control": "max-age=31536000",
+        "content-encoding": "zstd",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"9fa708052a1ee784f29fb4c99a683f3a\"",
+        "age": "79294",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Hh0Eair9tKOwXm9e7XY2bQvGer71qRmhr9u1triMtgK7AT6VeiTXPIAxJBq9XwZeDRMAxYkbR7VLsXhEuQu31SN2Lhg1uPz%2B6lcdxnKaHYRKp0SE08GsigJL5LiB8i%2FDxpeYQay3PA%3D%3D\"}]}",
+        "cf-ray": "9ed46f576df05ff3-SIN",
+        "access-control-allow-origin": "https://player.hanime.tv",
+        "date": "Thu, 16 Apr 2026 16:06:02 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "last-modified": "Wed, 15 Apr 2026 18:01:32 GMT",
+        "server": "cloudflare",
+        "vary": "Accept-Encoding"
+      },
+      "bodySample": "=B���|mM-�G\u0016#]*8-��33�����<9.�\\'�}�?��\u001d�\u0019;����O��j��\u0019��c�:Hk�y��K�U��X�0UWp\u0000\u0017�\u001b\t}Ώ�\u0005�\u001eҬ�S���'\u0005\u001a���Al�ʆT�A�7��\u0018���\u0010[���O\u00187�\u0003��\rb�e\u0001\u0005�\u0002��\bУxa�G�J\u0016�EA�~ԝ4���m�\u0010h��*ىsl�߃e-\u0006&\u0012��~Tf����#\u0001�\u000e\u000b.\u001fj��\u0013t�\u0004�!����*�\u0013�\u0012�s~%4�o\u0004��\u00045u2:Q�4����x�F\b�3��+��բ�S(��;�D͘�w����H7U�x7��ײ�V��k��\u0016\u0004\u000enh)�\"�jUEc\u001c\u001e(t�7\u0007���D@��\r|�y�iw��\u0003\u0013�,~�vj�\u0007ۻז\u0002�6��U�i�k��\u001dF\n��j�G9�_\t\u0016G��u�f�{wn� Q��@�2\u0004ќ��\u0006����[m���a�3�T����AF3���>ò�����?����g�Y,�:T\u000b�\u0017���\u0016y�6���s\"B�\u0003��\r>\u0018ӊ��`�4��\u0011����u��6FR>�\u0003�6I�K&�5�QI=�zc����O䥠�듯o<WVH'�:�D�Xc�\u001ba�����#B��\u0010�@>QV��\u000b�Z�,^\u000b��T\u0016r+����#l�c4��Q+#C*��\r�:��'�������\f�\\�P!\u0011�uF����\u0015y<�3\u0012�\\\nixĘ\u001a[�����BX�\u000bZE\u0005#�\fk[>��]bI�4[\"\u0001d��X��8L����g�,T�\u0002��ii����`���l�te\u0005ߓ\t�\fV\\5��F�q-�QP@!j�ڼ~7\u0004��kz\u0014�~Z.tW�8������E �:4WZ��\f��\u000f�\u001cÓ\u0014:ܛnЋ/|f���3��\u0016?���t�Cb\u0012�dn�L�uJM[�L�!�\t�̦<o9\r'\u0015�>c���TI����I��ϡ\n��\u0017i�2v�\u000e&��\u0011&U�f/^A�x�\u0011'o��\u0000�\"H�M�}�\t�ţ�����i�FC�\u0018Wq7Q\u0005�\"�\u000fi�T���D�4��\u0000��n�d���A88�aުBPN���`��E��~���u�k~�\\�޻��\bG�tPf�&�\u0004P9l\u0004��\u0003H.�;�,����oi�MtU�F�}k�`��f�Z��v]#�\u0017�Yx5H�J���|\f[jv\nI���͂F���%<�\rV���%��ysܭ\u000f���w\\�Q���4SL���yE�@:U+A��sh��r��cO\u0006�\r�i\u0011|�\u0019���!�qd\u001c�?5h9q �(�\r\b�~\u0003�<��<\u0007A��^-z!�z\\�8�JM�U�]D���gk����I��\u001a���Q����\b�\f�\t�RB5䭡4\u0001���\u0018lS�����/��\u0001��x��/N��\u001a\u001f�< �gf����&\b%��_h\u0014�\u0016G#��ƈ��\u000b/��Ҭ�1�%��Z\u0014SQC��;1?3��~��wA�3�bs�*���(��f����^Ζ\u001e�M�2���:&�|\u0018���Q;T)�ud��V\u001d�<���4Ӎ�1s��*��!�h�\u0003LZ�kU�\u0005�\u0019\u0018\u001d���\nb:���.n��\n[pP\tu��\u000ea~AH��q&��ڂ51˃��a�$����q��5G.\u0018\u001b�d�^\u001f|�\u001c�LU$�o�?�\u000f\u001bV4�\u0002�ޥ��%\u0016�:2M?�#\u0010�V���Ë�A^U��D\u0005n11\u001ee]��~T\u0006mV�g�g\u0015\u0002�(y\r��R�?��b\u0017�@k�fj�\u0006���:��N���\u001fݼ�m�n��U��@\u001e�:��ϥ�L��$��E�t#�լ\u0013䊃��D\u0004���U����^\u0012k�����6|i\u0011]�\u001a�S�?�v�΂S�E��#\\��\u0011UC9Hm,�\u000b�*L2��G@O\u000b\fx������3�Q!32*%�2c�\u0001�ft��r���?G�o-�uC�\n\no��g�w��\u001a��*�?�WT�,\u0010D�j��\u0005�kH\u001bf+�[O�Z#�\u0011�53p$u������M\"�P\u0017\r�+$\u001b8$�8�����l�\u001b��{�0'{�Z�l��er�������y��X=\u0000S`;{�\\\u0013jԏ���\t8輠֗ciNx,��}TD!2\u0007\u000fS{�lЄ\u0010���\n�_B++���\"4�^�|��A�4��-��P�u ][�~o��?z\"���N�\u0005k�s\u0000s��P�~^�n���b_ZPK����-2N�\u0003���{v}\u0007y\f&�;���2ďD�\u001d@�L\\_�\u0018\u0002O��]囜,��\u0003q�Z�%\u0014;/}�\u001c�\u00050�b�����/\u001aI���H�ヌ\f\u0013��r�m4Ϗ�;L\u0019/O?i8��\u001d\u000f\u000ev簣����po�M��\u0012\f\f{fºf�+�;dM�>�B�#�d)N4���>��_3��\u0001ȝ͓p��\u0011P� ��y{���\u0016�r\u0003�D/�#ﵵ]�=]F}^�S�����;?�\u0003G@vݔ��\t���%gK\u001e�*k�\u0018�c�x�V��z�⦼\u0015�w��\u001a\n\u0003�X�4\b\u0011ز�\u0019�y���/��\t�*\n(�\u0004��\u001c\u0011�&\u00173���\u0011Ȼd��V�u\u0012�pV\"\\μwae\u0014{�\u0007Z����r{@��Ø����5:�\u0004F��$\u001d�UX2�Q�\u001f�\u0012��m!�z����G�x\u001b�\u0003w�(\u0019��\u000e��\u001eE}G��\u001c0�]�קk�q(�>�\u0001{֋�b{�M�v\u000e�\"�̱�ZAn%��}O4�����]�L5e{�(e���9��H\u0012�~�R��*\u0014tc�7~mVh\u001d����Y��ԋ\b�\u001a\u000fr��Q���\u001c6&�T\u000e/g)˥3\u0016�A\u001b́�]\u0003\u001a*�)xɬ)��D\u001e)�\\��eR\b#~NW�/��.\u0012�Ex�\n\u0005c�Zm�\u001cUڱ���\u0003x��\u0012�\u00155�Y)�t����Ѝ\t�\u001bcʷ9��d\"$��t.��Q��4��\u0019*���6Ir꧵qU�!����n��֗k�<�J'\u0005FMC��\tjS0����]!�A\u0000Z�\u001cs\u001b� 1\u001aPQ�A��Z�Єr^�I�о���\u0006\u0004\u0016�E�.\u001b2�$⒡&�\u0007�\f�\u0014�=\u000b�~\u0004�ؓ0G�ʐ�^��5C�R\u0014\u0015n:�lhc�#�j�v�#:s-�ţ�|\u0003�k���\u0015\n\u000f=_��-kr\t����? \u001b4\u0019���\u001b�8;!D���\u0018\f{\u000b�A�����و���\u0006Z�o�K��қ��ް��\u0013����\u0018�@c3�D�5\u0003՗8��:�Ag���� �[�\\g�\u0017��T1�L�[>��]o1�\n3K����_�\u001c���\u0013@�^\u0010W~Դ�$8���y��y��\u001e�\u0018�0�v���O�a_��ώ\u0011|^W���^-+<��-!dK�*p\u0012�H�ȼq�\b\n�I��{�4�;�d�}��hـ�T)�a��؎~��y\u0005��6\u0005,+�\"!\u0010��ƺ��)e��_v����[�\u0016��3\u0012\u0001\u0002}�4\u001e^�4�6��Z)�\u001a���\u0019�I5K�\r�y�1�\u0004k�\u0012�� 0!XtI2�\u0012�Y�B��'\u001f�\u001bq��D��g��\u00191�;m\u0013������a�\u0004�:ɵ��Kg����0��14V��\u0012]�%oہ��i��w)�T�}\u000f�g$\u0017'Q��ejU+�P\r�dj\u0002�\u0006�\u0018���\b�\u0015z\u0007���Gi�<)-��Q\u0016�A\u001f\u001c���(�����K�\u0000�\u001f)p�ћ�\u001c3}Bo2d�n�n\u0003\u001f^{�(��ѯ��.\u001f���FO��܉�?\u0018�8?��p�?H�fo�5���-��&\u0004�2�2���\u001d����F�,Dlc\u0016_���$�V�IN�;L۹o����2̐3�\u0010r$�\u0017�\u001bu\u0005}��+�Ym��Ɯ+��U�3�E:;\u0007N��j��7�\u0014m�y<�AB2gE�Ɇ�ёQAL���R��AO���\u0011ʆ\tL+����E�������\u0014S\u0015���d\b�/R!�\u0012\u0015��G�\u0000A=;�(�N���\n���튣D!�\u0014��\u0018�i�*]PL\r��v\u0001�\\\f?\u001b�\u001f��wo�������T�\u0016�\u000e��*&�\u0005)���K�u�O\t-�\u000b\u0016u�hxݢ�<�5%$�Lg#�=9�\u0003�\u0004�Y�r'���2Ua�\u001c\u0000uU퍲�6�K�M�ncL��F��)�\\\rS�2�H+�uדּ�gL��~��\u001cp�p���\u0011��r���\u0007ݜ5�e�\u0014H���X��iQ��r�\u001el��\u0016�W?��\u0011<\u0013�N�\tW'�!Qm�+�LV}���>�̵͘���K�D\t�r\r������vkPT2�=ͫ����\\H9��\u0017���W*�Tnu�����a�^7�P\b�����\u0016�\u0019�'6�,�8\u0005\u0004.^.)\\��h�|x����R\u0014a\u0013/�AE�o�:���Y��L��BV\u001aH�!�<�\u0000��!j�y\u0005�Naq2-��8;ۊ�s\u000e�\u001e/��QW\u0016Dd�^!������8��MPV�\u0004�`�vf\u0018����H�\u0002\b~�ӂz�B�HBG�\u0000��?�e�9��{�l�ǩ\u0019�{ēW'f���`��郎��X��K>�\u000f(��\u0014D\u001f�\u000e�.��i����ܑ<��xeq�-�(\n\f�A\u0016\u001a܍�����\u0015\u0010\u0004����\u001a��}�����)��˯�.m��\n1Z\u001d\u0001��J`�zS]�Wh;�\u0007�h�F�T(%T�V!��'�b�\u001a�;��\\UF���?��p\u00106���\u0019XIC��绀Xl|��\u001b�B��*\"��/\n��\u0001�m�����+�k@�A�/���'��e�h\u0017�G���j��ų\u001c�R�j�|�M|�җ \f�\u000e(&,�=A�ֿi\rK3GSQ�\u0017\u000bǀ\nƞ%=L�\t������\u0003D��U�\u001fni?�g�#\u001c��\"\u0013ֻ�\u0005IǔG��P}q�Z����T,Lh��Y<;�\u0019��ot��n�?������\u0018�G(\u0003��'�޶\u0006l���\u000f\u001b��-�Ay�\u0012W\tB�^��\u0004�\u001e���\b�%�A�It��|�g��~�Y\u000fJ���t\u0006�LO}�\u0018��F�7\n�\u0016��\u0015��5|lز5���,z�S��\"ݵ��\u0004���5\u0010x1̯'�t�\"LW\u0019��|��k�r�Yr�s\u000f\u0003@ޜX��\f\u0000\u0001��2u"
+    }
+  ],
+  "console": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_ADDRESS_INVALID"
+    },
+    {
+      "type": "warning",
+      "text": "VIDEOJS: WARN: Problem encountered with playlist 0-https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/s3snkAsfAspvxmwhzzwzf20gsyZlf62dsr7vx9qnxpwsvwv1f8g41.m3u8. Trying again since it is the only playlist."
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_SSL_PROTOCOL_ERROR"
+    }
+  ],
+  "pageErrors": [],
+  "summary": {
+    "nuxtSnapshot": {
+      "nuxtKeys": [
+        "layout",
+        "data",
+        "fetch",
+        "error",
+        "serverRendered",
+        "routePath",
+        "config",
+        "state"
+      ],
+      "stateKeys": [
+        "scrollY",
+        "csrf_token",
+        "csrf_token_last_fetched_time_unix",
+        "version",
+        "is_new_version",
+        "r",
+        "country_code",
+        "page_name",
+        "user_agent",
+        "ip",
+        "referrer",
+        "geo",
+        "is_dev",
+        "is_wasm_supported",
+        "is_mounted",
+        "is_loading",
+        "is_image_processing",
+        "is_searching",
+        "browser_width",
+        "browser_height",
+        "system_msg",
+        "data",
+        "auth_claim",
+        "session_token",
+        "session_token_expire_time_unix",
+        "env",
+        "user",
+        "user_setting",
+        "encrypted_user_license",
+        "playlists",
+        "shuffle",
+        "account_dialog",
+        "contact_us_dialog",
+        "general_confirmation_dialog",
+        "snackbar",
+        "search"
+      ],
+      "videoKeys": [
+        "player_base_url",
+        "hentai_video",
+        "hentai_tags",
+        "hentai_franchise",
+        "hentai_franchise_hentai_videos",
+        "hentai_video_storyboards",
+        "brand",
+        "watch_later_playlist_hentai_videos",
+        "like_dislike_playlist_hentai_videos",
+        "playlist_hentai_videos",
+        "similar_playlists_data",
+        "next_hentai_video",
+        "next_random_hentai_video",
+        "videos_manifest",
+        "user_license",
+        "bs",
+        "ap",
+        "pre",
+        "host"
+      ],
+      "id": null,
+      "slug": null,
+      "name": null,
+      "posterUrl": null,
+      "coverUrl": null,
+      "videosManifest": {
+        "servers": [
+          {
+            "id": 9,
+            "asia_rating": 3,
+            "eu_rating": 3,
+            "na_rating": 3,
+            "is_permanent": true,
+            "name": "Shiva",
+            "sequence": 70,
+            "slug": "cf-hls",
+            "streams": [
+              {
+                "server_id": 9,
+                "id": 83920,
+                "width": 1920,
+                "height": "1080",
+                "compatibility": "all",
+                "duration_in_ms": 0,
+                "extension": "m3u8",
+                "extra2": null,
+                "filename": "stream.m3u8",
+                "filesize_mbs": 400,
+                "hv_id": 3427,
+                "is_downloadable": false,
+                "is_guest_allowed": true,
+                "is_member_allowed": true,
+                "is_premium_allowed": true,
+                "kind": "hls",
+                "mime_type": "application/x-mpegURL",
+                "server_sequence": 70,
+                "slug": "cf-hls",
+                "url": "https://streamable.cloud/hls/stream.m3u8",
+                "video_stream_group_id": "cool-de-m-2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "playbackState": {
+      "clickedPlay": true,
+      "hasVideoTag": false,
+      "currentSrc": null,
+      "readyState": null,
+      "networkState": null,
+      "paused": null,
+      "playerHtml": "<iframe src=\"https://player.hanime.tv/?&amp;#v2,3427,cool-de-m-2,https%3A%2F%2Fhanime-cdn.com%2Fimages%2Fposters%2Fcool-de-m-2-pv1.webp,no\" frameborder=\"0\" scrolling=\"no\" allowfullscreen=\"allowfullscreen\" allow=\"autoplay\" class=\"hvp-panel ad-content-area banner-ad vertical-ad\"></iframe> <!----> <div class=\"dialog__container\" style=\"display:block;\"></div>"
+    },
+    "candidateUrls": [
+      "https://cached.freeanimehentai.net/api/v8/playlists?source=related&hv_id=3427",
+      "https://hanime-cdn.com/images/video-player-fail-bg-v3.jpg",
+      "https://player.hanime.tv/?&",
+      "https://player.hanime.tv/videojs.thumbnails.modded-1.0.5.js",
+      "https://player.hanime.tv/js/chunk-vendors.2b7f19c2.js",
+      "https://player.hanime.tv/js/app.9ffad1a7.js",
+      "https://player.hanime.tv/css/app.2148485c.css",
+      "https://cached.freeanimehentai.net/api/v8/guest/videos/3427/manifest",
+      "https://player.hanime.tv/cdn-cgi/rum?",
+      "blob:https://player.hanime.tv/43326eb9-0e9c-4535-b53d-6d497cfa718b",
+      "blob:https://player.hanime.tv/ba9992fb-d806-4274-bbf5-f46408f04543",
+      "blob:https://player.hanime.tv/5e085396-963e-4b78-b5f1-7e66b0d6d845",
+      "https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/s3snkAsfAspvxmwhzzwzf20gsyZlf62dsr7vx9qnxpwsvwv1f8g41.m3u8"
+    ],
+    "capturedM3u8Urls": [
+      "https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/s3snkAsfAspvxmwhzzwzf20gsyZlf62dsr7vx9qnxpwsvwv1f8g41.m3u8",
+      "https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/Amj1yglr6ht8hwyv7z3dwrbvv1Zmx7pj7njg3g0t7bzqdr4f0v0r7.m3u8",
+      "https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/81bbf26q53dAbgf962d7yyp1d3ZcvldfmrsgAr2l142xwAtv3Ak92.m3u8"
+    ],
+    "playableM3u8Url": "https://m3u8s.highwinds-cdn.com/api/v9/m3u8s/s3snkAsfAspvxmwhzzwzf20gsyZlf62dsr7vx9qnxpwsvwv1f8g41.m3u8",
+    "playableM3u8Verification": {
+      "ok": true,
+      "status": 200,
+      "contentType": "application/x-mpegURL; charset=utf-8",
+      "sample": "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXT-X-INDEPENDENT-SEGMENTS\n#EXT-X-TARGETDURATION:14\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-KEY:METHOD=AES-128,URI=\"https://hanime.tv/sign.bin\"\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0000.html\n#EXTINF:5.588917,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0001.html\n#EXTINF:10.051708,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0002.html\n#EXTINF:10.427083,\nhttps://p34.htv-hydaelyn.com/3/4/2/7/h1x/segs/b0/2/0003."
+    },
+    "requestCount": 35,
+    "responseCount": 35
+  },
+  "finishedAt": "2026-04-16T16:06:05.504Z"
+}

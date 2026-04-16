@@ -13,6 +13,21 @@ data class SearchParameters(
 )
 
 @Serializable
+data class WebViewInterceptPayload(
+    val startUrl: String,
+    val targetUrlRegex: String,
+    val desiredQuality: String? = null,
+    val extractQualityFromManifest: Boolean = false,
+    val clickSelectors: List<String> = emptyList(),
+    val clickScript: String? = null,
+    val matchMethod: String? = null,
+    val clickDelayMs: Long = 1_000,
+    val clickIntervalMs: Long = 1_500,
+    val clickAttempts: Int = 3,
+    val timeoutMs: Long = 30_000,
+)
+
+@Serializable
 data class HAnimeResponse(
     val page: Long,
     val nbPages: Long,
