@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.animeextension.en.watchhentai
 
+import android.util.Base64
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceScreen
 import eu.kanade.tachiyomi.animesource.ConfigurableAnimeSource
@@ -17,6 +18,7 @@ import okhttp3.Headers
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.Request
 import okhttp3.Response
+import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 
@@ -92,84 +94,121 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         val videoList = mutableListOf<Video>()
 
         try {
-            // Read the raw HTML first (response body can only be read once)
             val html = response.body.string()
+            val doc = Jsoup.parse(html, response.request.url.toString())
 
-            // Debug: Log a snippet of HTML around the actual iframe tag
-            val iframeTagIndex = html.indexOf("<iframe")
-            if (iframeTagIndex > 0) {
-                val start = maxOf(0, iframeTagIndex)
-                val end = minOf(html.length, iframeTagIndex + 600)
-                android.util.Log.e("WatchHentai", "HTML snippet of iframe tag: ${html.substring(start, end)}")
-            } else {
-                android.util.Log.e("WatchHentai", "No <iframe tag found in HTML")
-            }
+            // Find player iframe URL or meta contentUrl
+            val iframeElement = doc.selectFirst("iframe#search_iframe")
+                ?: doc.selectFirst("iframe[data-primary-player-url]")
+                ?: doc.selectFirst("div.fakeplayer iframe")
+                ?: doc.selectFirst("iframe")
 
-            // Look for the iframe with data-litespeed-src (LiteSpeed lazy loading)
-            // The attribute is data-litespeed-src, not data-src
-            val patterns = listOf(
-                // LiteSpeed lazy loading attribute
-                Regex("""data-litespeed-src=['"](https://watchhentai\.net/(?:jwplayer|plyr)/\?[^'"]+)['"]"""),
-                // Fallback to standard data-src
-                Regex("""data-src=['"](https://watchhentai\.net/(?:jwplayer|plyr)/\?[^'"]+)['"]"""),
-                // Even more flexible
-                Regex("""data-(?:litespeed-)?src=['"](https://watchhentai\.net/(?:jwplayer|plyr)/\?[^'"]+)['"]"""),
-            )
+            val playerUrl = iframeElement?.attr("data-primary-player-url")?.ifEmpty { null }
+                ?: iframeElement?.attr("data-alternate-player-url")?.ifEmpty { null }
+                ?: iframeElement?.attr("data-litespeed-src")?.ifEmpty { null }
+                ?: iframeElement?.attr("data-src")?.ifEmpty { null }
+                ?: iframeElement?.attr("src")?.ifEmpty { null }
+                ?: doc.selectFirst("meta[itemprop=contentUrl]")?.attr("content")?.ifEmpty { null }
+                ?: Regex("""data-primary-player-url=['"]([^'"]+)['"]""").find(html)?.groupValues?.get(1)
+                ?: Regex("""data-alternate-player-url=['"]([^'"]+)['"]""").find(html)?.groupValues?.get(1)
+                ?: Regex("""data-(?:litespeed-)?src=['"](https?://[^'"]+)['"]""").find(html)?.groupValues?.get(1)
 
-            var iframeSrc: String? = null
-            for (pattern in patterns) {
-                val match = pattern.find(html)
-                if (match != null) {
-                    iframeSrc = match.groupValues[1]
-                    android.util.Log.e("WatchHentai", "Matched with pattern: ${pattern.pattern}")
-                    break
-                }
-            }
+            android.util.Log.e("WatchHentai", "Detected player URL: $playerUrl")
 
-            if (iframeSrc == null) {
-                android.util.Log.e("WatchHentai", "Could not find iframe data-litespeed-src in HTML")
-                return emptyList()
-            }
+            if (playerUrl != null) {
+                val absolutePlayerUrl = if (playerUrl.startsWith("http")) playerUrl else "$baseUrl$playerUrl"
 
-            android.util.Log.e("WatchHentai", "Iframe src: $iframeSrc")
+                if (absolutePlayerUrl.contains("/player/") || absolutePlayerUrl.contains("/player-alt/")) {
+                    // Fetch player page
+                    val playerResponse = client.newCall(GET(absolutePlayerUrl, headers)).execute()
+                    val playerHtml = playerResponse.body.string()
 
-            // Parse the iframe URL to extract video source and quality
-            // Example: https://watchhentai.net/jwplayer/?source=https%3A%2F%2Fhstorage.xyz%2Ffiles%2FM%2Fmy-mother%2Fmy-mother-1.mp4&id=9084&type=mp4&quality=480p,720p
-            val sourcePattern = Regex("""[?&]source=([^&]+)""")
-            val qualityPattern = Regex("""[?&]quality=([^&]+)""")
+                    val videoHeaders = Headers.Builder()
+                        .add("Referer", "$baseUrl/")
+                        .build()
 
-            val sourceMatch = sourcePattern.find(iframeSrc)
-            val qualityMatch = qualityPattern.find(iframeSrc)
+                    val seenUrls = mutableSetOf<String>()
 
-            if (sourceMatch != null) {
-                val baseVideoUrl = java.net.URLDecoder.decode(sourceMatch.groupValues[1], "UTF-8")
-                android.util.Log.e("WatchHentai", "Base video URL: $baseVideoUrl")
+                    // 1. Check whJwSources = [{ file: "...", label: "1080p" }, ...]
+                    val jwSourcesMatch = Regex("""whJwSources\s*=\s*(\[[^;]+\]);""").find(playerHtml)
+                    if (jwSourcesMatch != null) {
+                        val sourcesJson = jwSourcesMatch.groupValues[1]
+                        val itemRegex = Regex("""\{[^{}]*\}""")
+                        val fileRegex = Regex(""""file"\s*:\s*"([^"]+)"""")
+                        val labelRegex = Regex(""""label"\s*:\s*"([^"]+)"""")
 
-                val qualities = qualityMatch?.groupValues?.get(1)?.split(",") ?: listOf("default")
-                android.util.Log.e("WatchHentai", "Qualities: $qualities")
-
-                // Add headers with Referer
-                val videoHeaders = Headers.Builder()
-                    .add("Referer", "https://watchhentai.net/")
-                    .build()
-
-                // Generate video URLs for each quality
-                for (quality in qualities) {
-                    val qualityTrimmed = quality.trim()
-
-                    // Generate quality-specific URL by replacing the base URL pattern
-                    // Example: my-mother-1.mp4 -> my-mother-1_480p.mp4
-                    val videoUrl = if (qualityTrimmed != "default" && baseVideoUrl.endsWith(".mp4")) {
-                        baseVideoUrl.replace(".mp4", "_$qualityTrimmed.mp4")
-                    } else {
-                        baseVideoUrl
+                        for (item in itemRegex.findAll(sourcesJson)) {
+                            val itemStr = item.value
+                            val fileEnc = fileRegex.find(itemStr)?.groupValues?.get(1)
+                            if (!fileEnc.isNullOrEmpty()) {
+                                try {
+                                    val decodedUrl = whDecodeMediaUrl(fileEnc)
+                                    val label = labelRegex.find(itemStr)?.groupValues?.get(1) ?: "Default"
+                                    if (decodedUrl.isNotBlank() && seenUrls.add(decodedUrl)) {
+                                        videoList.add(Video(decodedUrl, label, decodedUrl, headers = videoHeaders))
+                                        android.util.Log.e("WatchHentai", "Added video from whJwSources: $label - $decodedUrl")
+                                    }
+                                } catch (e: Exception) {
+                                    android.util.Log.e("WatchHentai", "Failed decoding source: ${e.message}")
+                                }
+                            }
+                        }
                     }
 
-                    videoList.add(Video(videoUrl, qualityTrimmed, videoUrl, headers = videoHeaders))
-                    android.util.Log.e("WatchHentai", "Added video: $qualityTrimmed - $videoUrl")
+                    // 2. Check var jw = { "file": "..." }
+                    if (videoList.isEmpty()) {
+                        val jwFileMatch = Regex("""var\s+jw\s*=\s*\{.*?"file"\s*:\s*"([^"]+)"""").find(playerHtml)
+                        if (jwFileMatch != null) {
+                            try {
+                                val decodedUrl = whDecodeMediaUrl(jwFileMatch.groupValues[1])
+                                if (decodedUrl.isNotBlank() && seenUrls.add(decodedUrl)) {
+                                    videoList.add(Video(decodedUrl, "Default", decodedUrl, headers = videoHeaders))
+                                    android.util.Log.e("WatchHentai", "Added video from jw.file: $decodedUrl")
+                                }
+                            } catch (e: Exception) {
+                                android.util.Log.e("WatchHentai", "Failed decoding jw.file: ${e.message}")
+                            }
+                        }
+                    }
+
+                    // 3. Check JSON-LD in player page
+                    if (videoList.isEmpty()) {
+                        val contentUrlMatch = Regex(""""contentUrl"\s*:\s*"([^"]+)"""").find(playerHtml)
+                        if (contentUrlMatch != null) {
+                            val contentUrl = contentUrlMatch.groupValues[1]
+                            if (contentUrl.isNotBlank() && seenUrls.add(contentUrl)) {
+                                videoList.add(Video(contentUrl, "Default", contentUrl, headers = videoHeaders))
+                                android.util.Log.e("WatchHentai", "Added video from json-ld: $contentUrl")
+                            }
+                        }
+                    }
+                } else if (absolutePlayerUrl.contains("source=")) {
+                    // Legacy query parameter extraction
+                    val sourcePattern = Regex("""[?&]source=([^&]+)""")
+                    val qualityPattern = Regex("""[?&]quality=([^&]+)""")
+
+                    val sourceMatch = sourcePattern.find(absolutePlayerUrl)
+                    val qualityMatch = qualityPattern.find(absolutePlayerUrl)
+
+                    if (sourceMatch != null) {
+                        val baseVideoUrl = java.net.URLDecoder.decode(sourceMatch.groupValues[1], "UTF-8")
+                        val qualities = qualityMatch?.groupValues?.get(1)?.split(",") ?: listOf("default")
+                        val videoHeaders = Headers.Builder()
+                            .add("Referer", "$baseUrl/")
+                            .build()
+
+                        for (quality in qualities) {
+                            val qualityTrimmed = quality.trim()
+                            val videoUrl = if (qualityTrimmed != "default" && baseVideoUrl.endsWith(".mp4")) {
+                                baseVideoUrl.replace(".mp4", "_$qualityTrimmed.mp4")
+                            } else {
+                                baseVideoUrl
+                            }
+                            videoList.add(Video(videoUrl, qualityTrimmed, videoUrl, headers = videoHeaders))
+                            android.util.Log.e("WatchHentai", "Added video: $qualityTrimmed - $videoUrl")
+                        }
+                    }
                 }
-            } else {
-                android.util.Log.e("WatchHentai", "Could not extract source from iframe URL")
             }
         } catch (e: Exception) {
             android.util.Log.e("WatchHentai", "Error extracting video: ${e.message}")
@@ -177,6 +216,24 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         }
 
         return videoList
+    }
+
+    private fun whDecodeMediaUrl(encoded: String): String {
+        var s = encoded.replace("-", "+").replace("_", "/")
+        while (s.length % 4 != 0) {
+            s += "="
+        }
+        val rawBytes = Base64.decode(s, Base64.DEFAULT)
+        val k = 13
+        val intermediateBytes = ByteArray(rawBytes.size)
+        for (i in rawBytes.indices) {
+            val b = rawBytes[i].toInt() and 0xFF
+            val xorKey = (k + i % 17) and 0xFF
+            intermediateBytes[i] = (b xor xorKey).toByte()
+        }
+        val reversedStr = String(intermediateBytes, Charsets.ISO_8859_1).reversed()
+        val finalBytes = Base64.decode(reversedStr, Base64.DEFAULT)
+        return String(finalBytes, Charsets.UTF_8)
     }
 
     override fun videoListSelector() = throw UnsupportedOperationException()
@@ -340,12 +397,20 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     override fun episodeListSelector() = "ul.episodios li"
 
     override fun episodeFromElement(element: Element): SEpisode {
-        val episode = SEpisode.create()
-        val link = element.selectFirst("div.episodiotitle a")!!
+        val link = element.selectFirst("a.tv-ep-card-link")
+            ?: element.selectFirst("div.episodiotitle a")
+            ?: element.selectFirst("a")
+            ?: throw Exception("No episode link found")
 
+        val episode = SEpisode.create()
         val href = link.attr("href")
         episode.setUrlWithoutDomain(href)
-        episode.name = link.text()
+
+        val title = element.selectFirst("div.episodiotitle span.eptitle")?.text()
+            ?: element.selectFirst("div.episodiotitle")?.ownText()?.takeIf { it.isNotBlank() }
+            ?: link.attr("title").takeIf { it.isNotBlank() }
+            ?: link.text()
+        episode.name = title
 
         val episodeNumber = episodeSlugRegex.find(href)?.groupValues?.get(1)?.toFloatOrNull()
             ?: trailingNumberRegex.find(episode.name)?.groupValues?.get(1)?.toFloatOrNull()
@@ -353,9 +418,10 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         episode.episode_number = episodeNumber
 
         // Extract thumbnail if available
-        val thumbnail = element.selectFirst("div.imagen img")?.attr("data-src")
-            ?: element.selectFirst("div.imagen img")?.attr("src")
-        episode.scanlator = thumbnail // Store thumbnail in scanlator field for now
+        val img = element.selectFirst("div.imagen img")
+        val thumbnail = img?.attr("data-src")?.takeIf { it.isNotBlank() }
+            ?: img?.attr("src")
+        episode.scanlator = thumbnail // Store thumbnail in scanlator field
 
         // Parse date
         val dateText = element.selectFirst("span.date")?.text()
@@ -367,7 +433,14 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     private fun parseEpisodeList(document: Document): List<SEpisode> {
         return document.select(episodeListSelector())
-            .map { episodeFromElement(it) }
+            .mapNotNull {
+                try {
+                    episodeFromElement(it)
+                } catch (e: Exception) {
+                    android.util.Log.e("WatchHentai", "Error parsing episode element: ${e.message}")
+                    null
+                }
+            }
             .reversed()
     }
 
