@@ -123,8 +123,8 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
                     val playerResponse = client.newCall(GET(absolutePlayerUrl, headers)).execute()
                     val playerHtml = playerResponse.body.string()
 
-                    val videoHeaders = Headers.Builder()
-                        .add("Referer", "$baseUrl/")
+                    val videoHeaders = headersBuilder()
+                        .set("Referer", "$baseUrl/")
                         .build()
 
                     val seenUrls = mutableSetOf<String>()
