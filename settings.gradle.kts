@@ -9,9 +9,9 @@ fun loadDevExtension(lang: String, name: String) {
 }
 
 //loadAllIndividualExtensions()
-loadIndividualExtension("en", "hentaistream")
-loadIndividualExtension("en", "watchhentai")
-//loadIndividualExtension("en", "hentaihavenxx")
+//loadIndividualExtension("en", "hentaistream")
+//loadIndividualExtension("en", "watchhentai")
+loadIndividualExtension("en", "hentaihavenxx")
 
 /**
  * ===================================== COMMON CONFIGURATION ======================================
