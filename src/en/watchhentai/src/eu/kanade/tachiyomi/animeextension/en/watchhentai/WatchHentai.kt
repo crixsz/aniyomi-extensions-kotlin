@@ -56,12 +56,20 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     override fun popularAnimeFromElement(element: Element): SAnime {
         val anime = SAnime.create()
         val link = element.selectFirst("div.poster a")
+            ?: element.selectFirst("div.data h3 a")
+            ?: element.selectFirst("a")
         if (link != null) {
             anime.setUrlWithoutDomain(link.attr("href"))
         }
         val img = element.selectFirst("div.poster img")
         val title = img?.attr("title") ?: img?.attr("alt") ?: ""
         val thumbnail = img?.attr("data-src") ?: img?.attr("src")
+        val img = element.selectFirst("div.poster img") ?: element.selectFirst("img")
+        val title = element.selectFirst("div.data h3 a")?.text()?.ifEmpty { null }
+            ?: img?.attr("title")?.ifEmpty { null }
+            ?: img?.attr("alt")?.ifEmpty { null }
+            ?: ""
+        val thumbnail = img?.attr("data-src")?.takeIf { it.isNotBlank() } ?: img?.attr("src")
 
         android.util.Log.e("WatchHentai", "Element: ${element.className()}")
         android.util.Log.e("WatchHentai", "Link: ${link?.attr("href")}")
@@ -70,12 +78,15 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         android.util.Log.e("WatchHentai", "Final title: $title")
 
         anime.title = title
+        anime.title = org.jsoup.parser.Parser.unescapeEntities(title, false)
         anime.thumbnail_url = thumbnail
         android.util.Log.e("WatchHentai", "Parsed anime: ${anime.title} - ${anime.url}")
         return anime
     }
 
     override fun popularAnimeNextPageSelector(): String = "a.arrow_pag"
+    override fun popularAnimeNextPageSelector(): String =
+        "a.arrow_pag, div.resppages a:has(span.fa-chevron-right), div.pagination__pages span.current + a"
 
     override fun popularAnimeParse(response: Response): AnimesPage {
         val document = response.asJsoup()
@@ -83,6 +94,16 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             popularAnimeFromElement(element)
         }
         android.util.Log.e("WatchHentai", "Found ${animes.size} anime elements")
+        val animes = document.select(popularAnimeSelector())
+            .filter { !it.hasClass("w_item_b") }
+            .mapNotNull { element ->
+                try {
+                    popularAnimeFromElement(element)
+                } catch (e: Exception) {
+                    null
+                }
+            }
+            .distinctBy { it.url }
         val hasNextPage = document.select(popularAnimeNextPageSelector()).first() != null
         android.util.Log.e("WatchHentai", "Has next page: $hasNextPage")
         return AnimesPage(animes, hasNextPage)
@@ -263,12 +284,14 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     // Search
 
     override fun searchAnimeSelector(): String = "div.result-item article"
+    override fun searchAnimeSelector(): String = "div.search-page div.items article.item, div#archive-content article.item, article.item"
 
     override fun searchAnimeFromElement(element: Element): SAnime {
         val anime = SAnime.create()
         val link = element.selectFirst("div.details div.title a")!!
         anime.setUrlWithoutDomain(link.attr("href"))
         anime.title = link.text()
+    override fun searchAnimeFromElement(element: Element): SAnime = popularAnimeFromElement(element)
 
         val img = element.selectFirst("div.image div.thumbnail img")
         anime.thumbnail_url = img?.attr("data-src") ?: img?.attr("src")
@@ -286,6 +309,7 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             super.searchAnimeParse(response)
         }
     }
+    override fun searchAnimeParse(response: Response): AnimesPage = popularAnimeParse(response)
 
     override fun searchAnimeRequest(page: Int, query: String, filters: AnimeFilterList): Request {
         val filterList = if (filters.isEmpty()) getFilterList() else filters
