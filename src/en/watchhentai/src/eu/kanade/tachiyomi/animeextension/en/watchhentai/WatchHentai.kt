@@ -61,9 +61,6 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         if (link != null) {
             anime.setUrlWithoutDomain(link.attr("href"))
         }
-        val img = element.selectFirst("div.poster img")
-        val title = img?.attr("title") ?: img?.attr("alt") ?: ""
-        val thumbnail = img?.attr("data-src") ?: img?.attr("src")
         val img = element.selectFirst("div.poster img") ?: element.selectFirst("img")
         val title = element.selectFirst("div.data h3 a")?.text()?.ifEmpty { null }
             ?: img?.attr("title")?.ifEmpty { null }
@@ -84,16 +81,11 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         return anime
     }
 
-    override fun popularAnimeNextPageSelector(): String = "a.arrow_pag"
     override fun popularAnimeNextPageSelector(): String =
         "a.arrow_pag, div.resppages a:has(span.fa-chevron-right), div.pagination__pages span.current + a"
 
     override fun popularAnimeParse(response: Response): AnimesPage {
         val document = response.asJsoup()
-        val animes = document.select(popularAnimeSelector()).map { element ->
-            popularAnimeFromElement(element)
-        }
-        android.util.Log.e("WatchHentai", "Found ${animes.size} anime elements")
         val animes = document.select(popularAnimeSelector())
             .filter { !it.hasClass("w_item_b") }
             .mapNotNull { element ->
@@ -105,7 +97,6 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             }
             .distinctBy { it.url }
         val hasNextPage = document.select(popularAnimeNextPageSelector()).first() != null
-        android.util.Log.e("WatchHentai", "Has next page: $hasNextPage")
         return AnimesPage(animes, hasNextPage)
     }
 
@@ -283,33 +274,20 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     // Search
 
-    override fun searchAnimeSelector(): String = "div.result-item article"
     override fun searchAnimeSelector(): String = "div.search-page div.items article.item, div#archive-content article.item, article.item"
 
-    override fun searchAnimeFromElement(element: Element): SAnime {
-        val anime = SAnime.create()
-        val link = element.selectFirst("div.details div.title a")!!
-        anime.setUrlWithoutDomain(link.attr("href"))
-        anime.title = link.text()
     override fun searchAnimeFromElement(element: Element): SAnime = popularAnimeFromElement(element)
-
-        val img = element.selectFirst("div.image div.thumbnail img")
-        anime.thumbnail_url = img?.attr("data-src") ?: img?.attr("src")
-
-        return anime
-    }
 
     override fun searchAnimeNextPageSelector(): String = popularAnimeNextPageSelector()
 
     override fun searchAnimeParse(response: Response): AnimesPage {
         val path = response.request.url.encodedPath
-        return if (path.startsWith("/genre/") || path.startsWith("/studio/") || path.startsWith("/trending/")) {
+        return if (path.startsWith("/genre/") || path.startsWith("/network/") || path.startsWith("/trending/")) {
             popularAnimeParse(response)
         } else {
             super.searchAnimeParse(response)
         }
     }
-    override fun searchAnimeParse(response: Response): AnimesPage = popularAnimeParse(response)
 
     override fun searchAnimeRequest(page: Int, query: String, filters: AnimeFilterList): Request {
         val filterList = if (filters.isEmpty()) getFilterList() else filters
@@ -335,7 +313,7 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
                 if (page == 1) "$baseUrl/genre/$selectedGenreSlug/" else "$baseUrl/genre/$selectedGenreSlug/page/$page/"
             }
             selectedStudioSlug.isNotEmpty() -> {
-                if (page == 1) "$baseUrl/studio/$selectedStudioSlug/" else "$baseUrl/studio/$selectedStudioSlug/page/$page/"
+                if (page == 1) "$baseUrl/network/$selectedStudioSlug/" else "$baseUrl/network/$selectedStudioSlug/page/$page/"
             }
             else -> {
                 if (page == 1) "$baseUrl/trending/" else "$baseUrl/trending/page/$page/"
@@ -394,7 +372,7 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
         anime.status = SAnime.UNKNOWN
 
-        anime.author = document.select("div.custom_fields:has(b.variante:contains(Studio)) span.valor").text()
+        anime.author = document.selectFirst("span.network a")?.text().orEmpty()
 
         android.util.Log.e("WatchHentai", "Anime details: ${anime.title}, genres: ${anime.genre}, author: ${anime.author}")
         return anime
