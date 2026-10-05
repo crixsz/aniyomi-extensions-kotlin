@@ -380,9 +380,25 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     // episodes
 
+    override fun episodeListRequest(anime: SAnime): Request {
+        val url = "$baseUrl${anime.url}"
+        android.util.Log.e("WatchHentai", "Episode list request URL: $url")
+        return GET(url, headers)
+    }
+
     override fun episodeListParse(response: Response): List<SEpisode> {
-        val document = response.asJsoup()
-        android.util.Log.e("WatchHentai", "Episode list parse URL: ${response.request.url}")
+        android.util.Log.e(
+            "WatchHentai",
+            "Episode list response: code=${response.code} message=${response.message} " +
+                "successful=${response.isSuccessful} url=${response.request.url}",
+        )
+        val html = response.body.string()
+        android.util.Log.e("WatchHentai", "Episode list response body length: ${html.length}")
+        if (!response.isSuccessful) {
+            android.util.Log.e("WatchHentai", "Episode list body snippet: ${html.take(500)}")
+            return emptyList()
+        }
+        val document = Jsoup.parse(html, response.request.url.toString())
         val episodes = parseEpisodeList(document)
         android.util.Log.e("WatchHentai", "Episode list size from page: ${episodes.size}")
         if (episodes.isEmpty()) return episodes
@@ -462,13 +478,19 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         }
         return try {
             client.newCall(GET(refreshedUrl, headers)).execute().use { response ->
+                android.util.Log.e(
+                    "WatchHentai",
+                    "Refreshed series response: code=${response.code} message=${response.message} " +
+                        "successful=${response.isSuccessful} url=$refreshedUrl",
+                )
                 if (!response.isSuccessful) return null
                 val document = response.asJsoup()
                 val episodes = parseEpisodeList(document)
                 android.util.Log.e("WatchHentai", "Episode list size from refreshed series page: ${episodes.size} ($refreshedUrl)")
                 if (episodes.size > currentSize) episodes else null
             }
-        } catch (_: Exception) {
+        } catch (e: Exception) {
+            android.util.Log.e("WatchHentai", "Refreshed series fetch failed: ${e.message}")
             null
         }
     }
@@ -508,9 +530,11 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
         // Convert episode URL to series URL
         // Example: /videos/sawaranaide-kotesashi-kun-episode-12-id-01/ -> /series/sawaranaide-kotesashi-kun-id-01/
+        // Example: /videos/foo-episode-8-uncensored-id-01/ -> /series/foo-id-01/
         val seriesUrl = if (episodeUrl.contains("/videos/")) {
             episodeUrl.replace("/videos/", "/series/")
-                .replace(Regex("-episode-\\d+"), "")
+                .replace(Regex("-episode-\\d+.*-id-"), "-id-")
+                .replace(Regex("-episode-\\d+.*$"), "")
         } else {
             episodeUrl
         }
