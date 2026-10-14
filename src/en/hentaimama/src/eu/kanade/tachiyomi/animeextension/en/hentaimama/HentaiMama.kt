@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.animeextension.en.hentaimama
 
+import android.util.Log
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceScreen
 import eu.kanade.tachiyomi.animesource.ConfigurableAnimeSource
@@ -62,8 +63,15 @@ class HentaiMama : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     override fun latestUpdatesSelector(): String = "article.series-card"
 
-    override fun latestUpdatesRequest(page: Int): Request =
-        GET("$baseUrl/hentai-series/page/$page/")
+    override fun latestUpdatesRequest(page: Int): Request {
+        // /hentai-series/ defaults to A-Z ordering; ?filter=recent gives newest first.
+        val url = if (page == 1) {
+            "$baseUrl/hentai-series/?filter=recent"
+        } else {
+            "$baseUrl/hentai-series/page/$page/?filter=recent"
+        }
+        return GET(url)
+    }
 
     override fun latestUpdatesFromElement(element: Element): SAnime {
         val anime = SAnime.create()
@@ -154,53 +162,77 @@ class HentaiMama : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     override fun videoListParse(response: Response): List<Video> {
         val document = response.asJsoup()
+        Log.d(TAG, "videoListParse: episode page ${response.request.url}")
 
         // Extract episode ID from body class "postid-XXX"
         val episodeId = Regex("postid-(\\d+)").find(document.body().className())
             ?.groups?.get(1)?.value
-            ?: return emptyList()
+        if (episodeId == null) {
+            Log.w(TAG, "videoListParse: no postid-XXX in body class '${document.body().className()}'")
+            return emptyList()
+        }
 
-        // Get list of mirror indices from the player tabs (li > a.options[href="#option-N"])
-        val mirrorCount = document.select("ul.idTabs.sourceslist.dt-mi-tabs li a.options").size
-            .coerceAtLeast(1)
+        // Server tabs, e.g. <a class="options" href="#option-5">mi-1</a>. The trailing
+        // number is the server index used by the get_player_contents ajax call, and it is
+        // NOT always 1..n (e.g. 5, 3, 1), so read it from the href instead of assuming order.
+        val tabs = document.select("ul.idTabs.sourceslist.dt-mi-tabs li a.options")
+        val optionIndexes = tabs
+            .mapNotNull { OPTION_HREF_REGEX.find(it.attr("href"))?.groupValues?.get(1)?.toIntOrNull() }
+            .ifEmpty { (1..tabs.size.coerceAtLeast(1)).toList() }
+        Log.d(TAG, "videoListParse: episodeId=$episodeId, tabs=[${tabs.joinToString { it.text().trim() }}], optionIndexes=$optionIndexes")
 
         val videoList = mutableListOf<Video>()
 
-        for (i in 1..mirrorCount) {
+        optionIndexes.forEachIndexed { position, optionIndex ->
+            val mirror = position + 1
             runCatching {
-                val iframeSrc = fetchPlayerIframeSrc(episodeId, i) ?: return@runCatching
+                val iframeSrc = fetchPlayerIframeSrc(episodeId, optionIndex) ?: return@runCatching
+                Log.d(TAG, "videoListParse: mirror $mirror (option $optionIndex) iframe src=$iframeSrc")
 
-                // Visit embed URL to extract jwplayer file URL
-                val embedPage = client.newCall(GET(iframeSrc)).execute().asJsoup()
-                val videoUrl = extractVideoUrl(embedPage.outerHtml())
+                // Visit embed URL to extract the media source
+                val embedResponse = client.newCall(GET(iframeSrc)).execute()
+                val embedHtml = embedResponse.asJsoup().outerHtml()
+                Log.d(TAG, "videoListParse: mirror $mirror embed page code=${embedResponse.code} (${embedHtml.length} chars):\n$embedHtml")
+
+                val videoUrl = extractVideoUrl(embedHtml)
 
                 if (!videoUrl.isNullOrBlank()) {
-                    videoList.add(Video(videoUrl, "Mirror $i", videoUrl))
+                    Log.d(TAG, "videoListParse: mirror $mirror -> $videoUrl")
+                    videoList.add(Video(videoUrl, "Mirror $mirror", videoUrl))
+                } else {
+                    Log.w(TAG, "videoListParse: mirror $mirror no media url found")
                 }
+            }.onFailure {
+                Log.e(TAG, "videoListParse: mirror $mirror failed", it)
             }
         }
 
+        Log.d(TAG, "videoListParse: resolved ${videoList.size} video(s): ${videoList.map { "${it.quality} -> ${it.url}" }}")
         return videoList
     }
 
-    private fun fetchPlayerIframeSrc(episodeId: String, mirrorIndex: Int): String? {
+    private fun fetchPlayerIframeSrc(episodeId: String, optionIndex: Int): String? {
         val body = FormBody.Builder()
             .add("action", "get_player_contents")
             .add("a", episodeId)
-            .add("i", mirrorIndex.toString())
+            .add("i", optionIndex.toString())
             .build()
 
         val response = client.newCall(POST("$baseUrl/wp-admin/admin-ajax.php", body = body)).execute()
         return try {
             val json = response.body?.string().orEmpty()
+            Log.d(TAG, "fetchPlayerIframeSrc: option $optionIndex code=${response.code} (${json.length} chars):\n$json")
             // Response is a JSON array of iframe HTML strings (one per mirror)
             // e.g. ["<iframe src=\"...\">", "<iframe src=\"...\">"]
-            val iframeHtml = extractIframeFromJsonArray(json, mirrorIndex - 1)
+            val iframeHtml = extractIframeFromJsonArray(json, optionIndex - 1)
+            Log.d(TAG, "fetchPlayerIframeSrc: option $optionIndex iframeHtml=$iframeHtml")
             // Extract src attribute from the iframe HTML and decode HTML entities
-            IFRAME_SRC_REGEX.find(iframeHtml)?.groups?.get(1)?.value
+            val src = IFRAME_SRC_REGEX.find(iframeHtml)?.groups?.get(1)?.value
                 ?.replace("&amp;", "&")
                 ?.replace("&#038;", "&")
                 ?.replace("&#8211;", "–")
+            Log.d(TAG, "fetchPlayerIframeSrc: option $optionIndex src=$src")
+            src
         } finally {
             response.close()
         }
@@ -251,9 +283,22 @@ class HentaiMama : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     }
 
     private fun extractVideoUrl(html: String): String? {
-        // Match jwplayer file URL: file: "https://...mp4..." (with escaped slashes allowed)
-        val match = FILE_URL_REGEX.find(html) ?: return null
-        return match.groups?.get(1)?.value?.replace("\\/", "/")
+        // Prefer the player's source list: sources: [ { file: "https:\/\/...mp4", type: "mp4"|"hls" }, ... ]
+        // Handles both `"file": "..."` and `file: "..."` and escaped slashes.
+        val sourcesBlock = SOURCES_BLOCK_REGEX.find(html)?.groupValues?.get(1)
+        if (sourcesBlock != null) {
+            SOURCE_FILE_REGEX.find(sourcesBlock)?.groupValues?.get(1)
+                ?.let { return it.toMediaUrl() }
+        }
+
+        // Fallback: a top-level file: "....mp4/.m3u8" declaration
+        return MEDIA_FILE_REGEX.find(html)?.groupValues?.get(1)?.toMediaUrl()
+    }
+
+    private fun String.toMediaUrl(): String? {
+        // Unescape JS-escaped slashes and only accept absolute http(s) media URLs.
+        val url = replace("\\/", "/").trim()
+        return url.takeIf { it.startsWith("http", ignoreCase = true) }
     }
 
     override fun videoListSelector() = throw UnsupportedOperationException()
@@ -657,12 +702,31 @@ class HentaiMama : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     )
 
     companion object {
+        private const val TAG = "HentaiMama"
         private const val PREF_QUALITY_KEY = "preferred_quality"
         private const val PREF_QUALITY_TITLE = "Preferred video quality"
         private val PREF_QUALITY_ENTRIES = arrayOf("Mirror 1", "Mirror 2", "Mirror 3", "Mirror 4")
 
-        // Matches jwplayer file URL with escaped slashes (e.g. https:\/\/example.com\/file.mp4)
-        private val FILE_URL_REGEX = Regex("""file\s*:\s*["']([^"']+\.mp4[^"']*)["']""", RegexOption.IGNORE_CASE)
+        // Server tab href, e.g. "#option-5" -> 5
+        private val OPTION_HREF_REGEX = Regex("""#option-(\d+)""", RegexOption.IGNORE_CASE)
+
+        // Player source list block: sources: [ ... ]
+        private val SOURCES_BLOCK_REGEX = Regex(
+            """sources\s*:\s*\[(.*?)]""",
+            setOf(RegexOption.IGNORE_CASE, RegexOption.DOT_MATCHES_ALL),
+        )
+
+        // Any file entry inside a source list, e.g. "file": "https:\/\/..." or file: "..."
+        private val SOURCE_FILE_REGEX = Regex(
+            """["']?file["']?\s*:\s*["']([^"']+)["']""",
+            RegexOption.IGNORE_CASE,
+        )
+
+        // Fallback for a top-level jwplayer file URL (mp4 or m3u8), escaped slashes allowed
+        private val MEDIA_FILE_REGEX = Regex(
+            """["']?file["']?\s*:\s*["']([^"']+\.(?:mp4|m3u8)[^"']*)["']""",
+            RegexOption.IGNORE_CASE,
+        )
 
         // Matches <iframe src="..."> within iframe HTML
         private val IFRAME_SRC_REGEX = Regex("""<iframe[^>]+src=["']([^"']+)["']""", RegexOption.IGNORE_CASE)
