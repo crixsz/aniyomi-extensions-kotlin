@@ -1,5 +1,6 @@
 package eu.kanade.tachiyomi.animeextension.en.hentaihavenxx
 
+import android.util.Log
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceScreen
 import eu.kanade.tachiyomi.animesource.ConfigurableAnimeSource
@@ -13,6 +14,7 @@ import eu.kanade.tachiyomi.network.GET
 import eu.kanade.tachiyomi.util.asJsoup
 import extensions.utils.getPreferencesLazy
 import okhttp3.Headers
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -171,6 +173,7 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     // Episodes
 
     override fun episodeListParse(response: Response): List<SEpisode> {
+        Log.d(TAG, "episodeListParse: ${response.request.url}")
         val document = response.asJsoup()
         val episodes = mutableListOf<SEpisode>()
         val currentPath = response.request.url.encodedPath.trimEnd('/')
@@ -179,6 +182,8 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         val epLinks = document.select("a[href*=/watch/$seriesSlug/episode-]")
             .map { it.attr("href") }
             .distinct()
+
+        Log.d(TAG, "episodeListParse: seriesSlug=$seriesSlug, found ${epLinks.size} episode link(s): $epLinks")
 
         if (epLinks.isNotEmpty()) {
             epLinks.forEach { href ->
@@ -190,6 +195,7 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
                 episodes.add(episode)
             }
         } else {
+            Log.d(TAG, "episodeListParse: no episode links found, falling back to single episode for $currentPath")
             val episode = SEpisode.create().apply {
                 setUrlWithoutDomain(response.request.url.encodedPath)
                 name = "Episode 1"
@@ -210,20 +216,32 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         val html = response.body.string()
         val videoList = mutableListOf<Video>()
 
-        val slugMatch = Regex("""\\?"slug\\?":\\?"([a-f0-9\-]{10,})\\?"""").find(html)
-            ?: Regex("""["']slug["']\s*:\s*["']([a-f0-9\-]{10,})["']""").find(html)
-        val streamId = slugMatch?.groupValues?.get(1)
+        Log.d(TAG, "videoListParse: episode page ${response.request.url}")
+        Log.d(TAG, "videoListParse: episode page body (${html.length} chars):\n$html")
 
         val videoHeaders = headersBuilder()
             .set("Referer", "$baseUrl/")
             .build()
 
-        if (streamId != null) {
-            val masterUrl = "https://octopusmanifest.org/$streamId/playlist.m3u8"
+        // The episode page embeds the master playlist URL directly in its payload.
+        val embeddedMasterUrl = Regex("""indexableSource\\?":\\?"(https?://[^"\\]+\.m3u8)""").find(html)?.groupValues?.get(1)
+            ?: Regex("""contentUrl\\?":\\?"(https?://[^"\\]+\.m3u8)""").find(html)?.groupValues?.get(1)
+        // Slug is not hex-only (e.g. "creamy-pie-1-720p-v1x"), so match a broad charset.
+        val slug = Regex("""\\?"slug\\?":\\?"([A-Za-z0-9\-_]{5,})\\?"""").find(html)?.groupValues?.get(1)
+
+        val masterUrl = embeddedMasterUrl
+            ?: slug?.let { "https://master-lengs.org/api/v3/hh/$it/master.m3u8" }
+
+        Log.d(TAG, "videoListParse: slug=$slug, masterUrl=$masterUrl")
+
+        if (masterUrl != null) {
+            Log.d(TAG, "videoListParse: requesting master playlist $masterUrl")
             try {
                 val playlistRes = client.newCall(GET(masterUrl, videoHeaders)).execute()
+                val playlist = playlistRes.body.string()
+                Log.d(TAG, "videoListParse: master playlist response code=${playlistRes.code} (${playlist.length} chars):\n$playlist")
                 if (playlistRes.isSuccessful) {
-                    val playlist = playlistRes.body.string()
+                    val masterHttpUrl = masterUrl.toHttpUrlOrNull()
                     val separator = "#EXT-X-STREAM-INF:"
                     if (playlist.contains(separator)) {
                         playlist.substringAfter(separator).split(separator).forEach { entry ->
@@ -236,27 +254,34 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
                             val relUrl = entry.substringAfter("\n").substringBefore("\n").substringBefore("\r").trim()
                             if (relUrl.isNotEmpty()) {
-                                val streamUrl = if (relUrl.startsWith("http")) relUrl else "https://octopusmanifest.org/$streamId/$relUrl"
+                                val streamUrl = masterHttpUrl?.resolve(relUrl)?.toString() ?: relUrl
                                 val label = if (resolution.isNotEmpty()) "HLS: ${resolution}p" else "HLS: Auto"
+                                Log.d(TAG, "videoListParse: adding master playlist variant $label -> $streamUrl")
                                 videoList.add(Video(streamUrl, label, streamUrl, headers = videoHeaders))
                             }
                         }
                     } else {
+                        Log.d(TAG, "videoListParse: no variants found, adding master URL as HLS: Auto")
                         videoList.add(Video(masterUrl, "HLS: Auto", masterUrl, headers = videoHeaders))
                     }
+                } else {
+                    Log.w(TAG, "videoListParse: master playlist request failed with code ${playlistRes.code}")
                 }
-            } catch (_: Exception) {
+            } catch (e: Exception) {
+                Log.e(TAG, "videoListParse: error fetching master playlist $masterUrl", e)
                 videoList.add(Video(masterUrl, "HLS: Auto", masterUrl, headers = videoHeaders))
             }
         }
 
         if (videoList.isEmpty()) {
+            Log.d(TAG, "videoListParse: falling back to API stream extraction")
             val permalinkMatch = Regex("""\\?"permalink\\?":\\?"([^"\\]+)\\?"""").find(html)
             val posterMatch = Regex("""\\?"poster\\?":\\?"([^"\\]+)\\?"""").find(html)
-            if (streamId != null && permalinkMatch != null) {
+            Log.d(TAG, "videoListParse: permalink=${permalinkMatch?.groupValues?.get(1)}, poster=${posterMatch?.groupValues?.get(1)}")
+            if (slug != null && permalinkMatch != null) {
                 try {
                     val payload = JSONObject().apply {
-                        put("slug", streamId)
+                        put("slug", slug)
                         put("permalink", permalinkMatch.groupValues[1])
                         put("poster", posterMatch?.groupValues?.get(1) ?: "")
                     }
@@ -266,9 +291,12 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
                         .headers(headers)
                         .post(reqBody)
                         .build()
+                    Log.d(TAG, "videoListParse: posting to ${apiReq.url} with body $payload")
                     val apiRes = client.newCall(apiReq).execute()
+                    val apiBody = apiRes.body.string()
+                    Log.d(TAG, "videoListParse: API stream response code=${apiRes.code} (${apiBody.length} chars):\n$apiBody")
                     if (apiRes.isSuccessful) {
-                        val apiData = JSONObject(apiRes.body.string())
+                        val apiData = JSONObject(apiBody)
                         val dataObj = apiData.optJSONObject("data")
                         val sources = dataObj?.optJSONArray("sources")
                         if (sources != null) {
@@ -277,14 +305,21 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
                                 val src = srcObj.optString("src")
                                 val label = srcObj.optString("label", "Auto")
                                 if (src.isNotEmpty()) {
+                                    Log.d(TAG, "videoListParse: adding API source HLS: $label -> $src")
                                     videoList.add(Video(src, "HLS: $label", src, headers = videoHeaders))
                                 }
                             }
                         }
                     }
-                } catch (_: Exception) {}
+                } catch (e: Exception) {
+                    Log.e(TAG, "videoListParse: error during API stream extraction", e)
+                }
+            } else {
+                Log.w(TAG, "videoListParse: cannot use API fallback (slug=$slug, permalink=${permalinkMatch != null})")
             }
         }
+
+        Log.d(TAG, "videoListParse: resolved ${videoList.size} video(s): ${videoList.map { "${it.quality} -> ${it.url}" }}")
 
         return videoList
     }
@@ -333,6 +368,7 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     }
 
     companion object {
+        private const val TAG = "HentaiHavenXX"
         private const val PREF_QUALITY_KEY = "preferred_quality"
         private const val PREF_QUALITY_TITLE = "Preferred video quality"
         private val PREF_QUALITY_ENTRIES = arrayOf("1080p", "720p", "480p", "360p")
