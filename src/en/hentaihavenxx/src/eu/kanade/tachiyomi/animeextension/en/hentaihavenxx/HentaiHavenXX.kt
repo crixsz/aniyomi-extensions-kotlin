@@ -59,8 +59,9 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         anime.setUrlWithoutDomain(element.attr("href"))
         val img = element.selectFirst("img")
         anime.title = img?.attr("alt")?.ifEmpty { null } ?: element.text()
-        anime.thumbnail_url = img?.attr("src")?.takeIf { it.isNotBlank() }
-            ?: img?.attr("data-src")
+        anime.thumbnail_url = img?.attr("src").toThumbnailUrl()
+            ?: img?.attr("data-src").toThumbnailUrl()
+            ?: img?.attr("srcset").firstSrcsetUrl().toThumbnailUrl()
         return anime
     }
 
@@ -111,7 +112,13 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     override fun searchAnimeParse(response: Response): AnimesPage {
         val body = response.body.string()
         val animes = mutableListOf<SAnime>()
-        val json = JSONObject(body)
+        // Cloudflare challenges and error pages are HTML, not JSON.
+        val json = try {
+            JSONObject(body)
+        } catch (e: Exception) {
+            Log.w(TAG, "searchAnimeParse: response is not JSON (${body.length} chars)", e)
+            return AnimesPage(emptyList(), false)
+        }
         val data = json.optJSONArray("data")
         if (data != null) {
             for (i in 0 until data.length()) {
@@ -120,14 +127,11 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
                 val titleObj = item.optJSONObject("title")
                 val title = titleObj?.optString("rendered") ?: item.optString("title")
                 val meta = item.optJSONObject("meta")
-                var thumb = meta?.optString("vraven_remote_thumbnail") ?: ""
-                if (thumb.isNotEmpty() && !thumb.startsWith("http")) {
-                    thumb = "https://img.hentaihaven.xxx/$thumb"
-                }
+                val thumb = meta?.optString("vraven_remote_thumbnail").toThumbnailUrl(IMAGE_HOST)
                 val anime = SAnime.create().apply {
                     this.title = Parser.unescapeEntities(title, false)
                     this.setUrlWithoutDomain("/watch/$slug/")
-                    this.thumbnail_url = thumb.ifEmpty { null }
+                    this.thumbnail_url = thumb
                 }
                 animes.add(anime)
             }
@@ -150,8 +154,11 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             ?: "Unknown"
         anime.title = title
 
-        val thumbnail = document.selectFirst("meta[property=og:image]")?.attr("content")
-            ?: document.selectFirst("img[alt]")?.attr("src")
+        val thumbnail = document.selectFirst("meta[property=og:image]")?.attr("content").toThumbnailUrl()
+            ?: document.selectFirst("meta[name=twitter:image]")?.attr("content").toThumbnailUrl()
+            ?: document.selectFirst("link[rel=preload][as=image][href*=coverlanyvd.org]")
+                ?.attr("href").toThumbnailUrl()
+            ?: document.selectFirst("img[src*=coverlanyvd.org]")?.attr("src").toThumbnailUrl()
         anime.thumbnail_url = thumbnail
 
         val description = document.selectFirst("meta[property=og:description]")?.attr("content")
@@ -169,6 +176,33 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         anime.status = SAnime.UNKNOWN
         return anime
     }
+
+    /**
+     * Resolves a thumbnail URL scraped from the site into an absolute URL.
+     * Returns null for values that would result in a broken cover
+     * (empty strings, JSON `null` serialized as "null", data URIs, generic OG images).
+     */
+    private fun String?.toThumbnailUrl(relativeBase: String = baseUrl): String? {
+        val url = this?.trim()?.takeIf {
+            it.isNotEmpty() &&
+                !it.equals("null", ignoreCase = true) &&
+                !it.startsWith("data:") &&
+                !it.contains("/opengraph-image")
+        } ?: return null
+
+        return when {
+            url.startsWith("http://") || url.startsWith("https://") -> url
+            url.startsWith("//") -> "https:$url"
+            url.startsWith("/") -> "$relativeBase$url"
+            else -> "$relativeBase/$url"
+        }
+    }
+
+    private fun String?.firstSrcsetUrl(): String? = this
+        ?.substringBefore(',')
+        ?.trim()
+        ?.substringBefore(' ')
+        ?.trim()
 
     // Episodes
 
@@ -217,7 +251,7 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         val videoList = mutableListOf<Video>()
 
         Log.d(TAG, "videoListParse: episode page ${response.request.url}")
-        Log.d(TAG, "videoListParse: episode page body (${html.length} chars):\n$html")
+        Log.d(TAG, "videoListParse: episode page body ${html.length} chars")
 
         val videoHeaders = headersBuilder()
             .set("Referer", "$baseUrl/")
@@ -369,6 +403,7 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     companion object {
         private const val TAG = "HentaiHavenXX"
+        private const val IMAGE_HOST = "https://img.hentaihaven.xxx"
         private const val PREF_QUALITY_KEY = "preferred_quality"
         private const val PREF_QUALITY_TITLE = "Preferred video quality"
         private val PREF_QUALITY_ENTRIES = arrayOf("1080p", "720p", "480p", "360p")
