@@ -451,6 +451,7 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
     private fun parseEpisodeList(document: Document): List<SEpisode> {
         return document.select(episodeListSelector())
+            .filterNot { it.isDubbedEpisode() }
             .mapNotNull {
                 try {
                     episodeFromElement(it)
@@ -462,8 +463,29 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             .reversed()
     }
 
+    /**
+     * The site renders subbed and dubbed versions as separate list items. Dubbed items are marked
+     * with data-audio="dubbed" (and hidden by default), but older markup only identifies them by
+     * the episode URL/title, so fall back to those markers.
+     */
+    private fun Element.isDubbedEpisode(): Boolean {
+        val audio = attr("data-audio").trim()
+        if (audio.isNotEmpty()) {
+            return audio.equals("dubbed", ignoreCase = true)
+        }
+
+        val link = selectFirst("a.tv-ep-card-link") ?: selectFirst("a")
+        val markers = listOf(
+            link?.attr("href").orEmpty(),
+            link?.attr("title").orEmpty(),
+            selectFirst("span.eptitle")?.text().orEmpty(),
+        )
+        return markers.any { dubbedEpisodeRegex.containsMatchIn(it) }
+    }
+
     private val episodeSlugRegex = Regex("-episode-(\\d+)")
     private val trailingNumberRegex = Regex("(\\d+)(?!.*\\d)")
+    private val dubbedEpisodeRegex = Regex("""(?i)\bdubbed\b""")
 
     private fun fetchEpisodeListFromSeriesPage(seriesUrl: String, currentSize: Int): List<SEpisode>? {
         val absoluteUrl = if (seriesUrl.startsWith("http")) seriesUrl else baseUrl + seriesUrl
