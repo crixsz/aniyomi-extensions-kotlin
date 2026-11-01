@@ -484,6 +484,7 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     }
 
     private val episodeSlugRegex = Regex("-episode-(\\d+)")
+    private val episodeMarkerRegex = Regex("-episode-\\d+")
     private val trailingNumberRegex = Regex("(\\d+)(?!.*\\d)")
     private val dubbedEpisodeRegex = Regex("""(?i)\bdubbed\b""")
 
@@ -547,16 +548,17 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         val seriesName = element.selectFirst("span.serie")?.text() ?: ""
         anime.title = seriesName
 
-        // Extract episode URL and convert to series URL
+        // The latest feed lists individual episodes, so map each episode URL to its series URL.
+        // Example: /videos/sawaranaide-kotesashi-kun-episode-12-id-01/ -> /series/sawaranaide-kotesashi-kun/
+        // Example: /videos/foo-episode-8-uncensored-id-01/ -> /series/foo/
+        // The trailing "-id-NN" is dropped so every episode of a series resolves to the same URL.
         val episodeUrl = element.selectFirst("div.data a")?.attr("href") ?: ""
 
-        // Convert episode URL to series URL
-        // Example: /videos/sawaranaide-kotesashi-kun-episode-12-id-01/ -> /series/sawaranaide-kotesashi-kun-id-01/
-        // Example: /videos/foo-episode-8-uncensored-id-01/ -> /series/foo-id-01/
         val seriesUrl = if (episodeUrl.contains("/videos/")) {
-            episodeUrl.replace("/videos/", "/series/")
-                .replace(Regex("-episode-\\d+.*-id-"), "-id-")
-                .replace(Regex("-episode-\\d+.*$"), "")
+            val path = episodeUrl.substringAfter("/videos/").substringBefore('?').trimEnd('/')
+            val episodeMarker = episodeMarkerRegex.find(path)
+            val slug = if (episodeMarker != null) path.substring(0, episodeMarker.range.first) else path
+            "/series/$slug/"
         } else {
             episodeUrl
         }
@@ -568,6 +570,25 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         anime.thumbnail_url = img?.attr("data-src") ?: img?.attr("src")
 
         return anime
+    }
+
+    override fun latestUpdatesParse(response: Response): AnimesPage {
+        val document = response.asJsoup()
+        val animes = document.select(latestUpdatesSelector())
+            .filter { !it.hasClass("w_item_b") }
+            .mapNotNull { element ->
+                try {
+                    latestUpdatesFromElement(element)
+                } catch (e: Exception) {
+                    null
+                }
+            }
+            .filter { it.url.isNotBlank() }
+            // The feed is episode based, so the same series can appear once per episode.
+            .distinctBy { it.url }
+
+        val hasNextPage = document.select(latestUpdatesNextPageSelector()).first() != null
+        return AnimesPage(animes, hasNextPage)
     }
 
     override fun latestUpdatesNextPageSelector(): String = popularAnimeNextPageSelector()
