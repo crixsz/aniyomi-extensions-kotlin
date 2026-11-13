@@ -1,7 +1,7 @@
 ext {
     extName = 'WatchHentai'
     extClass = '.WatchHentai'
-    extVersionCode = 22
+    extVersionCode = 23
     isNsfw = true
 }
 

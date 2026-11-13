@@ -21,6 +21,7 @@ import okhttp3.Response
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
+import java.util.concurrent.ConcurrentHashMap
 
 class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
@@ -37,6 +38,7 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     override fun headersBuilder(): Headers.Builder {
         return super.headersBuilder()
             .add("Referer", baseUrl)
+            .add("Accept-Encoding", "gzip")
     }
 
     // Popular Anime
@@ -389,22 +391,17 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             "Episode list response: code=${response.code} message=${response.message} " +
                 "successful=${response.isSuccessful} url=${response.request.url}",
         )
-        val html = response.body.string()
-        android.util.Log.e("WatchHentai", "Episode list response body length: ${html.length}")
-        if (!response.isSuccessful) {
-            android.util.Log.e("WatchHentai", "Episode list body snippet: ${html.take(500)}")
-            return emptyList()
-        }
-        val document = Jsoup.parse(html, response.request.url.toString())
+        if (!response.isSuccessful) return emptyList()
+        val document = response.asJsoup()
         val episodes = parseEpisodeList(document)
         android.util.Log.e("WatchHentai", "Episode list size from page: ${episodes.size}")
-        if (episodes.isEmpty()) return episodes
+        if (episodes.isNotEmpty()) return episodes
 
         val path = response.request.url.encodedPath
         android.util.Log.e("WatchHentai", "Episode list path: $path")
         if (!path.startsWith("/series/")) return episodes
 
-        val refreshed = fetchEpisodeListFromSeriesPage(response.request.url.toString(), episodes.size)
+        val refreshed = fetchEpisodeListFromSeriesPage(response.request.url.toString(), 0)
         android.util.Log.e("WatchHentai", "Fallback from refreshed series page: ${refreshed?.size ?: 0}")
         return refreshed ?: episodes
     }
@@ -562,22 +559,42 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
         anime.setUrlWithoutDomain(seriesUrl)
 
-        // Extract thumbnail and transform to general series poster
+        // Extract thumbnail
+        val cachedPoster = seriesPosterCache[seriesUrl]
         val img = element.selectFirst("div.poster img")
         val rawThumb = img?.attr("data-src")?.takeIf { it.isNotBlank() } ?: img?.attr("src")
-        val seriesPoster = rawThumb?.let { url ->
-            url.replace(episodeThumbRegex1, "/poster.jpg")
-                .replace(episodeThumbRegex2, "/poster.jpg")
-                .replace(episodeThumbRegex3, "/poster.jpg")
-        }
-        anime.thumbnail_url = seriesPoster ?: rawThumb
+        anime.thumbnail_url = cachedPoster ?: rawThumb
 
         return anime
     }
 
-    private val episodeThumbRegex1 = Regex("""/\d+/[^/]+_thumb\.(?:jpg|png|webp)$""")
-    private val episodeThumbRegex2 = Regex("""/\d+-[^/]+_thumb\.(?:jpg|png|webp)$""")
-    private val episodeThumbRegex3 = Regex("""/[^/]+_thumb\.(?:jpg|png|webp)$""")
+    private val seriesPosterCache = ConcurrentHashMap<String, String>()
+    private val seriesHeroPosterRegex = Regex("""<div class="poster">.*?<img[^>]+(?:data-src|src)="([^"]+)"""", RegexOption.DOT_MATCHES_ALL)
+
+    private fun fetchSeriesPoster(seriesUrl: String): String? {
+        if (seriesUrl.isBlank()) return null
+        seriesPosterCache[seriesUrl]?.let { return it }
+
+        val fullUrl = if (seriesUrl.startsWith("http")) seriesUrl else "$baseUrl$seriesUrl"
+        return try {
+            client.newCall(GET(fullUrl, headers)).execute().use { response ->
+                if (!response.isSuccessful) return null
+                val html = response.body.string()
+                val match = seriesHeroPosterRegex.find(html)?.groupValues?.get(1)
+                match?.takeIf { it.isNotBlank() }?.also { posterUrl ->
+                    val resolved = when {
+                        posterUrl.startsWith("//") -> "https:$posterUrl"
+                        posterUrl.startsWith("/") -> "$baseUrl$posterUrl"
+                        else -> posterUrl
+                    }
+                    seriesPosterCache[seriesUrl] = resolved
+                }
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("WatchHentai", "Failed fetching series poster for $seriesUrl: ${e.message}")
+            null
+        }
+    }
 
     private fun extractPosterFromDoc(document: Document): String? {
         val img = document.selectFirst("div.summary_image img")
@@ -608,6 +625,15 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             .filter { it.url.isNotBlank() }
             // The feed is episode based, so the same series can appear once per episode.
             .distinctBy { it.url }
+
+        animes.forEach { anime ->
+            if (anime.url.startsWith("/series/")) {
+                val poster = fetchSeriesPoster(anime.url)
+                if (!poster.isNullOrBlank()) {
+                    anime.thumbnail_url = poster
+                }
+            }
+        }
 
         val hasNextPage = document.select(latestUpdatesNextPageSelector()).first() != null
         return AnimesPage(animes, hasNextPage)
