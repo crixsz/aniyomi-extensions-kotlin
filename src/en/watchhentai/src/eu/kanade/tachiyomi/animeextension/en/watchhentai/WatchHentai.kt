@@ -14,10 +14,6 @@ import eu.kanade.tachiyomi.animesource.online.ParsedAnimeHttpSource
 import eu.kanade.tachiyomi.network.GET
 import eu.kanade.tachiyomi.util.asJsoup
 import extensions.utils.getPreferencesLazy
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.runBlocking
 import okhttp3.Headers
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.Request
@@ -25,7 +21,6 @@ import okhttp3.Response
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
-import java.util.concurrent.ConcurrentHashMap
 
 class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
@@ -567,16 +562,22 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
         anime.setUrlWithoutDomain(seriesUrl)
 
-        // Extract thumbnail
-        val cachedPoster = seriesPosterCache[seriesUrl]
+        // Extract thumbnail and transform to general series poster
         val img = element.selectFirst("div.poster img")
-        val thumbnail = img?.attr("data-src")?.takeIf { it.isNotBlank() } ?: img?.attr("src")
-        anime.thumbnail_url = cachedPoster ?: thumbnail
+        val rawThumb = img?.attr("data-src")?.takeIf { it.isNotBlank() } ?: img?.attr("src")
+        val seriesPoster = rawThumb?.let { url ->
+            url.replace(episodeThumbRegex1, "/poster.jpg")
+                .replace(episodeThumbRegex2, "/poster.jpg")
+                .replace(episodeThumbRegex3, "/poster.jpg")
+        }
+        anime.thumbnail_url = seriesPoster ?: rawThumb
 
         return anime
     }
 
-    private val seriesPosterCache = ConcurrentHashMap<String, String>()
+    private val episodeThumbRegex1 = Regex("""/\d+/[^/]+_thumb\.(?:jpg|png|webp)$""")
+    private val episodeThumbRegex2 = Regex("""/\d+-[^/]+_thumb\.(?:jpg|png|webp)$""")
+    private val episodeThumbRegex3 = Regex("""/[^/]+_thumb\.(?:jpg|png|webp)$""")
 
     private fun extractPosterFromDoc(document: Document): String? {
         val img = document.selectFirst("div.summary_image img")
@@ -590,25 +591,6 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             raw.startsWith("//") -> "https:$raw"
             raw.startsWith("/") -> "$baseUrl$raw"
             else -> raw
-        }
-    }
-
-    private fun fetchSeriesPoster(seriesUrl: String): String? {
-        if (seriesUrl.isBlank()) return null
-        seriesPosterCache[seriesUrl]?.let { return it }
-
-        val fullUrl = if (seriesUrl.startsWith("http")) seriesUrl else "$baseUrl$seriesUrl"
-        return try {
-            client.newCall(GET(fullUrl, headers)).execute().use { response ->
-                if (!response.isSuccessful) return null
-                val document = response.asJsoup()
-                extractPosterFromDoc(document)?.also { posterUrl ->
-                    seriesPosterCache[seriesUrl] = posterUrl
-                }
-            }
-        } catch (e: Exception) {
-            android.util.Log.e("WatchHentai", "Failed fetching series poster for $seriesUrl: ${e.message}")
-            null
         }
     }
 
@@ -626,19 +608,6 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             .filter { it.url.isNotBlank() }
             // The feed is episode based, so the same series can appear once per episode.
             .distinctBy { it.url }
-
-        runBlocking {
-            animes.map { anime ->
-                async(Dispatchers.IO) {
-                    if (anime.url.startsWith("/series/")) {
-                        val seriesPoster = fetchSeriesPoster(anime.url)
-                        if (!seriesPoster.isNullOrBlank()) {
-                            anime.thumbnail_url = seriesPoster
-                        }
-                    }
-                }
-            }.awaitAll()
-        }
 
         val hasNextPage = document.select(latestUpdatesNextPageSelector()).first() != null
         return AnimesPage(animes, hasNextPage)
