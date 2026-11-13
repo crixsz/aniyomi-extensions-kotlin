@@ -14,6 +14,10 @@ import eu.kanade.tachiyomi.animesource.online.ParsedAnimeHttpSource
 import eu.kanade.tachiyomi.network.GET
 import eu.kanade.tachiyomi.util.asJsoup
 import extensions.utils.getPreferencesLazy
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.runBlocking
 import okhttp3.Headers
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.Request
@@ -21,6 +25,7 @@ import okhttp3.Response
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
+import java.util.concurrent.ConcurrentHashMap
 
 class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
 
@@ -354,12 +359,9 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         android.util.Log.e("WatchHentai", "Title element: $titleElement")
         anime.title = titleElement?.text() ?: "Unknown"
 
-        val thumbnailElement = document.selectFirst("div.summary_image img")
-            ?: document.selectFirst("div.sheader div.poster img")
-            ?: document.selectFirst("div.poster img")
-        android.util.Log.e("WatchHentai", "Thumbnail element: $thumbnailElement")
-        anime.thumbnail_url = thumbnailElement?.attr("data-src")
-            ?: thumbnailElement?.attr("src")
+        val thumbnail = extractPosterFromDoc(document)
+        android.util.Log.e("WatchHentai", "Thumbnail: $thumbnail")
+        anime.thumbnail_url = thumbnail
 
         val descElement = document.selectFirst("div.wp-content p")
         android.util.Log.e("WatchHentai", "Description element: $descElement")
@@ -566,10 +568,48 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         anime.setUrlWithoutDomain(seriesUrl)
 
         // Extract thumbnail
+        val cachedPoster = seriesPosterCache[seriesUrl]
         val img = element.selectFirst("div.poster img")
-        anime.thumbnail_url = img?.attr("data-src") ?: img?.attr("src")
+        val thumbnail = img?.attr("data-src")?.takeIf { it.isNotBlank() } ?: img?.attr("src")
+        anime.thumbnail_url = cachedPoster ?: thumbnail
 
         return anime
+    }
+
+    private val seriesPosterCache = ConcurrentHashMap<String, String>()
+
+    private fun extractPosterFromDoc(document: Document): String? {
+        val img = document.selectFirst("div.summary_image img")
+            ?: document.selectFirst("div.sheader div.poster img")
+            ?: document.selectFirst("div.poster img")
+        val raw = img?.attr("data-src")?.takeIf { it.isNotBlank() }
+            ?: img?.attr("src")?.takeIf { it.isNotBlank() }
+            ?: return null
+
+        return when {
+            raw.startsWith("//") -> "https:$raw"
+            raw.startsWith("/") -> "$baseUrl$raw"
+            else -> raw
+        }
+    }
+
+    private fun fetchSeriesPoster(seriesUrl: String): String? {
+        if (seriesUrl.isBlank()) return null
+        seriesPosterCache[seriesUrl]?.let { return it }
+
+        val fullUrl = if (seriesUrl.startsWith("http")) seriesUrl else "$baseUrl$seriesUrl"
+        return try {
+            client.newCall(GET(fullUrl, headers)).execute().use { response ->
+                if (!response.isSuccessful) return null
+                val document = response.asJsoup()
+                extractPosterFromDoc(document)?.also { posterUrl ->
+                    seriesPosterCache[seriesUrl] = posterUrl
+                }
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("WatchHentai", "Failed fetching series poster for $seriesUrl: ${e.message}")
+            null
+        }
     }
 
     override fun latestUpdatesParse(response: Response): AnimesPage {
@@ -586,6 +626,19 @@ class WatchHentai : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             .filter { it.url.isNotBlank() }
             // The feed is episode based, so the same series can appear once per episode.
             .distinctBy { it.url }
+
+        runBlocking {
+            animes.map { anime ->
+                async(Dispatchers.IO) {
+                    if (anime.url.startsWith("/series/")) {
+                        val seriesPoster = fetchSeriesPoster(anime.url)
+                        if (!seriesPoster.isNullOrBlank()) {
+                            anime.thumbnail_url = seriesPoster
+                        }
+                    }
+                }
+            }.awaitAll()
+        }
 
         val hasNextPage = document.select(latestUpdatesNextPageSelector()).first() != null
         return AnimesPage(animes, hasNextPage)
