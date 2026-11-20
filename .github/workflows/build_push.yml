@@ -210,7 +210,7 @@ jobs:
             exit 1
           fi
           curl -fL "$INSPECTOR_URL" -o ./Inspector.jar
-          java -jar ./Inspector.jar "repo/apk" "output.json" "tmp"
+          python ./.github/scripts/run-inspector.py
           python ./.github/scripts/create-repo.py
 
       - name: Check out or create repo branch
