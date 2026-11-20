@@ -64,6 +64,8 @@ def inspect(apk: Path) -> tuple[Path, dict | None, str | None]:
 
 
 def main() -> None:
+    # Each APK is inspected in isolation so one broken extension cannot abort
+    # metadata collection for every other extension.
     apks = sorted(APK_DIR.glob("*.apk"))
     if not apks:
         raise SystemExit(f"No APKs found in {APK_DIR}")
