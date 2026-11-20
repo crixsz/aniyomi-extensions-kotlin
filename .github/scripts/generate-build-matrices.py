@@ -28,6 +28,9 @@ def run_command(command: str) -> str:
     return result.stdout.strip()
 
 def get_module_list(ref: str) -> tuple[list[str], list[str]]:
+    if os.getenv("FULL_BUILD") == "true":
+        return get_all_modules()
+
     changed_files = run_command(f"git diff --name-only {ref}").splitlines()
 
     modules = set()

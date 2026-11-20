@@ -10,8 +10,13 @@ on:
       - '!.github/**'
       - '.github/scripts/**'
       - '.github/workflows/build_push.yml'
-  # Manual trigger
+  # Manual trigger. Enable `full_build` to publish every extension.
   workflow_dispatch:
+    inputs:
+      full_build:
+        description: 'Build and publish every extension'
+        type: boolean
+        default: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -23,50 +28,39 @@ permissions:
 env:
   CI_CHUNK_SIZE: 65
   IS_PR_CHECK: false
+  REPO_BRANCH: repo
+  FULL_BUILD: ${{ github.event_name == 'workflow_dispatch' && inputs.full_build || false }}
 
 jobs:
   prepare:
     name: Prepare job
     runs-on: 'ubuntu-24.04'
     outputs:
-      latestCommitMessage: ${{ steps.set-env.outputs.LATEST_COMMIT_MESSAGE }}
       matrix: ${{ steps.generate-matrices.outputs.matrix }}
       delete: ${{ steps.generate-matrices.outputs.delete }}
     steps:
       - name: Checkout ${{ github.ref_name }} branch
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set env
-        id: set-env
-        run: |
-          echo "LATEST_COMMIT_MESSAGE<<{delimiter}
-          $(git log -1 --pretty=%B)
-
-          Built on commit: $(git log -1 --pretty=%H)
-          {delimiter}" >> $GITHUB_OUTPUT
-
       - name: Find lib changes
         id: modified-libs
-        uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47.0.0
+        uses: tj-actions/changed-files@v47
         with:
           files: lib/
           files_ignore: lib/**.md
           files_separator: " "
           safe_output: false
 
-        # This step is going to commit, but this will not trigger another workflow.
-        # If any changes to lib/ caused on master branch, bump the extensions that uses the modified lib.
-        # If any changes caused by the merge commit, skip this step because versions should already pumped with that merge.
-        # But that should be avoided because our own extensions may not be bumped.
+      # Bump extensions that use a modified lib. This commit is made with
+      # GITHUB_TOKEN, so it does not trigger another workflow run.
       - name: Bump extensions that uses a modified lib
         if: steps.modified-libs.outputs.any_changed == 'true'
         env:
-          COMMIT_MESSAGE: ${{ steps.set-env.outputs.LATEST_COMMIT_MESSAGE }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message || github.sha }}
         run: |
-          latest_commit_author=$(git log -1 --pretty=%an)
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           chmod +x ./.github/scripts/bump-versions.py
@@ -74,26 +68,41 @@ jobs:
           git push
 
       - name: Set up Java
-        uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+        uses: actions/setup-java@v5
         with:
           java-version: 17
           distribution: temurin
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@4d9f0ba0025fe599b4ebab900eb7f3a1d93ef4c2 # v5.0.0
+        uses: gradle/actions/setup-gradle@v5
         with:
           cache-read-only: true
 
       - name: Get last successful CI commit
         id: last_successful_ci_commit
-        uses: nrwl/nx-set-shas@3e9ad7370203c1e93d109be57f3b72eb0eb511b1 # v4.4.0
+        uses: nrwl/nx-set-shas@v4
         with:
           main-branch-name: ${{ github.ref_name }}
+
+      # nx-set-shas can return HEAD (or nothing) on the very first run. Fall back
+      # to the pushed range so the first push still builds its extensions.
+      - name: Resolve diff base
+        id: diff-base
+        run: |
+          BASE="${{ steps.last_successful_ci_commit.outputs.base }}"
+          if [ -z "$BASE" ] || [ "$BASE" = "${GITHUB_SHA}" ]; then
+            BASE="${{ github.event.before }}"
+          fi
+          if [ -z "$BASE" ] || [[ "$BASE" =~ ^0+$ ]]; then
+            BASE="HEAD~1"
+          fi
+          echo "Resolved diff base: $BASE"
+          echo "base=$BASE" >> "$GITHUB_OUTPUT"
 
       - id: generate-matrices
         name: Create output matrices
         run: |
-          python ./.github/scripts/generate-build-matrices.py ${{ steps.last_successful_ci_commit.outputs.base }} Release
+          python ./.github/scripts/generate-build-matrices.py ${{ steps.diff-base.outputs.base }} Release
 
   build:
     name: Build extensions (${{ matrix.chunk.number }})
@@ -104,24 +113,30 @@ jobs:
       matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
     steps:
       - name: Checkout ${{ github.ref_name }} branch
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.ref_name }}
 
       - name: Set up Java
-        uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+        uses: actions/setup-java@v5
         with:
           java-version: 17
           distribution: temurin
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@4d9f0ba0025fe599b4ebab900eb7f3a1d93ef4c2 # v5.0.0
+        uses: gradle/actions/setup-gradle@v5
         with:
           cache-read-only: ${{ matrix.chunk.number > 1 }}
 
       - name: Prepare signing key
+        env:
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
         run: |
-          echo ${{ secrets.SIGNING_KEY }} | base64 -d > signingkey.jks
+          if [ -z "$SIGNING_KEY" ]; then
+            echo "Missing SIGNING_KEY repository secret. See REPO.md."
+            exit 1
+          fi
+          echo "$SIGNING_KEY" | base64 -d > signingkey.jks
           chmod 600 signingkey.jks
 
       - name: Build extensions (${{ matrix.chunk.number }})
@@ -135,86 +150,107 @@ jobs:
           KAISVA: ${{ secrets.KAISVA }}
           TMDB_API: ${{ secrets.TMDB_API }}
         run: |
-          ./gradlew $(echo '${{ toJson(matrix.chunk.modules) }}' | jq -r 'join(" ")')
+          set -euo pipefail
+
+          # settings.gradle.kts only loads the modules that are being built.
+          MODULES="$(echo '${{ toJson(matrix.chunk.modules) }}' \
+            | jq -r 'map(sub("^:src:"; "") | sub(":assemble[^:]*$"; "") | gsub(":"; "/")) | join(",")')"
+          TASKS="$(echo '${{ toJson(matrix.chunk.modules) }}' | jq -r 'join(" ")')"
+
+          echo "CI_MODULES=$MODULES"
+          echo "Tasks: $TASKS"
+
+          CI_MODULES="$MODULES" ./gradlew $TASKS
 
       - name: Upload APKs (${{ matrix.chunk.number }})
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
-        if: github.repository == 'yuzono/aniyomi-extensions'
+        uses: actions/upload-artifact@v5
         with:
           name: "individual-apks-${{ matrix.chunk.number }}"
           path: "**/*.apk"
           retention-days: 1
 
       - name: Clean up CI files
-        run: rm signingkey.jks
+        if: always()
+        run: rm -f signingkey.jks
 
   publish:
     name: Publish extension repo
     needs: [prepare, build]
-    if: github.repository == 'yuzono/aniyomi-extensions'
     runs-on: 'ubuntu-24.04'
     steps:
       - name: Download APK artifacts
-        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        uses: actions/download-artifact@v6
         with:
           path: ~/apk-artifacts
 
       - name: Set up JDK
-        uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+        uses: actions/setup-java@v5
         with:
           java-version: 17
           distribution: temurin
 
       - name: Checkout ${{ github.ref_name }} branch
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.ref_name }}
-          path: ${{ github.ref_name }}
+          path: source
 
       - name: Create repo artifacts
+        working-directory: source
         run: |
-          cd ${{ github.ref_name }}
+          set -euo pipefail
+
           python ./.github/scripts/move-built-apks.py
-          INSPECTOR_LINK="$(curl -s "https://api.github.com/repos/komikku-app/aniyomi-extensions-inspector/releases/latest" | jq -r '.assets[0].browser_download_url')"
-          curl -L "$INSPECTOR_LINK" -o ./Inspector.jar
+
+          INSPECTOR_URL="$(curl -fsSL -H "Authorization: Bearer ${{ github.token }}" \
+            https://api.github.com/repos/komikku-app/aniyomi-extensions-inspector/releases/latest \
+            | jq -r '.assets[0].browser_download_url')"
+          if [ -z "$INSPECTOR_URL" ] || [ "$INSPECTOR_URL" = "null" ]; then
+            echo "Could not resolve the extensions inspector release."
+            exit 1
+          fi
+          curl -fL "$INSPECTOR_URL" -o ./Inspector.jar
           java -jar ./Inspector.jar "repo/apk" "output.json" "tmp"
           python ./.github/scripts/create-repo.py
 
-      - name: Checkout repo branch
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
-        with:
-          repository: yuzono/aniyomi-repo
-          token: ${{ secrets.BOT_PAT }}
-          ref: repo
-          path: repo
+      - name: Check out or create repo branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git init repo-branch
+          cd repo-branch
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git fetch --depth=1 origin "${REPO_BRANCH}"; then
+            git checkout -B "${REPO_BRANCH}" FETCH_HEAD
+          else
+            echo "Creating new orphan ${REPO_BRANCH} branch"
+            git checkout --orphan "${REPO_BRANCH}"
+            mkdir -p apk icon
+            echo '[]' > index.min.json
+            echo '[]' > index.json
+          fi
 
       - name: Merge repo
-        run: |
-          cd repo
-          python ../${{ github.ref_name }}/.github/scripts/merge-repo.py '${{ needs.prepare.outputs.delete }}' '${{ github.ref_name }}/repo'
-
-      - name: Deploy repo
-        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
-        with:
-          message: "${{ needs.prepare.outputs.latestCommitMessage }}"
-          cwd: "./repo"
-          # committer_name: github-actions[bot]
-          # committer_email: github-actions[bot]@users.noreply.github.com
-
-      - name: Sync repo
         env:
-          COMMIT_MESSAGE: ${{ needs.prepare.outputs.latestCommitMessage }}
+          DELETE_LIST: ${{ needs.prepare.outputs.delete }}
         run: |
-          cd repo
-          git config user.name "Yūzōnō"
-          git config user.email "yuzono@users.noreply.github.com"
-          git remote set-url origin https://github.com/yuzono/anime-repo.git
-          git fetch origin
-          git reset origin/repo
-          git add -A
-          git commit --amend -m "$COMMIT_MESSAGE" --no-sign --allow-empty || echo "No changes to commit"
-          git push origin HEAD:repo --force
+          cd repo-branch
+          python ../source/.github/scripts/merge-repo.py "$DELETE_LIST" 'source/repo'
 
-      - name: Purge cached index on jsDelivr
+      - name: Commit and push
         run: |
-          curl https://purge.jsdelivr.net/gh/yuzono/anime-repo@repo/index.min.json
+          cd repo-branch
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+          git commit -m "Update extensions repo" -m "Built from ${GITHUB_SHA}"
+          git push origin "HEAD:${REPO_BRANCH}"
+
+      - name: Print repo URL
+        run: |
+          echo "Add this URL in Aniyomi/Anikku:"
+          echo "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${REPO_BRANCH}/index.min.json"

@@ -1,39 +1,71 @@
 /**
  * Add or remove modules to load as needed for local development here.
  */
-val loadedExtensions = mutableListOf<Pair<String, String>>()
+val devExtensions = listOf(
+    "en" to "watchhentai",
+    // "en" to "hentaihavenxx",
+    // "en" to "hentaistream",
+)
 
-fun loadDevExtension(lang: String, name: String) {
-    loadedExtensions += lang to name
-    loadIndividualExtension(lang, name)
+/**
+ * CI loading rules:
+ *  - CI_MODULES="en/foo,all/bar" loads exactly those extensions (used per build chunk).
+ *  - CI=true without CI_MODULES loads every extension (used when resolving lib dependents).
+ *  - Otherwise the local dev list above is used.
+ */
+val ciModules = System.getenv("CI_MODULES")
+    ?.split(",")
+    ?.map { it.trim() }
+    ?.filter { it.isNotEmpty() }
+
+val isCi = System.getenv("CI") == "true"
+
+val extensionsToLoad: List<Pair<String, String>> = when {
+    !ciModules.isNullOrEmpty() -> ciModules.map { entry ->
+        val parts = entry.split("/")
+        require(parts.size == 2) { "CI_MODULES entry must look like lang/name: $entry" }
+        parts[0] to parts[1]
+    }
+
+    isCi -> allExtensions()
+    else -> devExtensions
 }
-
-//loadAllIndividualExtensions()
-//loadIndividualExtension("en", "hentaistream")
-//loadIndividualExtension("en", "watchhentai")
-loadIndividualExtension("en", "watchhentai")
 
 /**
  * ===================================== COMMON CONFIGURATION ======================================
  */
 include(":core")
 
-// Load only modules needed by currently loaded extensions.
-loadedExtensions
+// Extensions reference shared code as `project(":lib:<name>")`.
+File(rootDir, "lib").eachDir {
+    include(":lib:${it.name}")
+}
+
+// Extensions with a `themePkg` reference `project(":lib-multisrc:<themePkg>")`.
+extensionsToLoad
     .mapNotNull { (lang, name) -> findThemePkg(lang, name) }
     .distinct()
-    .forEach { include("lib-multisrc:$it") }
+    .forEach { include(":lib-multisrc:$it") }
+
+extensionsToLoad.forEach { (lang, name) ->
+    loadIndividualExtension(lang, name)
+}
 
 /**
  * ======================================== HELPER FUNCTION ========================================
  */
-fun loadAllIndividualExtensions() {
-    File(rootDir, "src").eachDir { dir ->
-        dir.eachDir { subdir ->
-            loadIndividualExtension(dir.name, subdir.name)
+fun allExtensions(): List<Pair<String, String>> = buildList {
+    File(rootDir, "src").eachDir { lang ->
+        lang.eachDir { name ->
+            add(lang.name to name.name)
         }
     }
 }
+
+fun loadAllIndividualExtensions() {
+    allExtensions().forEach { (lang, name) -> loadIndividualExtension(lang, name) }
+}
+
 fun loadIndividualExtension(lang: String, name: String) {
     include("src:$lang:$name")
 }

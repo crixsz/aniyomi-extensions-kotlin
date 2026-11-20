@@ -115,7 +115,17 @@ jobs:
           KAISVA: ${{ secrets.KAISVA }}
           TMDB_API: ${{ secrets.TMDB_API }}
         run: |
-          ./gradlew $(echo '${{ toJson(matrix.chunk.modules) }}' | jq -r 'join(" ")')
+          set -euo pipefail
+
+          # settings.gradle.kts only loads the modules that are being built.
+          MODULES="$(echo '${{ toJson(matrix.chunk.modules) }}' \
+            | jq -r 'map(sub("^:src:"; "") | sub(":assemble[^:]*$"; "") | gsub(":"; "/")) | join(",")')"
+          TASKS="$(echo '${{ toJson(matrix.chunk.modules) }}' | jq -r 'join(" ")')"
+
+          echo "CI_MODULES=$MODULES"
+          echo "Tasks: $TASKS"
+
+          CI_MODULES="$MODULES" ./gradlew $TASKS
 
       - name: Upload APKs (${{ matrix.chunk.number }})
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
