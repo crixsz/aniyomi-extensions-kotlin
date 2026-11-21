@@ -1997,10 +1997,10 @@
   {
     "name": "Aniyomi: Oppai Stream",
     "pkg": "eu.kanade.tachiyomi.animeextension.en.oppaistream",
-    "apk": "aniyomi-en.oppaistream-v14.6.apk",
+    "apk": "aniyomi-en.oppaistream-v14.8.apk",
     "lang": "en",
-    "code": 6,
-    "version": "14.6",
+    "code": 8,
+    "version": "14.8",
     "nsfw": 1,
     "sources": [
       {
