@@ -240,7 +240,10 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
             episodes.add(episode)
         }
 
-        return episodes.reversed()
+        // The site lists episodes newest-first (e.g. 8 → 1). Aniyomi sorts the
+        // player playlist by descending source order, so returning the site order
+        // keeps playback ascending (1 → 8) and makes "next" the higher episode.
+        return episodes
     }
 
     override fun episodeListSelector() = throw UnsupportedOperationException()
@@ -279,26 +282,38 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
                 if (playlistRes.isSuccessful) {
                     val masterHttpUrl = masterUrl.toHttpUrlOrNull()
                     // The master playlist keeps video and audio as separate renditions.
-                    // Without attaching the audio rendition the player only gets the
-                    // video-only variant and plays it silently.
+                    // Handing the player a variant URL alone plays it silently.
                     val audioTracks = masterHttpUrl?.let { parseAudioTracks(playlist, it) }.orEmpty()
                     Log.d(TAG, "videoListParse: found ${audioTracks.size} audio track(s): ${audioTracks.map { it.url }}")
                     val separator = "#EXT-X-STREAM-INF:"
                     if (playlist.contains(separator)) {
-                        playlist.substringAfter(separator).split(separator).forEach { entry ->
-                            val resolution = entry.substringAfter("RESOLUTION=")
-                                .substringAfter("x")
-                                .substringBefore(",")
-                                .substringBefore("\n")
-                                .substringBefore("\r")
-                                .trim()
+                        if (audioTracks.isNotEmpty()) {
+                            // Side-loading the audio rendition makes the player add it
+                            // out of band, which drifts from the video timeline. Passing
+                            // the master playlist keeps audio and video muxed by the HLS
+                            // demuxer, so playback stays in sync.
+                            val bestResolution = playlist.split(separator)
+                                .mapNotNull { RESOLUTION_REGEX.find(it)?.groupValues?.get(1)?.toIntOrNull() }
+                                .maxOrNull()
+                            val label = if (bestResolution != null) "HLS: Auto (${bestResolution}p)" else "HLS: Auto"
+                            Log.d(TAG, "videoListParse: using master playlist with muxed audio as $label")
+                            videoList.add(Video(masterUrl, label, masterUrl, headers = videoHeaders))
+                        } else {
+                            playlist.substringAfter(separator).split(separator).forEach { entry ->
+                                val resolution = entry.substringAfter("RESOLUTION=")
+                                    .substringAfter("x")
+                                    .substringBefore(",")
+                                    .substringBefore("\n")
+                                    .substringBefore("\r")
+                                    .trim()
 
-                            val relUrl = entry.substringAfter("\n").substringBefore("\n").substringBefore("\r").trim()
-                            if (relUrl.isNotEmpty()) {
-                                val streamUrl = masterHttpUrl?.resolve(relUrl)?.toString() ?: relUrl
-                                val label = if (resolution.isNotEmpty()) "HLS: ${resolution}p" else "HLS: Auto"
-                                Log.d(TAG, "videoListParse: adding master playlist variant $label -> $streamUrl")
-                                videoList.add(Video(streamUrl, label, streamUrl, headers = videoHeaders, audioTracks = audioTracks))
+                                val relUrl = entry.substringAfter("\n").substringBefore("\n").substringBefore("\r").trim()
+                                if (relUrl.isNotEmpty()) {
+                                    val streamUrl = masterHttpUrl?.resolve(relUrl)?.toString() ?: relUrl
+                                    val label = if (resolution.isNotEmpty()) "HLS: ${resolution}p" else "HLS: Auto"
+                                    Log.d(TAG, "videoListParse: adding master playlist variant $label -> $streamUrl")
+                                    videoList.add(Video(streamUrl, label, streamUrl, headers = videoHeaders))
+                                }
                             }
                         }
                     } else {
@@ -430,6 +445,7 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
     companion object {
         private const val TAG = "HentaiHavenXX"
         private const val IMAGE_HOST = "https://img.hentaihaven.xxx"
+        private val RESOLUTION_REGEX = Regex("""RESOLUTION=\d+x(\d+)""")
         private const val PREF_QUALITY_KEY = "preferred_quality"
         private const val PREF_QUALITY_TITLE = "Preferred video quality"
         private val PREF_QUALITY_ENTRIES = arrayOf("1080p", "720p", "480p", "360p")
