@@ -3,6 +3,7 @@
  */
 val devExtensions = listOf(
     "en" to "watchhentai",
+    "en" to "hentaigasm",
     // "en" to "hentaihavenxx",
     // "en" to "hentaistream",
 )
