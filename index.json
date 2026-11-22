@@ -1691,10 +1691,10 @@
   {
     "name": "Aniyomi: HentaiHavenXX",
     "pkg": "eu.kanade.tachiyomi.animeextension.en.hentaihavenxx",
-    "apk": "aniyomi-en.hentaihavenxx-v14.4.apk",
+    "apk": "aniyomi-en.hentaihavenxx-v14.6.apk",
     "lang": "en",
-    "code": 4,
-    "version": "14.4",
+    "code": 6,
+    "version": "14.6",
     "nsfw": 1,
     "sources": [
       {
