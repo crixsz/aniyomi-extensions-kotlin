@@ -8,12 +8,14 @@ import eu.kanade.tachiyomi.animesource.model.AnimeFilterList
 import eu.kanade.tachiyomi.animesource.model.AnimesPage
 import eu.kanade.tachiyomi.animesource.model.SAnime
 import eu.kanade.tachiyomi.animesource.model.SEpisode
+import eu.kanade.tachiyomi.animesource.model.Track
 import eu.kanade.tachiyomi.animesource.model.Video
 import eu.kanade.tachiyomi.animesource.online.ParsedAnimeHttpSource
 import eu.kanade.tachiyomi.network.GET
 import eu.kanade.tachiyomi.util.asJsoup
 import extensions.utils.getPreferencesLazy
 import okhttp3.Headers
+import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.Request
@@ -276,6 +278,11 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
                 Log.d(TAG, "videoListParse: master playlist response code=${playlistRes.code} (${playlist.length} chars):\n$playlist")
                 if (playlistRes.isSuccessful) {
                     val masterHttpUrl = masterUrl.toHttpUrlOrNull()
+                    // The master playlist keeps video and audio as separate renditions.
+                    // Without attaching the audio rendition the player only gets the
+                    // video-only variant and plays it silently.
+                    val audioTracks = masterHttpUrl?.let { parseAudioTracks(playlist, it) }.orEmpty()
+                    Log.d(TAG, "videoListParse: found ${audioTracks.size} audio track(s): ${audioTracks.map { it.url }}")
                     val separator = "#EXT-X-STREAM-INF:"
                     if (playlist.contains(separator)) {
                         playlist.substringAfter(separator).split(separator).forEach { entry ->
@@ -291,7 +298,7 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
                                 val streamUrl = masterHttpUrl?.resolve(relUrl)?.toString() ?: relUrl
                                 val label = if (resolution.isNotEmpty()) "HLS: ${resolution}p" else "HLS: Auto"
                                 Log.d(TAG, "videoListParse: adding master playlist variant $label -> $streamUrl")
-                                videoList.add(Video(streamUrl, label, streamUrl, headers = videoHeaders))
+                                videoList.add(Video(streamUrl, label, streamUrl, headers = videoHeaders, audioTracks = audioTracks))
                             }
                         }
                     } else {
@@ -356,6 +363,25 @@ class HentaiHavenXX : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
         Log.d(TAG, "videoListParse: resolved ${videoList.size} video(s): ${videoList.map { "${it.quality} -> ${it.url}" }}")
 
         return videoList
+    }
+
+    /**
+     * Extracts the separate audio renditions declared in an HLS master playlist,
+     * e.g. `#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="English",URI="snd/a.m3u8"`.
+     */
+    private fun parseAudioTracks(masterPlaylist: String, masterUrl: HttpUrl): List<Track> {
+        return masterPlaylist.lineSequence()
+            .filter { it.startsWith("#EXT-X-MEDIA:") && it.contains("TYPE=AUDIO") }
+            .mapNotNull { line ->
+                val uri = Regex("URI=\"([^\"]+)\"").find(line)?.groupValues?.get(1)
+                    ?: return@mapNotNull null
+                val name = Regex("NAME=\"([^\"]+)\"").find(line)?.groupValues?.get(1)
+                    ?: "Audio"
+                val trackUrl = masterUrl.resolve(uri)?.toString() ?: uri
+                Track(trackUrl, name)
+            }
+            .distinctBy { it.url }
+            .toList()
     }
 
     override fun videoListSelector() = throw UnsupportedOperationException()
