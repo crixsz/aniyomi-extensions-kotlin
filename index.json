@@ -1672,6 +1672,23 @@
     ]
   },
   {
+    "name": "Aniyomi: Hentaigasm",
+    "pkg": "eu.kanade.tachiyomi.animeextension.en.hentaigasm",
+    "apk": "aniyomi-en.hentaigasm-v14.1.apk",
+    "lang": "en",
+    "code": 1,
+    "version": "14.1",
+    "nsfw": 1,
+    "sources": [
+      {
+        "name": "Hentaigasm",
+        "lang": "en",
+        "id": "3777722363296111311",
+        "baseUrl": "https://hentaigasm.com"
+      }
+    ]
+  },
+  {
     "name": "Aniyomi: HentaiHavenXX",
     "pkg": "eu.kanade.tachiyomi.animeextension.en.hentaihavenxx",
     "apk": "aniyomi-en.hentaihavenxx-v14.4.apk",
